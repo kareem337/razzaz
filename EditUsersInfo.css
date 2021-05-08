@@ -1,0 +1,66 @@
+Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px ; 
+}
+
+
+.h{
+	margin-top: 100px;
+	text-align:center;
+}
+
+body
+{
+background-color: #668B91;
+  font-family: Helvetica;
+  /*text-align:center;*/
+  font-size: 100%;
+  /*vertical-align: baseline;*/
+  display: block;
+  padding-top: 100px;
+  padding-right:150px;
+  padding-left:200px;
+  display: block;
+  
+ }
+#f {
+	 margin-top: 100px;
+     background-color: white;
+     font-size: 14px;
+     width: 100%;
+     color: black;
+     border-radius: 10px;
+     margin-bottom: 15px;
+     background: #fff;
+     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+     padding: 30px;
+}
+
+ 
+th, td {
+  padding: 15px;
+  
+}
+
+td {
+	color: #96ad29;
+	background-color:#F0F1F2;
+}
+th {
+  font-size: 16px;
+  
+}
