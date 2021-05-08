@@ -52,35 +52,6 @@ include'Trips.php';
 
 
 </head>
-<script>
-  $(function(){
-    var dtToday = new Date();
-    
-    var month = dtToday.getMonth() + 1;
-    var day = dtToday.getDate();
-    var year = dtToday.getFullYear();
-    if(month < 10)
-        month = '0' + month.toString();
-    if(day < 10)
-        day = '0' + day.toString();
-    
-    var maxDate = year + '-' + month + '-' + day;
-    $('#currentDate').attr('min', maxDate);
-});
-  </script>
-  <script type="text/javascript">
-        window.alert = function(){};
-        var defaultCSS = document.getElementById('bootstrap-css');
-        function changeCSS(css){
-            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
-            else $('head > link').filter(':first').replaceWith(defaultCSS); 
-        }
-        
-// initialize with defaults
-$("#input-id").rating();
-
-
-</script>
 <body>
    <header >
    
@@ -146,109 +117,11 @@ $("#input-id").rating();
 
         </div>
 
-         <div class="well well-sm" style="width: 50%; margin-left:25%; margin-top: 20px; ">
-        <form action="" method="POST">
-<input type="hidden" name="review-text" id="review-text">
-<input type="hidden" name="rate-star" id="rate-star">
-
-        <textarea id="text"> </textarea>
-        <div class="row"  id="comment">
-        	<input id="input-id" type="text" class="rating" data-size="lg" data-step="1">
-        <button class="submit-btn btn-primary" name="review" onclick="insert()"> Add Review</button> 
-
-        
-
-        </div>
-
-        
-          </form> 
-        </div> 
 
 
-        <div class="container"  style="width: 1040px; margin-left:22%;">
-    <div class="row" style="width: 74%;">
-        <div class="panel panel-default widget">
-            <div class="panel-heading">
-                <span class="glyphicon glyphicon-comment"></span>
-                <h3 class="panel-title">
-                    Recent Reviews</h3>
-                
-            </div>
-            <div class="panel-body" style=" font-family: Helvetica;">
-                <ul class="list-group">
-        <?php
-     $size=sizeof($array);
-if($size > 10){
-	$size = 10;
-}
-      for($a=0; $a<$size; $a++){
-
-$name=$array[$a][0];
-$rev=$array[$a][1];
-$date=$array[$a][2];
-$id=$array[$a][3];
-$rate=$array[$a][4];
-
-$i=0;
-
-		?>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                <img src="uploads/<?php echo $id; ?>profile_photo.jpg" class="img-circle img-responsive" alt="" />   </div>
-                            <div class="col-xs-10 col-md-11">
-                                <div>
-                                    
-                                    <div class="mic-info">
-                                        By: <?php echo $name; ?> On <?php echo $date; ?>
-                                        <input type="text" class="rating" data-size="xs" value="<?php echo $rate; ?>" data-readonly="true">
-                                    </div>
-                                </div>
-                                <div class="comment-text">
-                                  <?php echo $rev; ?>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </li>
-                <?php } ?>
-                   
-                </ul>
-
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-    </div>
-</div>
-
-
-
-
-		</div>
-	</div>
 </body>
 
 
 
-<script>
-
-function insert(){
-
-var rev= document.getElementById("text").value;
-var rate = document.getElementById("input-id").value;
-document.getElementById("review-text").value = rev;
-document.getElementById("rate-star").value = rate;
-
-
-}
-
-
-
-
-
-	</script>
 
 </html>
