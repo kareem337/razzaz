@@ -19,39 +19,7 @@
   
     <link rel="stylesheet" href="EditProfile.css">
 </head>
-<script>
-    $(document).ready(function(){
-// Prepare the preview for profile picture
-    $("#wizard-picture").change(function(){
 
-      if(this.files[0].size > 3201024){
-       alert("File is too big!");
-       this.value = "";
-    }
-    else{  
-     readURL(this);
-    }
-
-    });
-});
-function readURL(input) {
-    var fileInput = document.getElementById('wizard-picture'); 
-  
-     if(fileInput.files && fileInput.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          
-            $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-     
-        
-      
-        reader.readAsDataURL(fileInput.files[0]);
-      }
-
-    }
- 
-}
-</script>
 
 
 <body>
@@ -65,7 +33,7 @@ function readURL(input) {
     </div>
     <div class="row">
 
-<form id="upload"action="EditMyProfile.php" method="post" enctype="multipart/form-data">
+<form id="upload"action="EditMyProfileH.php" method="post" enctype="multipart/form-data">
    
     
     
@@ -160,105 +128,5 @@ function readURL(input) {
       </div>
 
 </body>
-<script>
- 
-$( document ).ready(function() {
 
-$("#upload").on('submit',(function(e) {
-  e.preventDefault();
-  var formdata = new FormData(this);
-  formdata.append("functioncall", "photo");
-  $.ajax({
-         url: "EditMyProfile.php",
-   type: "POST",
-   data: formdata,
-   contentType: false,
-         cache: false,
-   processData:false,
-   success:function(results) { 
-
-   alert(results);
-        
-        },
-        error: function(xhr, status, error) {
- console.error(xhr);
- alert("error");
- }
-
-         });
-}));
-
-$.ajax({ 
-           
-           method: "GET", 
-           url: "EditMyProfile.php",
-           data: {"functioncall": "loadprofile"},
-           dataType:'json',
-           success:function(results) { 
-          // alert(results);
-          // console. log(results);
-          var result = results;
-          $.each( result, function( key, value ) { 
-
-
-            document.getElementById("first_name").value = value['First Name'];
-            document.getElementById("last_name").value = value['Last Name'];
-            document.getElementById("mobile").value = value['Number'];
-            document.getElementById("email").value = value['Email'];
-            document.getElementById("password").value = value['Password'];
-            document.getElementById("confirm_password").value = value['Password'];
-            $('#wizardPicturePreview').attr('src', value['Picture']).fadeIn('slow');
-
-                 });  
-        }
-
-         });
-
-
-
-  $('#password, #confirm_password').on('keyup', function () {
-  if ($('#password').val() == $('#confirm_password').val() && $('#password').val() !="" ) {
-    $('#message').html('Matching').css('color', 'green');
-    
-
-  } else 
-    $('#message').html('Not Matching').css('color', 'red');
-});
-
-
-
-
-       });
-
-$( "#s" ).click(function() {
-
-var flag = $('#message').html();
-
-
-if(flag == "Matching"|| flag == ""){
-  var first_name = document.getElementById("first_name").value;
-  var last_name = document.getElementById("last_name").value;
-  var mobile = document.getElementById("mobile").value;
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  
-if(first_name == "" || last_name == "" ||mobile == "" ||email == "" ||password == ""){
-
-  alert("Please fill in the required information ")
-}
-else{
-$.ajax({ 
-           method: "POST", 
-           url: "EditMyProfile.php",
-           data: {functioncall: 'editprofile',first_name : first_name, last_name : last_name,mobile: mobile,email : email, password : password},
-           success:function(results) { 
-            alert(results);
-        }
-
-         });
-}
-}else{alert("Not Matching password");}
-});
-
-    </script>
 </html>
