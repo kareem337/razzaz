@@ -29,7 +29,7 @@ include'Trips.php';
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-    <<!-- default styles -->
+    <!-- default styles -->
 
 
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
