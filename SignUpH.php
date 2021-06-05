@@ -29,6 +29,12 @@ if (isset($_POST['register'])) {
   color: #ba3939;
   background: #ffe0e0;
   border: 1px solid #a33a3a;
+}    
+     
+  .success {
+  color: #2b7515;
+  background: #ecffd6;
+  border: 1px solid #617c42;
 }     
      
  </style>    
@@ -62,7 +68,7 @@ if (isset($_POST['register'])) {
                 } ?>
              <?php
               if (isset($confirm)) {?>
-                    <div class='alert alert-danger alert-dismissible col-md-10 ml-4 mt-1'>
+                    <div class='alert alert-danger bar success close' data-dismiss = 'alert'>
                     <?php echo $confirm; ?>
                     </div>
                      <?php }
