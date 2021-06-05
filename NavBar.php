@@ -22,7 +22,7 @@ if(isset($_SESSION["Logged_in"]) && $_SESSION['Logged_in'] == true){
         array_push($Data, $row);
 
     }
-    array_push( $Data,$_SESSION["Logged_in_Name"]);
+    array_push($Data,$_SESSION["Logged_in_Name"]);
 
 echo json_encode($Data);
 } else {

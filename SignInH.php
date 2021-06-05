@@ -1,3 +1,12 @@
+<?php
+include("classes/Person.php");
+$login = new Person();
+if (isset($_POST['sign_in'])) {
+    $login->login($_POST);
+    $error = $login->get_errors_login_all();
+    $confirm = $login->getConfirmLogin();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +37,7 @@
   </header><!-- End Header -->
  <link rel="stylesheet" href="SignIn.css">
     <div class="signin-form">
-    <form id="SignInF" method="POST">
+    <form id="SignInF" method="POST" action = "SignInH.php">
 
           <h1>Sign In</h1>
 
@@ -58,43 +67,6 @@
     <div class="hint-text"> New User? <a href="SignUpH.php" style="color:white;" >Sign Up here</a></div>
 
     <div id="result"></div>
-
-</div>
-
-<script>
-
-$(document).ready(function() {
-    $( "form" ).submit(function( event ) { 
-    event.preventDefault(); 
-var pwd = $("#pwd").val();
- var email = $("#email").val();
-
-  $.ajax({
- type: "POST",
- url: "SignIn.php",
- data: {
- email: email,
- pwd: pwd
- },
-
- success: function(data) {
-
- if(data==1){
- 	alert("Logged In");
- 	window.location.href = "HomePage.php";
-
-}
- 	else alert("Wrong Email or password");
- },
- error: function(xhr, status, error) {
- console.error(xhr);
- }
- });
-});
-    });
-
-</script>
-
-
+    </div>
 </body>
 </html>

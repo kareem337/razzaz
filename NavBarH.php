@@ -38,9 +38,6 @@
 <div id="signIn">
       <a href="SignInH.php" class="get-started-btn" style="text-decoration: none;">Sign In</a>
     </div>
-      
-
-    </div>
      </div>
   </header>
   

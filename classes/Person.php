@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Person{
     
     private $servername = "localhost";
@@ -17,6 +17,7 @@ class Person{
     private $confirmpassword;
     
     private $confirmReg;
+    private $confirmLogin;
     
     private $errors = [];
     private $get_errors_login = [];
@@ -28,6 +29,30 @@ class Person{
         } else {
             return $this->con;
         }
+    }
+    
+    public function login($post)
+    {
+        $msg = 0;
+        $this->email = $this->con->escape_string($_POST['email']);
+        $this->password = $this->con->escape_string($_POST['pwd']);
+        
+        $sql="SELECT `ID` , `User_Type_ID` , `First Name` FROM `users` WHERE `Email` = '".$this->email."'"." AND `Password` = '".$this->password."'";
+
+        $select = $this->con->query($sql);
+        if ($select->num_rows > 0)
+        {
+            while($select_data = $select->fetch_assoc()) {
+            $_SESSION["Logged_in_ID"]=$select_data['ID'];
+            $_SESSION["Logged_in_UTID"]=$select_data['User_Type_ID'];
+            $_SESSION["Logged_in_Name"]=$select_data['First Name'];
+            }
+            $_SESSION["Logged_in"] = true;
+            header("location: HomePage.php");  
+        }else{
+         
+        }
+        
     }
     
     public function register($post)
@@ -119,6 +144,10 @@ class Person{
     
     public function getConfirmReg(){
         return $this->confirmReg;
+    }
+    
+    public function getConfirmLogin(){
+        return $this->confirmLogin;
     }
 }
 
