@@ -4,6 +4,7 @@ $register = new Person();
 if (isset($_POST['register'])) {
     $register->register($_POST);
     $error = $register->get_errors();
+    $confirm = $register->getConfirmReg();
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,26 @@ if (isset($_POST['register'])) {
 
   <link rel="stylesheet" href="SignUp.css">
   
-
+ <style>
+  .bar {
+  padding: 10px;
+  margin-left: 63px;
+  margin-bottom: 5px;
+  width: 380px;      
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #ccc;
+        
+}
+     
+  .error {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+}     
+     
+ </style>    
+    
 </head>
 <body>
 
@@ -31,20 +51,26 @@ if (isset($_POST['register'])) {
   <p id="p">Please fill in this form to create a new account.</p>
   <hr>
     <div class="text-left w-100 mb-4 ml-3">
-                            <p class="text-green h3 font-weight-bold text-uppercase">Create an Account</p>
-                            <?php
-                            if (isset($error)) {
-                                foreach ($error as $e) { ?>
-                                    <div class='alert alert-danger alert-dismissible col-md-10 ml-4 mt-1'>
-                                        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-                                        <?php echo $e; ?>
-                                    </div>
-                            <?php }
-                            } ?>
-
-
-
+        <p class="text-green h3 font-weight-bold text-uppercase">Create an Account</p>
+            <?php
+                if (isset($error)) {
+                    foreach ($error as $e) { ?>
+                        <div class='alert alert-danger bar error close' data-dismiss = 'alert'>
+                        <?php echo $e; ?>
                         </div>
+                        <?php }
+                } ?>
+             <?php
+              if (isset($confirm)) {?>
+                    <div class='alert alert-danger alert-dismissible col-md-10 ml-4 mt-1'>
+                    <?php echo $confirm; ?>
+                    </div>
+                     <?php }
+             ?>
+
+
+
+    </div>
 
 <div class="form-group">
             <div class="row">
@@ -81,9 +107,9 @@ if (isset($_POST['register'])) {
     <span id='message' ></span><br><br>
 
     <div class="form-group">
-    Male<input type="radio" name="gender" value="male" class="form-radio"required> 
+    Male<input type="radio" name="gender" value="male" class="form-radio" required> 
     
-    Female<input type="radio" name="gender" value="female" class="form-radio"required> 
+    Female<input type="radio" name="gender" value="female" class="form-radio" required> 
     </div>
 
 

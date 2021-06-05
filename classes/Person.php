@@ -1,10 +1,13 @@
 <?php
 
 class Person{
+    
     private $servername = "localhost";
     private $username = "root";
     private $pass = "";
     private $database = "razzaztours";
+    public $con;
+    
     private $firstname;
     private $lastname;
     private $email;
@@ -12,8 +15,9 @@ class Person{
     private $gender;
     private $password;
     private $confirmpassword;
-    private $check = true;
-    public $con;
+    
+    private $confirmReg;
+    
     private $errors = [];
     private $get_errors_login = [];
     
@@ -35,16 +39,18 @@ class Person{
         $this->number = $this->con->escape_string($_POST['number']);
         $this->password = $this->con->escape_string($_POST['password']);
         $this->confirmPassword =  $this->con->escape_string($_POST['confirm_password']);
-        //$gender = $this->con->escape_string($_POST['gender']);
+        $this->gender = $this->con->escape_string($_POST['gender']);
         $this->firstname();
         $this->lastname();
         $this->email();
         $this->password();
         $this->valid();
         if(empty($this->errors)){
-        $query = "INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Number`, `Password`, `User_Type_ID`) VALUES ('null','$this->firstname','$this->lastname','$this->email','$this->number', '$this->password', '2')";
+        $query = "INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `User_Type_ID`) VALUES ('null', '$this->firstname', '$this->lastname', '$this->email', '$this->gender', '$this->number', '$this->password', '2')";
         $sql = $this->con->query($query);
+        $this->confirmReg = "Registered Successfully you can sign in now";    
         }
+        
     }
     
     public function firstname(){
@@ -97,7 +103,7 @@ class Person{
      $searchQuery = "SELECT `Email`, `Password` FROM users WHERE Email = '".$this->email."' AND Password = '$this->password'";
      $searchResult = $this->con->query($searchQuery);
      if(mysqli_num_rows($searchResult) >= 1){
-       $this->errors[] = "Invalid username and password!";    
+       $this->errors[] = "Invalid email and password!";    
      }
     }
 
@@ -105,9 +111,14 @@ class Person{
     {
         return  $this->errors;
     }
+    
     public function get_errors_login_all()
     {
         return $this->get_errors_login;
+    }
+    
+    public function getConfirmReg(){
+        return $this->confirmReg;
     }
 }
 
