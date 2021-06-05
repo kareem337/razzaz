@@ -33,7 +33,7 @@ class Person{
     
     public function login($post)
     {
-        $msg = 0;
+        
         $this->email = $this->con->escape_string($_POST['email']);
         $this->password = $this->con->escape_string($_POST['pwd']);
         
