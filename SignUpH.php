@@ -1,8 +1,13 @@
+<?php
+include("classes/Person.php");
+$register = new Person();
+if (isset($_POST['register'])) {
+    $register->register($_POST);
+    $error = $register->get_errors();
+}
+?>
 <!DOCTYPE html>
 <html>
-
-
-
 <head>
 
   <link rel="stylesheet" href="SignUp.css">
@@ -19,51 +24,66 @@
 
 <div class="signup-form"> 
 
-<form action="" method="post">
-
+<form method="post">
+    
  <h1>Sign Up</h1>
 
   <p id="p">Please fill in this form to create a new account.</p>
   <hr>
+    <div class="text-left w-100 mb-4 ml-3">
+                            <p class="text-green h3 font-weight-bold text-uppercase">Create an Account</p>
+                            <?php
+                            if (isset($error)) {
+                                foreach ($error as $e) { ?>
+                                    <div class='alert alert-danger alert-dismissible col-md-10 ml-4 mt-1'>
+                                        <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                                        <?php echo $e; ?>
+                                    </div>
+                            <?php }
+                            } ?>
+
+
+
+                        </div>
 
 <div class="form-group">
             <div class="row">
 
         <div class="col-xs-8">
-        <input  id="firstname" type="text" placeholder="Enter Your First Name" name="firstname" class="form-control" required> </div>
+        <input type="text" placeholder="Enter Your First Name" name="firstname" class="form-control" required> </div>
             </div>          
         </div>
 
      <div class="form-group">
 
-     <input id="lastname" type="text" placeholder="Enter Your Last Name" name="lastname" class="form-control" required>
+     <input type="text" placeholder="Enter Your Last Name" name="lastname" class="form-control" required>
 
      </div>
 
      <div class="form-group">
-     <input id="email" type="email" placeholder="Enter Email" name="email" class="form-control"required>
+     <input type="email" placeholder="Enter Email" name="email" class="form-control"required>
      </div>
 
     
     <div class="form-group">
-    <input id="number" type="number" placeholder="Enter Your Number" name="number" class="form-control" maxlength="11" required>
+    <input type="number" placeholder="Enter Your Number" name="number" class="form-control" maxlength="11" required>
     </div>
 
 
     <div class="form-group">
-    <input id="password" type="password" placeholder="Enter Password" name="password" class="form-control" required>
+    <input type="password" placeholder="Enter Password" name="password" class="form-control" required>
     </div>
 
     <div class="form-group">
-    <input id= "confirm_password" type="password" placeholder="Repeat Password" name="confirm_password" class="form-control" required>
+    <input type="password" placeholder="Repeat Password" name="confirm_password" class="form-control" required>
     </div>
 
     <span id='message' ></span><br><br>
 
     <div class="form-group">
-    Male<input type="radio" id="male" name="gender" value="male" class="form-radio"required> 
+    Male<input type="radio" name="gender" value="male" class="form-radio"required> 
     
-    Female<input type="radio" id="female" name="gender" value="female" class="form-radio"required> 
+    Female<input type="radio" name="gender" value="female" class="form-radio"required> 
     </div>
 
 
@@ -76,108 +96,9 @@
 
 
     <div class="form-group">
-      <button type="submit" value="Submit" name="Submit" class="btn btn-primary btn-lg">Sign Up</button>
+      <input type="Submit" value="Submit" name="register" class="btn btn-primary btn-lg">
     </div>
 
-      
-
-
-
-<script>
-
-
-
-$(document).ready(function() {
-
-  $('#password, #confirm_password').on('keyup', function () {
-  if ($('#password').val() == $('#confirm_password').val() && $('#password').val()!="") {
-    $('#message').html('Matching').css('color', 'green');
-  } else 
-    $('#message').html('Not Matching').css('color', 'red');
-});
-
-var chkmail= -1;
- $('#email').on('keyup', function () {
-
-$.ajax({ 
-           
-           method: "GET", 
-           url: "SignUp.php",
-           data: { function : "checkEmail"},
-           dataType:'json',
-          success:function(results){
-          var result = results;
-          var checkEmail = $("#email").val();
-
-          $.each( result, function( key, value ) { 
-      
-              if(checkEmail == value['Email']){
-
-              $("#email").val("");
-              $("#email").attr("placeholder", "This Email already used");
-              chkmail = 1;
-
-              }
-            chkmail = 0;
-                 });  
-        },
- error: function(xhr, status, error) {
- console.error(xhr);
- console.error(status);
- console.error(error);
- }
-
-         });
-});
-
-    $( "form" ).submit(function( event ) {  
-      event.preventDefault();
-
- var firstname = $("#firstname").val();
- var lastname = $("#lastname").val();
- var email = $("#email").val();
- var gender = $("input[name='gender']:checked").val();
- var number = $("#number").val();
- var password = $("#password").val();
-
-var flag = $('#message').html();
-if(flag == "Matching"){
-if(chkmail==0){
-  $.ajax({
- type: "POST",
- url: "SignUp.php",
- data: {
- function : 'adduser',
- firstname: firstname,
- lastname: lastname,
- email: email,
- gender: gender,
- number: number,
- password: password
- },
- success: function(data) {
-
-if(data == "New record created successfully !"){
-  setTimeout(function () {
-    alert("successfull SignUp");
-            window.location.href = "SignInH.php";
-            window.clearTimeout(tID);   // clear time out.
-        }, 1);
-
-   
-}else alert(data);
- 
- },
- error: function(xhr, status, error) {
- console.error(xhr);
- }
- });
-}else {alert("This Email is already used");}
-}else $('#message').html('Type correct passsword').css('color', 'red');
-
-});
-    });
-</script>
 
     </form>
 
