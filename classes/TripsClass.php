@@ -2,6 +2,11 @@
 session_start(); 
 class Product
 {
+    private $name;
+    private $description;
+    private $price;
+    private $background;
+
     protected function connect ()
         {
         $this->servername = "localhost";
@@ -13,71 +18,44 @@ class Product
         return $conn;
         }
 
-    function getBackground()
+
+    public function __construct($name, $description, $background, $price) 
     {
         if(isset($_SESSION["Clicked_Trip_ID"]))
         {
-           $id = $_SESSION["Clicked_Trip_ID"];
-            $sql = "SELECT background FROM trips WHERE ID = $id";
+            $tid = $_SESSION["Clicked_Trip_ID"];
+            $sql = "SELECT * FROM trips WHERE ID = $tid";
             $result = $this->connect()->query($sql);
             if ($result->num_rows > 0) 
             {
                 while($row = $result->fetch_assoc()) 
                 {
-                echo $row["background"];
+                $this->name = $row['name'];
+                $this->description = $row['Description'];
+                $this->background = $row['background'];
+                $this->price = $row['Price'];
                 }
             }
         }
+    }
+
+    function getBackground()
+    {
+        return $this->background;
     }
 
     function getName()
     {
-        if(isset($_SESSION["Clicked_Trip_ID"]))
-        {
-            $id = $_SESSION["Clicked_Trip_ID"];
-            $sql = "SELECT name FROM trips WHERE ID = $id";
-            $result = $this->connect()->query($sql);
-            if ($result->num_rows > 0) 
-            {
-                while($row = $result->fetch_assoc()) 
-                {
-                echo $row["name"];
-                }
-            }
-        }
+        return $this->name;
     }
 
     function getDescription()
     {
-        if(isset($_SESSION["Clicked_Trip_ID"]))
-        {
-           $id = $_SESSION["Clicked_Trip_ID"];
-            $sql = "SELECT Description FROM trips WHERE ID =$id";
-            $result = $this->connect()->query($sql);
-            if ($result->num_rows > 0) 
-            {
-                while($row = $result->fetch_assoc()) 
-                {
-                echo $row["Description"];
-                }
-            }
-        }
+        return $this->description;
     }
     function getPrice()
     {
-        if(isset($_SESSION["Clicked_Trip_ID"]))
-        {
-          $id = $_SESSION["Clicked_Trip_ID"];
-            $sql = "SELECT Price FROM trips WHERE ID =$id";
-            $result = $this->connect()->query($sql);
-            if ($result->num_rows > 0) 
-            {
-                while($row = $result->fetch_assoc()) 
-                {
-                echo $row["Price"];
-                }
-            }
-        }
+        return $this->price;
     }
 
 }
