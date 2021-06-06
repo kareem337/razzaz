@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2021 at 10:37 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 06, 2021 at 10:34 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hikelydb`
+-- Database: `razzaztours`
 --
 
 -- --------------------------------------------------------
@@ -35,6 +36,13 @@ CREATE TABLE `cart` (
   `Total_Price` int(11) NOT NULL,
   `quantity` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`ID`, `User_ID`, `trip_id`, `Date_Created`, `Total_Price`, `quantity`) VALUES
+(8, 1, 1, '2021-06-09', 500, '1');
 
 -- --------------------------------------------------------
 
@@ -53,14 +61,6 @@ CREATE TABLE `chat` (
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `chat`
---
-
-INSERT INTO `chat` (`id`, `sender`, `sender_name`, `reciever`, `message`, `links`, `images`, `time`) VALUES
-(139, 2, 'Karim', 0, 'hey there', '', '', '2021-05-07 22:19:30'),
-(140, 2, 'Karim', 0, 'There trips', '', '', '2021-05-08 07:45:31');
-
 -- --------------------------------------------------------
 
 --
@@ -74,13 +74,6 @@ CREATE TABLE `orders` (
   `trip_id` int(11) NOT NULL,
   `price` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `order_placed`, `trip_id`, `price`) VALUES
-(9, 2, '2021-05-08 02:57:42', 1, '1000');
 
 -- --------------------------------------------------------
 
@@ -193,11 +186,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `Picture`, `User_Type_ID`) VALUES
-(1, 'Mostafa', 'Khaled', 'mostafa@gmail.com', 'male', 100100100, '123', '', 1),
-(2, 'Karim', 'Yasser', 'karimyasser@gmail.com', 'male', 100200300, '123', '', 2),
-(3, 'Mohamed', 'Tarek', 'mohamedtarek@gmail.com', 'male', 100300400, '123', '', 2),
-(4, 'Ammar', 'Ahmed', 'ammar@gmail.com', 'male', 100200500, '123', '', 1),
-(8, 'ahmed', 'yasser', 'ahmed@gmail.com', 'male', 123456, 'Kareem123#', '', 2);
+(1, 'Mostafa', 'Khaled', 'Mostafa1810751@miuegypt.edu.eg', 'male', 1020820065, 'Mkhaled18', 'duck.jpg', 2),
+(2, 'Kareem', 'Yasser', 'kareem1802405@miuegypt.edu.eg', 'male', 12312312, 'Kareem123', 'bg-equestrian.jpeg', 2);
 
 -- --------------------------------------------------------
 
@@ -288,13 +278,13 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -330,7 +320,7 @@ ALTER TABLE `trips`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_type`
