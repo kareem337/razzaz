@@ -61,7 +61,7 @@ class Person{
     
     public function register($post)
     {
-        $this->img = "img/unnamed.png";
+        $this->img = "unnamed.png";
         $this->firstname = $this->con->escape_string($_POST['firstname']);
         $this->lastname = $this->con->escape_string($_POST['lastname']);
         $this->email = $this->con->escape_string($_POST['email']);

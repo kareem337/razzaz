@@ -1,6 +1,7 @@
 <?php
 include("classes/Person.php");
 include("DB.php");
+
 $editProfile = new Person();
 $editProfile->getprofile();
 if (isset($_POST['save'])) {
