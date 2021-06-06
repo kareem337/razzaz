@@ -2,7 +2,7 @@
 	session_start();
 	if(isset($_SESSION['Logged_in_ID']))
 	{
-        include "config.php"; 
+        include "DB.php"; 
         $id = $_SESSION['Logged_in_ID'];
 	
 		$sql="SELECT * FROM `chat` WHERE sender = $id OR reciever = $id";
@@ -95,7 +95,7 @@ text-align: right;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
-    <body style="background-color: #668B91;">
+    <body style="background-color: #668B91; margin-left: 50;">
     <header>
    
 
@@ -113,7 +113,7 @@ text-align: right;
       <div id="myModal" class="modal">
 
        <!-- Modal content -->
-       <div class="modal-content">
+       <div class="modal-content" style = "width: 800px;">
         <span class="close">&times;</span>
          <table class = "table table-hover">
       <tr> 
