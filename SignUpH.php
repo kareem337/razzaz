@@ -90,7 +90,7 @@ if (isset($_POST['register'])) {
      </div>
 
      <div class="form-group">
-     <input type="email" placeholder="Enter Email" name="email" class="form-control"required>
+     <input type="email" value = " " placeholder="Enter Email" name="email" class="form-control"required>
      </div>
 
     

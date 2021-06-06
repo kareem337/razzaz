@@ -8,6 +8,7 @@ class Person{
     private $database = "razzaztours";
     public $con;
     
+    private $img;
     private $firstname;
     private $lastname;
     private $email;
@@ -15,9 +16,11 @@ class Person{
     private $gender;
     private $password;
     private $confirmpassword;
+    private $id = 0;
     
     private $confirmReg;
     private $confirmLogin;
+    private $confirmEdit;
     
     private $errors = [];
     private $get_errors_login = [];
@@ -58,7 +61,7 @@ class Person{
     
     public function register($post)
     {
-       
+        $this->img = "img/unnamed.png";
         $this->firstname = $this->con->escape_string($_POST['firstname']);
         $this->lastname = $this->con->escape_string($_POST['lastname']);
         $this->email = $this->con->escape_string($_POST['email']);
@@ -72,11 +75,57 @@ class Person{
         $this->password();
         $this->valid();
         if(empty($this->errors)){
-        $query = "INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `User_Type_ID`) VALUES ('null', '$this->firstname', '$this->lastname', '$this->email', '$this->gender', '$this->number', '$this->password', '2')";
+        $query = "INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `Picture`, `User_Type_ID`) VALUES ('null', '$this->firstname', '$this->lastname', '$this->email', '$this->gender', '$this->number', '$this->password', '$this->img', '2')";
         $sql = $this->con->query($query);
         $this->confirmReg = "Registered Successfully you can sign in now";    
         }
         
+    }
+    
+    public function savedata($post){
+        $this->id = $_SESSION['Logged_in_ID'];
+        $this->firstname = $this->con->escape_string($_POST['first_name']);
+        $this->lastname = $this->con->escape_string($_POST['last_name']);
+        $this->email = $this->con->escape_string($_POST['email']);
+        $this->number = $this->con->escape_string($_POST['mobile']);
+        $this->password = $this->con->escape_string($_POST['password']);
+        $this->confirmPassword =  $this->con->escape_string($_POST['password2']);
+        
+        $this->firstname();
+        $this->lastname();
+        $this->email();
+        $this->password();
+        $this->valid();
+        
+        if(empty($this->errors)){
+        $query = "UPDATE `users` SET `First Name`='$this->firstname',`Last Name`='$this->lastname',`Email`='$this->email',`Number`='$this->number',`Password`='$this->password' WHERE ID = '$this->id'";
+        $sql = $this->con->query($query);
+        #$this->confirmReg = "Registered Successfully you can sign in now";    
+        }
+    }
+    
+    public function editimg($upload_pic){
+        $this->id = $_SESSION['Logged_in_ID'];
+        $this->img = $upload_pic;
+        $query = "UPDATE `users` SET `Picture`='$this->img' WHERE ID = '$this->id'";
+        $sql = $this->con->query($query);
+    }
+    
+    public function getprofile()
+    {
+        $query = "SELECT * FROM `users`";
+        $sql = $this->con->query($query);
+        if ($sql->num_rows > 0)
+        {
+            while($row = $sql->fetch_assoc()) {
+             $this->firstname = $row['First Name'];
+             $this->lastname = $row['Last Name'];
+             $this->email = $row['Email'];
+             $this->number = $row['Number'];
+             $this->password = $row['Password'];   
+             $this->img = $row['Picture'];    
+            }  
+        }
     }
     
     public function firstname(){
@@ -98,7 +147,7 @@ class Person{
          $this->errors[] = "Not a valid email address!";
         }
         else{
-            $query = "SELECT * FROM users WHERE Email ='$this->email'";
+            $query = "SELECT * FROM users WHERE Email ='$this->email' AND ID <> $this->id";
             $result = $this->con->query($query);
             if ($result->num_rows > 0) {
                 $this->errors[] = "Email already exist!";
@@ -123,7 +172,7 @@ class Person{
          $this->errors[] = "Password doesn't match the retype password!";    
         }
         else{
-         $searchQuery = "SELECT `Password` FROM users WHERE Password = '".$this->password."' ";
+         $searchQuery = "SELECT `Password` FROM users WHERE Password = '".$this->password."' AND ID <> $this->id";
          $searchResult = $this->con->query($searchQuery); 
          if(mysqli_num_rows($searchResult) >= 1){
            $this->errors[] = "Invalid password!";      
@@ -132,11 +181,35 @@ class Person{
     }
     
     public function valid(){
-     $searchQuery = "SELECT `Email`, `Password` FROM users WHERE Email = '".$this->email."' AND Password = '$this->password'";
+     $searchQuery = "SELECT `Email`, `Password` FROM users WHERE Email = '".$this->email."' AND Password = '$this->password' AND ID <> $this->id";
      $searchResult = $this->con->query($searchQuery);
      if(mysqli_num_rows($searchResult) >= 1){
        $this->errors[] = "Invalid email and password!";    
      }
+    }
+    
+    public function getfirstname(){
+        return $this->firstname;
+    }
+    
+    public function getlastname(){
+        return $this->lastname;
+    }
+    
+    public function getemail(){
+        return $this->email;
+    }
+    
+    public function getnumber(){
+        return $this->number;
+    }
+    
+    public function getpassword(){
+        return $this->password;
+    }
+    
+    public function getimg(){
+        return $this->img;
     }
 
     public function get_errors()

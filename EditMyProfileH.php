@@ -1,10 +1,25 @@
+<?php
+include("classes/Person.php");
+include("DB.php");
+$editProfile = new Person();
+$editProfile->getprofile();
+if (isset($_POST['save'])) {
+    $editProfile->savedata($_POST);
+}
+if(isset($_POST['upload'])){
+    $upload_pic = $_FILES['image']['name'];
+    $tmp = $_FILES['image']['tmp_name'];
+    move_uploaded_file($tmp,"img/".$upload_pic);
+    $editProfile->editimg($upload_pic);
+    
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
 <head>
-  <div>
-   
-</div>
+    
   <title>Bootstrap Example</title>
 
   <meta charset="utf-8">
@@ -14,65 +29,52 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
-    <link rel="stylesheet" href="EditProfile.css">
+  <link rel="stylesheet" href="EditProfile.css">
 </head>
-
-
-
 <body>
-
 
 <div class="container bootstrap snippet" style="margin-top: 10%;">
 
     <div class="row">
       <div class="col-sm-10" id="h"><h1>Profile</h1></div>
-     <!--  -->
     </div>
     <div class="row">
 
-<form id="upload"action="EditMyProfileH.php" method="post" enctype="multipart/form-data">
-   
-    
-    
+<form id="upload" action = "EditMyProfileH.php" method="post" enctype="multipart/form-data">
       <div class="col-sm-3"><!--left col-->
-              
-
       <div class="picture-container">
         <div class="picture">
-            <img src="img/unnamed.png" class="picture-src" id="wizardPicturePreview" title="">
+            
+            <img src="<?php print('img/'.$editProfile->getimg());?>" class="picture-src" id="wizardPicturePreview" title="">
+            
             <input type="file" id="wizard-picture" accept="image/*" name="image">
         </div>
-         <h6 class="">Change Picture (max size 3Mb)</h6>
-
+        <h6 class="">Change Picture (max size 3Mb)</h6>
     </div><br>
-   <button class="btn btn-info" id="up" type="submit" name="submit" value="Upload">Upload</button>
+   <input class="btn btn-info" id="up" type="submit" name="upload" value="Upload">
+    </div>
 </form>
   
-        </div><!--/col-3-->
-<form class="form" action="#" method="post" id="info-Form">
+        
+<form class="form" method="post" id="info-Form">
       <div class="col-sm-9" id="c">
-           
-         
-
             <div class="tab-pane active" id="home">
                 <hr>
-              </hr>
-                  
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                              <input type="text" class="form-control" name="first_name" value = "<?php print($editProfile->getfirstname()); ?>" id="first_name" placeholder="first name" title="enter your first name if any.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                             <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                              <input type="text" class="form-control" name="last_name" value = "<?php print($editProfile->getlastname()); ?>" id="last_name" placeholder="last name" title="enter your last name if any.">
                           </div>
                       </div>
           
@@ -80,7 +82,7 @@
                           
                           <div class="col-xs-6">
                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                              <input type="text" class="form-control" name="mobile" value = "<?php print("0".$editProfile->getnumber()); ?>" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
                               
                           </div>
                       </div>
@@ -88,14 +90,14 @@
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                              <input type="email" class="form-control" name="email" value = "<?php print($editProfile->getemail()); ?>" id="email" placeholder="you@email.com" title="enter your email.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                              <input type="password" class="form-control" value = "<?php print($editProfile->getpassword()); ?>" name="password" id="password" title="enter your password.">
                           </div>
                       </div>
                       
@@ -103,30 +105,22 @@
                           
                           <div class="col-xs-6">
                             <label for="password2"><h4>New Password</h4></label>
-                              <input type="password" class="form-control" name="password2" id="confirm_password" placeholder="password2" title="enter your password2.">
+                              <input type="password" class="form-control" value = "<?php print($editProfile->getpassword()); ?>" name="password2" id="confirm_password" title="enter your password.">
                           </div>
                       </div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                                <button class="btn btn-lg btn-success" id="s" type="submit"> Save</button>
-                                <button class="btn btn-lg" type="reset"> Reset</button>
+                                <input name = "save" class="btn btn-lg btn-success" id="s" type="submit">
+                                <!--<input class="btn btn-lg" type="reset" value = "Reset">-->
                                 <span id='message'></span>
                             </div>
                       </div>
-                </form>
-              
-             
-              
-             
-               
-              
-          </div><!--/tab-content-->
-
-        </div><!--/col-9-->
+                </div><!--/col-9-->
+           </div><!--/tab-content-->
+        </form>
     </div><!--/row-->
       </div>
-
 </body>
 
 </html>
