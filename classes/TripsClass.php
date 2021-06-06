@@ -34,7 +34,7 @@ class Product
     {
         if(isset($_SESSION["Clicked_Trip_ID"]))
         {
-           $id = $_SESSION["Clicked_Trip_ID"];
+            $id = $_SESSION["Clicked_Trip_ID"];
             $sql = "SELECT name FROM trips WHERE ID = $id";
             $result = $this->connect()->query($sql);
             if ($result->num_rows > 0) 
