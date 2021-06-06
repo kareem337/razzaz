@@ -113,7 +113,8 @@ class Person{
     
     public function getprofile()
     {
-        $query = "SELECT * FROM `users`";
+        $this->id = $_SESSION['Logged_in_ID'];
+        $query = "SELECT * FROM `users` where ID = '$this->id'";
         $sql = $this->con->query($query);
         if ($sql->num_rows > 0)
         {
