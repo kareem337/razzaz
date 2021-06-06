@@ -2,7 +2,11 @@
 <html lang="en">
 <?php
 include 'classes/TripsClass.php';
+include 'classes/User.php';
 $show = new Product();
+$reserve = new Reserve();
+
+
 ?>
 <head>
 	<meta charset="utf-8">
@@ -53,6 +57,25 @@ $show = new Product();
 
 
 </head>
+
+<script>
+  $(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    $('#currentDate').attr('min', maxDate);
+});
+  </script>
+
+  
 <body>
    <header >
    
@@ -102,6 +125,28 @@ $show = new Product();
 									<button class="submit-btn" name="book">BOOK</button>
 								</div>
 							</form>
+
+							<?php
+						if(isset($_SESSION["Logged_in_ID"]))
+						{
+							if( isset($_POST['book'] ) )
+							{
+								$date = $_POST['date'];
+								$quantity = $_POST['quantity'];
+								$price = $_POST['price'];
+								$tripid = $_SESSION['Clicked_Trip_ID'];
+								$User = $_SESSION["Logged_in_ID"];
+								$reserve->saveRecords($date, $quantity, $price, $tripid, $User);
+							}
+							
+
+						}
+						else 
+							{
+								echo "<script>alert('You will not be able to book unless you log in')</script>";
+							}
+							?>
+
 						</div>
 					</div>
 				</div>
