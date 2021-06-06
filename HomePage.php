@@ -184,38 +184,34 @@ We are committed to providing world-class trekking experiences for our guests th
           <div class="col-md-6">
             <div class="icon-box">
               <i class="fas fa-hotel"></i>
-              <h4>Hotels</a></h4>
+              <h4><a>Hotels</a></h4>
               <p>Take The Break You Deserve At One Of Our Incredible Hotels. Your Welcome Awaits. Book Our Hotels In Egypt now.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="fas fa-landmark"></i>
-              <h4>Museums</a></h4>
+              <h4><a>Museums</a></h4>
               <p>Egypt has one of the oldest civilizations. Many museums may be found in Egypt, covering a wide area of these ages.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="fas fa-plane"></i>
-              <h4>Trips</a></h4>
+                <h4><a>Trips</a></h4>
               <p>Learn all about Egypt's most important cities and the most popular centres for tourism. Cairo, Luxor and more.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="fas fa-ship"></i>
-              <h4>Cruises</a></h4>
+                <h4><a>Cruises</a></h4>
               <p>Explore the legendary sites of Egypt on a Nile river cruise and experience many of its ancient wonders along the way.</p>
             </div>
           </div>
-        
         </div>
-
       </div>
     </section><!-- End Services Section -->
-
-   
 
   </main><!-- End #main -->
 
@@ -274,7 +270,7 @@ We are committed to providing world-class trekking experiences for our guests th
       <div class="copyright">
         &copy; Copyright <strong><span>Razzaz Tours</span></strong>. All Rights Reserved
       </div>
-      
+      </div>
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>

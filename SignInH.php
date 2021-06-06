@@ -10,13 +10,36 @@ if (isset($_POST['sign_in'])) {
 <!DOCTYPE html>
 <html>
 
-<body>
-
 <head>
 
  
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
+  <style>
+  .bar {
+  padding: 10px;
+  margin-left: 80px;
+  margin-bottom: 5px;
+  width: 380px;      
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #ccc;
+        
+}
+     
+  .error {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+}    
+     
+  .success {
+  color: #2b7515;
+  background: #ecffd6;
+  border: 1px solid #617c42;
+}     
+     
+ </style>    
 </head>
 <body>
 
@@ -42,6 +65,21 @@ if (isset($_POST['sign_in'])) {
           <h1>Sign In</h1>
 
     <p id="p">Please fill in this form to Sign In.</p>
+                <?php
+                if (isset($error)) {
+                    ?>
+                        <div class='alert alert-danger bar error close' data-dismiss = 'alert'>
+                        <?php echo $error; ?>
+                        </div>
+                        <?php }
+                 ?>
+             <?php
+              if (isset($confirm)) {?>
+                    <div class='alert alert-danger bar success close' data-dismiss = 'alert'>
+                    <?php echo $confirm; ?>
+                    </div>
+                     <?php }
+             ?>    
     <hr>
 
         <div class="form-group">

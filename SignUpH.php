@@ -73,9 +73,6 @@ if (isset($_POST['register'])) {
                     </div>
                      <?php }
              ?>
-
-
-
     </div>
 
 <div class="form-group">
@@ -98,7 +95,7 @@ if (isset($_POST['register'])) {
 
     
     <div class="form-group">
-    <input type="number" placeholder="Enter Your Number" name="number" class="form-control" maxlength="11" required>
+    <input type="text" placeholder="Enter Your Number" name="number" class="form-control" maxlength="11" required>
     </div>
 
 

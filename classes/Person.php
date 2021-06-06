@@ -48,9 +48,10 @@ class Person{
             $_SESSION["Logged_in_Name"]=$select_data['First Name'];
             }
             $_SESSION["Logged_in"] = true;
+            $this->confirmLogin = "Logged In Successfully";
             header("location: HomePage.php");  
         }else{
-         
+            $this->get_errors_login = "Check Email and Password";
         }
         
     }
@@ -102,6 +103,12 @@ class Person{
             if ($result->num_rows > 0) {
                 $this->errors[] = "Email already exist!";
             } 
+        }
+    }
+    
+    public function number(){
+        if(preg_match('@[0-9]@', $this->number) == 0){
+            $this->errors[] = "Phone number must be numbers only!";
         }
     }
     
