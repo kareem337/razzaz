@@ -51,10 +51,10 @@ class Person{
             $_SESSION["Logged_in_Name"]=$select_data['First Name'];
             }
             $_SESSION["Logged_in"] = true;
-            $this->confirmLogin = "Logged In Successfully";
+            $this->confirmLogin = "Logged in successfully";
             header("location: HomePage.php");  
         }else{
-            $this->get_errors_login = "Check Email and Password";
+            $this->get_errors_login = "Check email or password";
         }
         
     }
@@ -77,7 +77,7 @@ class Person{
         if(empty($this->errors)){
         $query = "INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `Picture`, `User_Type_ID`) VALUES ('null', '$this->firstname', '$this->lastname', '$this->email', '$this->gender', '$this->number', '$this->password', '$this->img', '2')";
         $sql = $this->con->query($query);
-        $this->confirmReg = "Registered Successfully you can sign in now";    
+        $this->confirmReg = "Registered successfully you can sign in now";    
         }
         
     }
@@ -167,7 +167,7 @@ class Person{
         $lowercase = preg_match('@[a-z]@', $this->password);
         $number    = preg_match('@[0-9]@', $this->password);    
         if (!$uppercase || !$lowercase || !$number || strlen($_POST['password']) < 5) {
-         $this->errors[] = "Password must Contain at least 5 Characters!"; 
+         $this->errors[] = "Password must contain at least 5 Characters!"; 
         }
         else if($this->password != $this->confirmPassword){
          $this->errors[] = "Password doesn't match the retype password!";    
