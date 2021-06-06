@@ -42,7 +42,7 @@
 
       <div class="picture-container">
         <div class="picture">
-            <img src="unnamed.png" class="picture-src" id="wizardPicturePreview" title="">
+            <img src="img/unnamed.png" class="picture-src" id="wizardPicturePreview" title="">
             <input type="file" id="wizard-picture" accept="image/*" name="image">
         </div>
          <h6 class="">Change Picture (max size 3Mb)</h6>
