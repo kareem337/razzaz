@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include'Trips.php';
+include 'classes/TripsClass.php';
+$show = new Product();
 ?>
 <head>
 	<meta charset="utf-8">
@@ -62,25 +63,22 @@ include'Trips.php';
       
    
   </header><!-- End Header -->
-	<div id="booking" class="section"  style="background-image: url('img/<?php echo $show['background']; ?>'); " >
+	<div id="booking" class="section"  style="background-image: url('img/<?php $show->getBackground(); ?>'); " >
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-7 col-md-push-5" style="color: white;">
 						<div class="booking-cta">
-							<h1> <?php echo $show['name']; ?> </h1> 
-							<p> <?php echo $show['Description']; ?> </p>
+							<h1> <?php $show->getName(); ?> </h1> 
+							<p> <?php $show->getDescription(); ?> </p>
 						</div>
-						<h3> Users Average Rating</h3>
-<input  type="text" class="rating" data-size="xl" value="<?php echo $avgRate['AVG(`Rating`)']; ?>" data-readonly="true">
-					
 					</div>
 					<div class="col-md-4 col-md-pull-7">
 						<div class="booking-form">
 							<form action="" method="POST">
 								<div>
-									<h1> <?php echo $show['Price']; ?> $ </h1>  <h5> &nbsp; per person</h5>
-									<input type="hidden" name="price" value="<?php echo $show['Price']; ?>">
+									<h1> <?php $show->getPrice(); ?> $ </h1>  <h5> &nbsp; per person</h5>
+									<input type="hidden" name="price" value="<?php $show->getPrice(); ?>">
 								</div>
 								
 								<div class="row">
