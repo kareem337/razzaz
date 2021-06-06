@@ -103,7 +103,7 @@
                           
                           <div class="col-xs-6">
                             <label for="password2"><h4>New Password</h4></label>
-                              <input type="password" class="form-control" name="password2" id="confirm_password" placeholder="password2" title="enter your password2.">
+                              <input type="password" class="form-control" name="password2" id="confirm_password" placeholder="password" title="enter your password2.">
                           </div>
                       </div>
                       <div class="form-group">

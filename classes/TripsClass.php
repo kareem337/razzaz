@@ -2,7 +2,6 @@
 session_start(); 
 class Product
 {
-
     protected function connect ()
         {
         $this->servername = "localhost";
