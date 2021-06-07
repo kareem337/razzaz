@@ -26,6 +26,7 @@
           <li><a href="HomePage.php#about-boxes">About</a></li>
           <li><a href="HomePage.php#services">SERVICES</a></li>
           <li><a href="DestinationH.php">Trips</a></li>
+          <li><a href="Museum_CategoryH.php">Museums</a></li>
           <li class="drop-down" id="links">
               
            
