@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();    
 include 'classes/TripsClass.php';
 include 'classes/User.php';
 $show = new Product("name", "description", "background", "price");
@@ -142,9 +143,9 @@ $reserve = new Reserve();
 
 						}
 						else 
-							{
+				        {
 								echo "<script>alert('You will not be able to book unless you log in')</script>";
-							}
+				        }
 							?>
 
 						</div>

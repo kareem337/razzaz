@@ -1,5 +1,5 @@
 <?php 
-class   Reserve
+class Reserve
 {
 
     protected function connect ()
