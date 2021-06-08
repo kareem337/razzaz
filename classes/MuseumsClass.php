@@ -7,8 +7,8 @@ class Product
     private $price;
     private $background;
 
-    protected function connect ()
-        {
+    protected function connect()
+    {
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
@@ -16,7 +16,7 @@ class Product
 
         $conn = new mysqli($this->servername, $this->username, $this->password,$this->dbname);
         return $conn;
-        }
+    }
 
 
     public function __construct($name, $description, $background, $price) 
