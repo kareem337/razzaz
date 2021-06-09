@@ -107,6 +107,25 @@ class Person{
     public function editimg($upload_pic){
         $this->id = $_SESSION['Logged_in_ID'];
         $this->img = $upload_pic;
+        $query = "SELECT Picture FROM `users` where ID = '$this->id'";
+        $sql = $this->con->query($query);
+        
+        if ($sql->num_rows > 0)
+        {
+            while($row = $sql->fetch_assoc()) {  
+             $image = $row['Picture'];    
+            }  
+        }
+        
+        if(unlink("img/$image"))
+        {
+              $this->confirmEdit = "Picture edited successfully";   
+        }
+        else
+        {
+           $this->errors = "Picture doesn't updated successfully";     
+        }
+        
         $query = "UPDATE `users` SET `Picture`='$this->img' WHERE ID = '$this->id'";
         $sql = $this->con->query($query);
     }
