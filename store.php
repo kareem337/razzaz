@@ -2,7 +2,7 @@
 
 session_start();
 $TOTAL = 0;
-$tiidd = 0;
+$pid = 0;
 include('DB.php');
 include('classes/Category.php');
 
@@ -21,7 +21,7 @@ $cart->fetchcart();*/
     if(isset($_GET['remove']))
     {
         $removedID = $_GET['remove'];
-        $removeitem = "DELETE FROM `cart` WHERE trip_id=$removedID";
+        $removeitem = "DELETE FROM `cart` WHERE pid=$removedID";
         $removeResultt = mysqli_query($conn, $removeitem);
         echo '<script>window.location="store.php"</script>';
     }
@@ -29,7 +29,7 @@ $cart->fetchcart();*/
    if(isset($_POST['save'])){
         $User = $_SESSION["Logged_in_ID"];
         $date = date('Y-m-d H:i:s');
-        // $tripid = $_SESSION['trip_id'];
+        // $pid = $_SESSION['pid'];
        $price  = $_POST['totalPrice'];
 
         $allCart = "SELECT * FROM cart WHERE user_id=$User";
@@ -40,9 +40,9 @@ $cart->fetchcart();*/
             // output data of each row
             while($row = $result2->fetch_assoc()) 
             {
-                $tripid = $row['trip_id'];
-                $sql = "INSERT INTO `orders` (`ID`, `user_id`, `order_placed` ,`trip_id` , `price`) 
-		        VALUES (NULL, '$User', '$date' ,'$tripid', '$price')";
+                $pid = $row['pid'];
+                $sql = "INSERT INTO `orders` (`ID`, `user_id`, `order_placed` ,`pid` , `price`) 
+		        VALUES (NULL, '$User', '$date' ,'$pid', '$price')";
                 $insertResult = mysqli_query($conn, $sql);
 
                 $removeCart = "DELETE FROM cart WHERE user_id=$User";
@@ -95,14 +95,14 @@ $cart->fetchcart();*/
             <?php
                 $totalPrice = 0;
                 foreach($show as $row) {
-                $GLOBALS['tiidd'] = $row['trip_id'];
-                $trip_name = "SELECT * FROM products WHERE ID = $tiidd";
+                $GLOBALS['pid'] = $row['pid'];
+                $trip_name = "SELECT * FROM products WHERE ID = $pid";
 
 
                 $result_name = mysqli_query($conn, $trip_name);
                 $roww = $result_name->fetch_assoc()
             ?>
-             <?php if($tiidd == 0){
+             <?php if($pid == 0){
                    //exit(0);
              }else{  ?>
                
@@ -117,7 +117,7 @@ $cart->fetchcart();*/
                     <span class="cart-price cart-column"><?php print($row['Total_Price']); ?> $</span>                
                     <div class="cart-quantity cart-column">
                       <div class="cart-quantity-column">  <?php print($row['quantity']); ?> </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <button class="btn btn-danger" onclick="(function(){window.location.href='store.php?remove=<?php print($row['trip_id']); ?>';return false;})();return false;">REMOVE</button> 
+                        <button class="btn btn-danger" onclick="(function(){window.location.href='store.php?remove=<?php print($row['pid']); ?>';return false;})();return false;">REMOVE</button> 
                     </div>
                 </div>
                  <?php } ?>
@@ -143,7 +143,7 @@ $cart->fetchcart();*/
                 
                  $_SESSION['totalPrice'] = $totalPrice;
             ?>
-            <?php if($tiidd != 0){ ?>
+            <?php if($pid != 0){ ?>
             <input type = "submit" class="btn btn-primary btn-purchase" name = "save" value = "PURCHASE">
             <?php } ?>
         </section>
