@@ -13,7 +13,7 @@ if (isset($_POST['save'])) {
 if(isset($_POST['upload'])){
     $upload_pic = $_FILES['image']['name'];
     $tmp = $_FILES['image']['tmp_name'];
-    move_uploaded_file($tmp,"img/".$upload_pic);
+    move_uploaded_file($tmp,"img/personal-images/".$upload_pic);
     $editProfile->editimg($upload_pic);
     $error = $editProfile->get_errors();
     $confirm = $editProfile->getConfirmEdit();
@@ -81,9 +81,9 @@ if(isset($_POST['upload'])){
       <div class="picture-container">
         <div class="picture">
             
-            <img src="<?php print('img/'.$editProfile->getimg());?>" class="picture-src" id="wizardPicturePreview" title="">
+            <img src="<?php print('img/personal-images/'.$editProfile->getimg());?>" class="picture-src" id="wizardPicturePreview" title="">
             
-            <input type="file" id="wizard-picture" accept="image/*" name="image">
+            <input type="file" id="wizard-picture" accept="image/*" name="image" required>
         </div>
         <h6 class="">Change Picture (max size 3Mb)</h6>
     </div><br>

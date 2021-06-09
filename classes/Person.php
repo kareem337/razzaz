@@ -117,9 +117,9 @@ class Person{
              $image = $row['Picture'];    
             }  
         }
-        
-        if(unlink("img/$image"))
+        if(file_exists("img/personal-images/"))
         {
+            unlink("img/personal-images/".$image);
               $this->confirmEdit = "Edited successfully";   
         }
         else

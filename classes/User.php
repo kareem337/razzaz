@@ -13,7 +13,7 @@ class Reserve extends Person
         return $conn;
     }
 
-    public function saveRecords ($date, $quantity, $price, $tripid, $User)
+    public function saveRecords($date, $quantity, $price, $tripid, $User)
     {
         $conn = $this->connect();
 
