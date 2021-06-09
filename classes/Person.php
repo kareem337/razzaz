@@ -1,5 +1,7 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 session_start();
+#error_handle(0);
 class Person{
     
     private $servername = "localhost";

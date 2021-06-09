@@ -1,9 +1,9 @@
 <?php 
-class Reserve
+include("Person.php");
+class Reserve extends Person
 {
-
-    protected function connect ()
-        {
+    protected function connect()
+    {
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
@@ -11,7 +11,7 @@ class Reserve
 
         $conn = new mysqli($this->servername, $this->username, $this->password,$this->dbname);
         return $conn;
-        }
+    }
 
     public function saveRecords ($date, $quantity, $price, $tripid, $User)
     {
@@ -27,8 +27,9 @@ class Reserve
             else 
             {
                 echo "<script>alert('Error in Adding')</script>";
-            }
-        
+            } 
     }
+    
+    
 
 }
