@@ -100,7 +100,7 @@ class Person{
         if(empty($this->errors)){
         $query = "UPDATE `users` SET `First Name`='$this->firstname',`Last Name`='$this->lastname',`Email`='$this->email',`Number`='$this->number',`Password`='$this->password' WHERE ID = '$this->id'";
         $sql = $this->con->query($query);
-        #$this->confirmReg = "Registered Successfully you can sign in now";    
+        $this->confirmEdit = "Edited successfully";    
         }
     }
     
@@ -119,11 +119,11 @@ class Person{
         
         if(unlink("img/$image"))
         {
-              $this->confirmEdit = "Picture edited successfully";   
+              $this->confirmEdit = "Edited successfully";   
         }
         else
         {
-           $this->errors = "Picture doesn't updated successfully";     
+           $this->errors = "Error while editing";     
         }
         
         $query = "UPDATE `users` SET `Picture`='$this->img' WHERE ID = '$this->id'";
@@ -248,6 +248,10 @@ class Person{
     
     public function getConfirmLogin(){
         return $this->confirmLogin;
+    }
+    
+    public function getConfirmEdit(){
+        return $this->confirmEdit;
     }
 }
 
