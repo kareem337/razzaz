@@ -1,12 +1,22 @@
 <?php
-$TOTAL = 0;
 
 session_start();
+$TOTAL = 0;
+$tiidd = 0;
 include('DB.php');
 include('classes/Category.php');
 
-$cart = new category();
-$cart->fetchcart();
+$userid = $_SESSION['Logged_in_ID'];
+$sql = "SELECT * FROM cart WHERE user_id = $userid";
+// get the result set (set of rows)
+$result = mysqli_query($conn, $sql);
+// fetch the resulting rows as an array
+$show = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// free the $result from memory (good practise)
+mysqli_free_result($result);
+
+/*$cart = new category();
+$cart->fetchcart();*/
 
     if(isset($_GET['remove']))
     {
@@ -84,29 +94,37 @@ $cart->fetchcart();
             <div class="cart-items">
             <?php
                 $totalPrice = 0;
+                foreach($show as $row) {
+                $GLOBALS['tiidd'] = $row['trip_id'];
+                $trip_name = "SELECT * FROM products WHERE ID = $tiidd";
+
+
+                $result_name = mysqli_query($conn, $trip_name);
+                $roww = $result_name->fetch_assoc()
             ?>
-             <?php if($cart->getTripId() == 0){
+             <?php if($tiidd == 0){
                    //exit(0);
              }else{  ?>
+               
             <div class="cart-row">
                     <div class="cart-item cart-column">
-                    <img class="cart-item-image" src="img/<?php print($cart->getBackground()); ?>" width="100" height="100">
-                    <span class="cart-item-title"><?php print($cart->getName()); ?></span>
+                    <img class="cart-item-image" src="img/<?php print($roww['Background']); ?>" width="100" height="100">
+                    <span class="cart-item-title"><?php print($roww['Name']); ?></span>
                     </div>
                     <div class="cart-item cart-column">         
-                    <span class="cart-item-title"><?php print($cart->getDateCreated()); ?></span>
+                    <span class="cart-item-title"><?php print($row['Date_Created']); ?></span>
                     </div>
-                    <span class="cart-price cart-column"><?php print($cart->getTotalPrice()); ?> $</span>                
+                    <span class="cart-price cart-column"><?php print($row['Total_Price']); ?> $</span>                
                     <div class="cart-quantity cart-column">
-                      <div class="cart-quantity-column">  <?php print($cart->getQuantity()); ?> </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <button class="btn btn-danger" onclick="(function(){window.location.href='store.php?remove=<?php print($cart->getTripId()); ?>';return false;})();return false;">REMOVE</button> 
+                      <div class="cart-quantity-column">  <?php print($row['quantity']); ?> </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <button class="btn btn-danger" onclick="(function(){window.location.href='store.php?remove=<?php print($row['trip_id']); ?>';return false;})();return false;">REMOVE</button> 
                     </div>
                 </div>
                  <?php } ?>
                 <?php 
-                $calculatedPrice = $cart->getTotalPrice() * $cart->getQuantity();
+                $calculatedPrice = $row['Total_Price'] * $row['quantity'];
                 $totalPrice += $calculatedPrice;
-            
+                }
              ?>
             </div>
             <script>
@@ -125,7 +143,7 @@ $cart->fetchcart();
                 
                  $_SESSION['totalPrice'] = $totalPrice;
             ?>
-            <?php if($cart->getTripId() != 0){ ?>
+            <?php if($tiidd != 0){ ?>
             <input type = "submit" class="btn btn-primary btn-purchase" name = "save" value = "PURCHASE">
             <?php } ?>
         </section>

@@ -1,7 +1,7 @@
 <?php
 class category 
 {
-    private $tripid;
+    private $id;
     private $name;
     private $description;
     private $price;
@@ -21,9 +21,9 @@ class category
     }
 
     
-    function getTripId()
+    function getId()
     {
-        return $this->tripid;
+        return $this->id;
     }
     
     function getBackground(){
@@ -46,33 +46,5 @@ class category
     
     function getTotalPrice(){
         return $this->price;
-    }
-    
-    public function fetchcart(){
-        $tripid = 0;
-        $userid = $_SESSION['Logged_in_ID'];
-        $sql = "SELECT * FROM cart WHERE User_Id = $userid";
-	    $result = $this->connect()->query($sql);
-        if ($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc()) 
-            {
-                $this->tripid = $row['trip_id'];
-                $this->datecreated = $row['Date_Created'];
-                $this->quantity = $row['quantity'];    
-                $this->price = $row['Total_Price'];
-            }
-        }
-        
-        $sql = "SELECT * FROM products WHERE ID = $tripid";
-	    $result = $this->connect()->query($sql);
-        if ($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc()) 
-            {
-                $this->name = $row['Name'];
-                $this->background = $row['Background'];
-            }
-        } 
     }
 }

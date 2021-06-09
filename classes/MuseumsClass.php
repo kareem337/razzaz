@@ -43,8 +43,6 @@ class museums extends category
     {
         return $this->price;
     }
-
-
 }
 
 ?>
