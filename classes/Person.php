@@ -107,6 +107,7 @@ class Person{
     
     public function editimg($upload_pic){
         $this->id = $_SESSION['Logged_in_ID'];
+        # check if it is an image or not!
         $this->img = $upload_pic;
         $query = "SELECT Picture FROM `users` where ID = '$this->id'";
         $sql = $this->con->query($query);
@@ -120,7 +121,7 @@ class Person{
         if(file_exists("img/personal-images/"))
         {
             unlink("img/personal-images/".$image);
-              $this->confirmEdit = "Edited successfully";   
+            $this->confirmEdit = "Edited successfully";   
         }
         else
         {
