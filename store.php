@@ -3,8 +3,9 @@ $TOTAL = 0;
 
 session_start();
 include('DB.php');
-include('classes/TripsClass.php');
-$cart = new Product("", "", "", "");
+include('classes/Category.php');
+
+$cart = new category();
 $cart->fetchcart();
 
     if(isset($_GET['remove']))

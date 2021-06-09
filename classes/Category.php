@@ -25,6 +25,14 @@ class category
     {
         return $this->tripid;
     }
+    
+    function getBackground(){
+        return $this->background;
+    }
+    
+    function getName(){
+        return $this->name;
+    }
 
     function getDateCreated()
     {
@@ -56,14 +64,14 @@ class category
             }
         }
         
-        $sql = "SELECT * FROM products WHERE id = $tripid";
+        $sql = "SELECT * FROM products WHERE ID = $tripid";
 	    $result = $this->connect()->query($sql);
         if ($result->num_rows > 0) 
         {
             while($row = $result->fetch_assoc()) 
             {
-                $this->name = $row['name'];
-                $this->background = $row['background'];
+                $this->name = $row['Name'];
+                $this->background = $row['Background'];
             }
         } 
     }
