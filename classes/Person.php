@@ -1,6 +1,6 @@
 <?php
 #error_reporting(E_ERROR | E_WARNING | E_PARSE); 
-#session_start();
+session_start();
 class Person{
     
     private $servername = "localhost";

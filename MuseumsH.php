@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+//session_start();
 include 'classes/MuseumsClass.php';
 include 'classes/User.php';
-$show = new Product("name", "description", "background", "price");
+$show = new museums("name", "description", "background", "price");
 $reserve = new Reserve();
 
 

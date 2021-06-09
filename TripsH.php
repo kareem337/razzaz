@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-session_start();    
+//session_start();    
 include 'classes/TripsClass.php';
 include 'classes/User.php';
-$show = new Product("name", "description", "background", "price");
+$show = new trips("name", "description", "background", "price");
 $reserve = new Reserve();
 
 
