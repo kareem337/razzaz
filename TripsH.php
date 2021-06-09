@@ -130,7 +130,7 @@ $reserve = new Reserve();
 							<?php
 						if(isset($_SESSION["Logged_in_ID"]))
 						{
-							if( isset($_POST['book'] ) )
+							if( isset($_POST['book']))
 							{
 								$date = $_POST['date'];
 								$quantity = $_POST['quantity'];
@@ -139,8 +139,6 @@ $reserve = new Reserve();
 								$User = $_SESSION["Logged_in_ID"];
 								$reserve->saveRecords($date, $quantity, $price, $tripid, $User);
 							}
-							
-
 						}
 						else 
 				        {

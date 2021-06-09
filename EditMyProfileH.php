@@ -1,8 +1,8 @@
 <?php
 session_start();
-include("classes/Person.php");
+include("classes/User.php");
 include("DB.php");
-$editProfile = new Person();
+$editProfile = new Reserve();
 $editProfile->getprofile();
 if (isset($_POST['save'])) {
     $editProfile->savedata($_POST);
@@ -26,7 +26,7 @@ if(isset($_POST['upload'])){
 <html>
 <head>
     
-  <title>Bootstrap Example</title>
+  <title>Edit Profile</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
