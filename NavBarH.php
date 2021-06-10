@@ -18,7 +18,7 @@
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="HomePage.php" class="logo"><img src="assets/img/navv1.png" alt=""  class="img-fluid" ></a>
+       <a href="index.php" class="logo"><img src="assets/img/navv1.png" alt=""  class="img-fluid" ></a>
  
       <nav class="nav-menu d-none d-lg-block">
         <ul >
