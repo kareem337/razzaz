@@ -53,7 +53,7 @@ class Person{
             }
             $_SESSION["Logged_in"] = true;
             $this->confirmLogin = "Logged in successfully";
-            header("location: HomePage.php");  
+            header("location: index.php");  
         }else{
             $this->get_errors_login = "Check email or password";
         }
