@@ -59,4 +59,42 @@ class Reserve extends Person
             }
         }
     }
+
+    public function fetchMyMsg()
+    {
+        if(isset($_SESSION['Logged_in_ID']))
+        {
+        
+            $id = $_SESSION['Logged_in_ID'];
+        
+            $sql="SELECT * FROM `chat` WHERE sender = $id OR reciever = $id";
+    
+            $result = $this->connect()->query($sql);
+
+            while($row= $result->fetch_assoc())	
+            {
+                echo $row["sender_name"];
+                echo ": ";
+                echo $row["message"];
+                echo "<br>";
+            }
+        }
+    }
+
+    public function sendToAdmin($user_id, $user_name, $msg)
+    {
+        $conn = $this->connect();
+
+        $sql = "INSERT INTO `chat` (`sender`, `sender_name`, `message`) VALUES ('$user_id', '$user_name', '$msg')";
+        
+        $query = mysqli_query($conn,$sql);
+        if ($query) 
+        {
+            header('Location: UserContact.php');               
+        } 
+        else 
+        {
+            echo "<script>alert('Error in sending')</script>";
+        } 
+    }
 }

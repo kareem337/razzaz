@@ -11,89 +11,91 @@
 ?>
 <style>
 
-  h2{
+h2{
 color:white;
-  }
-  label{
+}
+label{
 color:white;
-  }
-  span{
-	  color:black;
-	  font-weight:bold;
-  }
-  .container {
-    width: 80%;
-   /* background-color: #83cf27; */
-   top:10px;
-    padding-right:10%;
-    padding-left:10%;
-  }
-  .btn-primary {
-    background-color: #83cf27;
-	}
-	.display-chat{
-    height:60%;
-    /*background-color:#83cf27; */
-    margin-top:10%;
-		margin-bottom:1%;
-		overflow:auto;
-		padding:15px;
-	}
-	.message{
-		background-color: white;
-		color: black;
-		border-radius: 15px;
-		padding: 5px;
-		margin-bottom: 3%;
-	}
-  img {
-    max-height: 150px;
-    max-width: 200px;
-  }
-    .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+span{
+  color:black;
+  font-weight:bold;
+}
+.container {
+  width: 80%;
+ /* background-color: #83cf27; */
+ top:10px;
+  padding-right:10%;
+  padding-left:10%;
+}
+.btn-primary {
+  background-color: #83cf27;
+}
+.display-chat{
+  height:60%;
+  /*background-color:#83cf27; */
+  margin-top:10%;
+  margin-bottom:1%;
+  overflow:auto;
+  padding:15px;
+}
+.message{
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom: 3%;
+}
+img {
+  max-height: 150px;
+  max-width: 200px;
+}
+  .modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
 }
 
 /* The Close Button */
 .close {
 text-align: right;
-  color: #aaaaaa;
-  font-size: 28px;
-  font-weight: bold;
+color: #aaaaaa;
+font-size: 28px;
+font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+color: #000;
+text-decoration: none;
+cursor: pointer;
 }   
-  </style>
+</style>
+
 <html>
     <head>
       <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="contact.css" /> 
     </head>
     <body style="background-color: #668B91; margin-left: 50;">
     <header>
