@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2021 at 10:37 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 10, 2021 at 05:41 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hikelydb`
+-- Database: `razzaztours`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `ID` int(11) NOT NULL,
   `User_ID` int(11) DEFAULT NULL,
-  `trip_id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
   `Date_Created` date NOT NULL,
   `Total_Price` int(11) NOT NULL,
   `quantity` varchar(32) NOT NULL
@@ -53,14 +54,6 @@ CREATE TABLE `chat` (
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `chat`
---
-
-INSERT INTO `chat` (`id`, `sender`, `sender_name`, `reciever`, `message`, `links`, `images`, `time`) VALUES
-(139, 2, 'Karim', 0, 'hey there', '', '', '2021-05-07 22:19:30'),
-(140, 2, 'Karim', 0, 'There trips', '', '', '2021-05-08 07:45:31');
-
 -- --------------------------------------------------------
 
 --
@@ -71,16 +64,9 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `order_placed` datetime NOT NULL,
-  `trip_id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
   `price` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `order_placed`, `trip_id`, `price`) VALUES
-(9, 2, '2021-05-08 02:57:42', 1, '1000');
 
 -- --------------------------------------------------------
 
@@ -106,6 +92,33 @@ INSERT INTO `pagesaccess` (`ID`, `UTI`, `Access`, `Link`) VALUES
 (4, 2, 'Contact Us', 'chatPage.php'),
 (6, 1, 'Users Messages', 'message_users.php'),
 (11, 1, 'Purchases', 'orderssH.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `ID` int(11) NOT NULL,
+  `category` int(11) NOT NULL,
+  `Location` varchar(255) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Price` int(11) NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  `Image` varchar(255) NOT NULL,
+  `Background` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`ID`, `category`, `Location`, `Name`, `Date`, `Price`, `Description`, `Image`, `Background`) VALUES
+(1, 1, 'South Egypt', 'Aswan', '2021-06-09 01:56:25', 500, 'Aswan, a city on the Nile River, has been southern Egypt’s strategic and commercial gateway since antiquity. It contains significant archaeological sites like the Philae temple complex, on Agilkia Island near the landmark Aswan Dam. Philae’s ruins include', 'aswan1.jpg ', 'aswan1.jpg '),
+(2, 2, 'Tahrir', 'The Grand Egyptian Museum', '2021-06-09 01:57:41', 29, 'The Museum of Egyptian Antiquities, known commonly as the Egyptian Museum or Museum of Cairo, in Cairo, Egypt, is home to an extensive collection of ancient Egyptian antiquities. It has 120,000 items, with a representative amount on display.', 'egyptian_museum.jpg', 'egyptian_museum.jpg'),
+(3, 1, 'sdasd', 'asdsdasd', '2021-06-10 00:24:09', 123123, 'sadsadasdasdasd', 'aswan1.jpg', 'aswan1.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,30 +162,6 @@ CREATE TABLE `tblcontact` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trips`
---
-
-CREATE TABLE `trips` (
-  `ID` int(11) NOT NULL,
-  `location` varchar(255) NOT NULL DEFAULT 'Country ',
-  `name` varchar(255) NOT NULL,
-  `Date` date NOT NULL,
-  `Price` int(11) NOT NULL,
-  `Description` varchar(10000) NOT NULL,
-  `image` varchar(1000) NOT NULL,
-  `background` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `trips`
---
-
-INSERT INTO `trips` (`ID`, `location`, `name`, `Date`, `Price`, `Description`, `image`, `background`) VALUES
-(1, 'South Egypt', 'Aswan', '0000-00-00', 500, 'Aswan, a city on the Nile River, has been southern Egypt’s strategic and commercial gateway since antiquity. It contains significant archaeological sites like the Philae temple complex, on Agilkia Island near the landmark Aswan Dam. Philae’s ruins include the columned Temple of Isis, dating to the 4th century B.C. Downriver, Elephantine Island holds the Temple of Khnum, from the Third Dynasty. ', 'aswan1.jpg ', 'aswan1.jpg ');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -182,7 +171,7 @@ CREATE TABLE `users` (
   `Last Name` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Gender` varchar(255) NOT NULL,
-  `Number` int(11) NOT NULL,
+  `Number` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Picture` varchar(55) NOT NULL,
   `User_Type_ID` int(11) NOT NULL DEFAULT 2
@@ -193,11 +182,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `Picture`, `User_Type_ID`) VALUES
-(1, 'Mostafa', 'Khaled', 'mostafa@gmail.com', 'male', 100100100, '123', '', 1),
-(2, 'Karim', 'Yasser', 'karimyasser@gmail.com', 'male', 100200300, '123', '', 2),
-(3, 'Mohamed', 'Tarek', 'mohamedtarek@gmail.com', 'male', 100300400, '123', '', 2),
-(4, 'Ammar', 'Ahmed', 'ammar@gmail.com', 'male', 100200500, '123', '', 1),
-(8, 'ahmed', 'yasser', 'ahmed@gmail.com', 'male', 123456, 'Kareem123#', '', 2);
+(1, 'Mostafa', 'Khaled', 'Mostafa1810751@miuegypt.edu.eg', 'male', '01020820065', 'Mkhaled18', 'Mostafa.jpg', 2),
+(2, 'Kareem', 'Yasser', 'kareem1802405@miuegypt.edu.eg', 'male', '01231231200', 'Kareem123', 'bg-equestrian.jpeg', 2);
 
 -- --------------------------------------------------------
 
@@ -248,6 +234,12 @@ ALTER TABLE `pagesaccess`
   ADD KEY `UTI` (`UTI`);
 
 --
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -260,12 +252,6 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `tblcontact`
   ADD PRIMARY KEY (`contact_id`);
-
---
--- Indexes for table `trips`
---
-ALTER TABLE `trips`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `users`
@@ -288,25 +274,31 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pagesaccess`
 --
 ALTER TABLE `pagesaccess`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -321,16 +313,10 @@ ALTER TABLE `tblcontact`
   MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `trips`
---
-ALTER TABLE `trips`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_type`

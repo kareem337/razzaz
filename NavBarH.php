@@ -22,7 +22,7 @@
  
       <nav class="nav-menu d-none d-lg-block">
         <ul >
-          <li class="active"><a href="HomePage.php">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li><a href="HomePage.php#about-boxes">About</a></li>
           <li><a href="HomePage.php#services">SERVICES</a></li>
           <li><a href="DestinationH.php">Trips</a></li>
