@@ -1,3 +1,5 @@
+<?php include("NavBarH.php"); 
+?>
 <html>
 <header>
     <link rel="stylesheet" href="dashboard.css">
