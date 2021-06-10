@@ -1,5 +1,6 @@
 <?php 
-class   Admin
+include("Person.php");
+class   Admin extends Person
 {
 
     protected function connect ()
