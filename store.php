@@ -3,8 +3,11 @@
 session_start();
 $TOTAL = 0;
 $pid = 0;
+
 include('DB.php');
-include('classes/Category.php');
+include('classes/User.php');
+
+$user = new Reserve();
 
 $userid = $_SESSION['Logged_in_ID'];
 $sql = "SELECT * FROM cart WHERE user_id = $userid";
@@ -15,44 +18,15 @@ $show = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // free the $result from memory (good practise)
 mysqli_free_result($result);
 
-/*$cart = new category();
-$cart->fetchcart();*/
 
-    if(isset($_GET['remove']))
-    {
-        $removedID = $_GET['remove'];
-        $removeitem = "DELETE FROM `cart` WHERE pid=$removedID";
-        $removeResultt = mysqli_query($conn, $removeitem);
+    if(isset($_GET['remove'])){
+        $user->deleteItemFromCart($get);
         echo '<script>window.location="store.php"</script>';
     }
 
    if(isset($_POST['save'])){
-        $User = $_SESSION["Logged_in_ID"];
-        $date = date('Y-m-d H:i:s');
-        // $pid = $_SESSION['pid'];
        $price  = $_POST['totalPrice'];
-
-        $allCart = "SELECT * FROM cart WHERE user_id=$User";
-        $result2 = mysqli_query($conn, $allCart);
-
-        if ($result2->num_rows > 0) 
-        {
-            // output data of each row
-            while($row = $result2->fetch_assoc()) 
-            {
-                $pid = $row['pid'];
-                $sql = "INSERT INTO `orders` (`ID`, `user_id`, `order_placed` ,`pid` , `price`) 
-		        VALUES (NULL, '$User', '$date' ,'$pid', '$price')";
-                $insertResult = mysqli_query($conn, $sql);
-
-                $removeCart = "DELETE FROM cart WHERE user_id=$User";
-                $removeResult = mysqli_query($conn, $removeCart);
-                header("location: store.php");
-            }
-        }
-		
-       
-		
+       $user->purchase($price);		
    }
 ?>
 
@@ -148,7 +122,7 @@ $cart->fetchcart();*/
             <?php } ?>
         </section>
          </form>
-          
+          <!--
                 <script> 
    
 // Function to create the cookie 
@@ -168,5 +142,6 @@ $cart->fetchcart();*/
                 escape(value) + expires + "; path=/";
         } 
             </script>
+-->
     </body>
 </html>

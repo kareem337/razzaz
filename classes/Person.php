@@ -6,7 +6,7 @@ class Person{
     private $servername = "localhost";
     private $username = "root";
     private $pass = "";
-    private $database = "razzazdb";
+    private $database = "razzaztours";
     public $con;
     
     private $img;

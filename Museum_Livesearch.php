@@ -4,7 +4,7 @@
   session_start();
 
   if(isset($_GET['museum'])){
-// write query for all pizzas
+
   $sql = 'SELECT * FROM products WHERE category = 2';
 
   // get the result set (set of rows)
@@ -43,7 +43,7 @@ $query = $_GET['query'];
     // makes sure nobody uses SQL injection
 
   $raw_results = mysqli_query($conn,"SELECT * FROM products
-      WHERE (`Location` LIKE '%".$query."%') OR (`Name` LIKE '%".$query."%')") or die(mysqli_error());
+      WHERE (`Location` LIKE '%".$query."%' AND `category` = 2) OR (`Name` LIKE '%".$query."%'  AND `category` = 2)") or die(mysqli_error());
     
           $hint="";
 
@@ -81,10 +81,4 @@ echo $_SESSION["Clicked_Museum_ID"];
 
 
 }
-  
-  // close connection
-  // mysqli_close($conn);
- 
-
-
 ?>

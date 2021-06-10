@@ -42,7 +42,7 @@ $query = $_GET['query'];
     // makes sure nobody uses SQL injection
 
   $raw_results = mysqli_query($conn,"SELECT * FROM products
-      WHERE (`Location` LIKE '%".$query."%') OR (`Name` LIKE '%".$query."%')") or die(mysqli_error());
+      WHERE (`Location` LIKE '%".$query."%' AND `category` = 1) OR (`Name` LIKE '%".$query."%'  AND `category` = 1)") or die(mysqli_error());
     
           $hint="";
 

@@ -1,6 +1,5 @@
 <?php 
-
-	include('DB.php');
+  include('DB.php');
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +103,8 @@ function showResult(str) {
   if (str.length==0) {
     document.getElementById("Museum_Livesearch").innerHTML="";
     document.getElementById("Museum_Livesearch").style.border="0px";
+    document.getElementById("Museum_Livesearch").style.width="715px";
+    document.getElementById("Museum_Livesearch").style.marginLeft="380px";  
     return;
   }
   var xmlhttp=new XMLHttpRequest();
@@ -111,6 +112,8 @@ function showResult(str) {
     if (this.readyState==4 && this.status==200) {
       document.getElementById("Museum_Livesearch").innerHTML=this.responseText;
       document.getElementById("Museum_Livesearch").style.border="1px solid #A5ACB2";
+      document.getElementById("Museum_Livesearch").style.width="715px";
+      document.getElementById("Museum_Livesearch").style.marginLeft="380px";      
     }
   }
   xmlhttp.open("GET","Museum_Livesearch.php?query="+str,true);
