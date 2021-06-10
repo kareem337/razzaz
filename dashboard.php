@@ -1,53 +1,71 @@
-<?php include("NavBarH.php"); 
-?>
 <html>
-<header>
-    <link rel="stylesheet" href="dashboard.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<?php include 'adminmenu.php';
+?>
+        <!-- <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
 
-</header>
+        </div> -->
 
-<body class="dashbody">
-    <div class="container">
-        <h1 class="dashh1">Razzaz Tours Managment System Admin DashBoard</h1>
-    <div class="row">
-                <div class="column">
-                <div class="box">
-                    <i style='font-size:80px;margin-left:30%;' class='fas'>&#xf500;</i><br>
-                    <label style="margin-top:10px;">Users</label><br>
-                    <label>25</label>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <i style='font-size:80px;margin-left:30%;' class='fas'>&#xf500;</i><br>
-                    <label style="margin-top:10px;">Orders</label><br>
-                    <label>6</label>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <i style='font-size:80px;margin-left:30%;' class='fas'>&#xf500;</i><br>
-                    <label style="margin-top:10px;">Enquiries</label><br>
-                    <label>9</label>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <i style='font-size:80px;margin-left:30%;' class='fas'>&#xf500;</i><br>
-                    <label style="margin-top:10px;">Museums</label><br>
-                    <label>13</label>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <i style='font-size:80px;margin-left:30%;' class='fas'>&#xf500;</i><br>
-                    <label style="margin-top:10px;">Trips</label><br>
-                    <label>4</label>
-                </div>
-            </div>
+        <div class="user-wrapper">
+         <img src="" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h4>Name</h4>
+            <small> Admin</small>
+         </div>
         </div>
-    </div>
-</body>
+      </header>
 
-</html>
+      <main style="background:#668B91; ">
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>50</h1>
+              <span>Users</span>
+            </div>
+            <div>
+              <span class="fas fa-users"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>12</h1>
+              <span>Orders</span>
+            </div>
+            <div>
+              <span class="fas fa-clipboard-list"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>15</h1>
+              <span>Enquiries</span>
+            </div>
+            <div>
+              <span class="fas fa-shopping-cart"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>$50K</h1>
+              <span>Museums</span>
+            </div>
+            <div>
+              <span class="fas fa-wallet"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>12</h1>
+              <span>Trips</span>
+            </div>
+            <div>
+              <span class="fas fa-users"></span>
+            </div>
+          </div>
+        </div>
+
+      
+      </main>
+    </div>
+    </html>
