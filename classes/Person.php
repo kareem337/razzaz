@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 session_start();
 class Person{
     
@@ -100,13 +101,33 @@ class Person{
         if(empty($this->errors)){
         $query = "UPDATE `users` SET `First Name`='$this->firstname',`Last Name`='$this->lastname',`Email`='$this->email',`Number`='$this->number',`Password`='$this->password' WHERE ID = '$this->id'";
         $sql = $this->con->query($query);
-        #$this->confirmReg = "Registered Successfully you can sign in now";    
+        $this->confirmEdit = "Edited successfully";    
         }
     }
     
     public function editimg($upload_pic){
         $this->id = $_SESSION['Logged_in_ID'];
+        # check if it is an image or not!
         $this->img = $upload_pic;
+        $query = "SELECT Picture FROM `users` where ID = '$this->id'";
+        $sql = $this->con->query($query);
+        
+        if ($sql->num_rows > 0)
+        {
+            while($row = $sql->fetch_assoc()) {  
+             $image = $row['Picture'];    
+            }  
+        }
+        if(file_exists("img/personal-images/"))
+        {
+            unlink("img/personal-images/".$image);
+            $this->confirmEdit = "Edited successfully";   
+        }
+        else
+        {
+           $this->errors = "Error while editing";     
+        }
+        
         $query = "UPDATE `users` SET `Picture`='$this->img' WHERE ID = '$this->id'";
         $sql = $this->con->query($query);
     }
@@ -229,6 +250,10 @@ class Person{
     
     public function getConfirmLogin(){
         return $this->confirmLogin;
+    }
+    
+    public function getConfirmEdit(){
+        return $this->confirmEdit;
     }
 }
 

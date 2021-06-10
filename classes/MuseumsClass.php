@@ -1,15 +1,15 @@
 <?php 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include 'classes/Category.php';
-class trips extends category
+class museums extends category
 {
 
     public function __construct($name, $description, $background, $price) 
     {
-        if(isset($_SESSION["Clicked_Trip_ID"]))
+        if(isset($_SESSION["Clicked_Museum_ID"]))
         {
-            $tid = $_SESSION["Clicked_Trip_ID"];
-            $sql = "SELECT * FROM products WHERE ID = $tid";
+            $mid = $_SESSION["Clicked_Museum_ID"];
+            $sql = "SELECT * FROM products WHERE ID = $mid";
             $result = $this->connect()->query($sql);
             if ($result->num_rows > 0) 
             {
@@ -43,8 +43,6 @@ class trips extends category
     {
         return $this->price;
     }
-    
-
 }
 
 ?>

@@ -1,17 +1,23 @@
 <?php
-include("classes/Person.php");
+session_start();
+include("classes/User.php");
 include("DB.php");
-$editProfile = new Person();
+$editProfile = new Reserve();
 $editProfile->getprofile();
 if (isset($_POST['save'])) {
     $editProfile->savedata($_POST);
+    $error = $editProfile->get_errors();
+    $confirm = $editProfile->getConfirmEdit();
+    #header("location: EditMyProfileH.php");
 }
 if(isset($_POST['upload'])){
     $upload_pic = $_FILES['image']['name'];
     $tmp = $_FILES['image']['tmp_name'];
-    move_uploaded_file($tmp,"img/".$upload_pic);
+    move_uploaded_file($tmp,"img/personal-images/".$upload_pic);
     $editProfile->editimg($upload_pic);
-    
+    $error = $editProfile->get_errors();
+    $confirm = $editProfile->getConfirmEdit();
+    #header("location: EditMyProfileH.php");
 }
 ?>
 
@@ -20,7 +26,7 @@ if(isset($_POST['upload'])){
 <html>
 <head>
     
-  <title>Bootstrap Example</title>
+  <title>Edit Profile</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,6 +39,33 @@ if(isset($_POST['upload'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
   <link rel="stylesheet" href="EditProfile.css">
+    
+    <style>
+  .bar {
+  /*padding: 10px;*/
+  margin-left: 80px;
+  margin-bottom: 5px;
+  width: 430px;      
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  text-align: center;      
+        
+}
+     
+  .error {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+}    
+     
+  .success {
+  color: #2b7515;
+  background: #ecffd6;
+  border: 1px solid #617c42;
+}     
+     
+ </style>   
 </head>
 <body>
 
@@ -48,9 +81,9 @@ if(isset($_POST['upload'])){
       <div class="picture-container">
         <div class="picture">
             
-            <img src="<?php print('img/'.$editProfile->getimg());?>" class="picture-src" id="wizardPicturePreview" title="">
+            <img src="<?php print('img/personal-images/'.$editProfile->getimg());?>" class="picture-src" id="wizardPicturePreview" title="">
             
-            <input type="file" id="wizard-picture" accept="image/*" name="image">
+            <input type="file" id="wizard-picture" accept="image/*" name="image" required>
         </div>
         <h6 class="">Change Picture (max size 3Mb)</h6>
     </div><br>
@@ -62,7 +95,23 @@ if(isset($_POST['upload'])){
 <form class="form" method="post" id="info-Form">
       <div class="col-sm-9" id="c">
             <div class="tab-pane active" id="home">
-                <hr>
+                <div style = "margin-right: 200px;">
+                <?php
+                if (isset($error)) {
+                    foreach ($error as $e) { ?>
+                        <div class='alert alert-danger bar error close' data-dismiss = 'alert'>
+                        <?php echo $e; ?>
+                        </div>
+                        <?php }
+                } ?>
+             <?php
+              if (isset($confirm)) {?>
+                    <div class='alert alert-danger bar success close' data-dismiss = 'alert'>
+                    <?php echo $confirm; ?>
+                    </div>
+                     <?php }
+             ?>
+                </div>    
                       <div class="form-group">
                           
                           <div class="col-xs-6">
@@ -82,7 +131,7 @@ if(isset($_POST['upload'])){
                           
                           <div class="col-xs-6">
                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" value = "<?php print("0".$editProfile->getnumber()); ?>" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
+                              <input type="text" class="form-control" name="mobile" value = "<?php print($editProfile->getnumber()); ?>" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
                               
                           </div>
                       </div>

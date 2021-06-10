@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-//session_start();    
-include 'classes/TripsClass.php';
+//session_start();
+include 'classes/MuseumsClass.php';
 include 'classes/User.php';
-$show = new trips("name", "description", "background", "price");
+$show = new museums("name", "description", "background", "price");
 $reserve = new Reserve();
 
 
@@ -21,7 +21,7 @@ $reserve = new Reserve();
 
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="Trips.css" /> 
+	<link type="text/css" rel="stylesheet" href="Museums.css" /> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 
@@ -130,20 +130,22 @@ $reserve = new Reserve();
 							<?php
 						if(isset($_SESSION["Logged_in_ID"]))
 						{
-							if( isset($_POST['book']))
+							if( isset($_POST['book'] ) )
 							{
 								$date = $_POST['date'];
 								$quantity = $_POST['quantity'];
 								$price = $_POST['price'];
-								$tripid = $_SESSION['Clicked_Trip_ID'];
+								$tripid = $_SESSION['Clicked_Museum_ID'];
 								$User = $_SESSION["Logged_in_ID"];
 								$reserve->saveRecords($date, $quantity, $price, $tripid, $User);
 							}
+							
+
 						}
 						else 
-				        {
+							{
 								echo "<script>alert('You will not be able to book unless you log in')</script>";
-				        }
+							}
 							?>
 
 						</div>

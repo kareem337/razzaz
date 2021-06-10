@@ -3,30 +3,31 @@
   include('DB.php');
   session_start();
 
-  if(isset($_GET['trip'])){
+  if(isset($_GET['museum'])){
 // write query for all pizzas
-  $sql = 'SELECT * FROM products WHERE category = 1';
+  $sql = 'SELECT * FROM products WHERE category = 2';
 
   // get the result set (set of rows)
   $result = mysqli_query($conn, $sql);
 
-$trip="";
+$museum="";
 
   while($row = mysqli_fetch_array($result)){
 
- if ($trip=="") {
+ if ($museum=="") 
+{
 
-          $trip="<div class='col-lg-4 col-md-6 portfolio-item filter-app'><img src='img/".$row['Image']."' class='img-fluid'/> <div class='portfolio-info'>
+          $museum="<div class='col-lg-4 col-md-6 portfolio-item filter-app'><img src='img/".$row['Image']."' class='img-fluid'/> <div class='portfolio-info'>
               <h4>".$row['Location'] . "</h4><p>".$row['Name']."</p>
-              <a ><i class='icofont-external-link' id='".$row['ID']."' onClick='showTrip(this.id)'></i></a></div></div>"; 
+              <a ><i class='icofont-external-link' id='".$row['ID']."' onClick='showMuseum(this.id)'></i></a></div></div>"; 
               }   else {
-          $trip=$trip."<div class='col-lg-4 col-md-6 portfolio-item filter-app'><img src='img/".$row['Image']."' class='img-fluid'/> <div class='portfolio-info'>
+          $museum=$museum."<div class='col-lg-4 col-md-6 portfolio-item filter-app'><img src='img/".$row['Image']."' class='img-fluid'/> <div class='portfolio-info'>
               <h4>".$row['Location'] . "</h4><p>".$row['Name']."</p>
-              <a ><i class='icofont-external-link' id='".$row['ID']."' onClick='showTrip(this.id)'></i></a></div></div>";    
+              <a ><i class='icofont-external-link' id='".$row['ID']."' onClick='showMuseum(this.id)'></i></a></div></div>";    
               } 
-  }
+}
 
-  echo $trip;
+  echo $museum;
 }
 
 elseif(isset($_GET['query'])){
@@ -54,9 +55,9 @@ if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do fo
       // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
       
      if ($hint=="") {
-          $hint="<a id='".$results['ID']."' onClick='showTrip(this.id)'' target='_blank'>".$results['Name']. "</a>";
+          $hint="<a id='".$results['ID']."' onClick='showMuseum(this.id)'' target='_blank'>".$results['Name']. "</a>";
         } else {
-          $hint=$hint . "<br><a id='".$results['ID']."' onClick='showTrip(this.id)'' target='_blank'>".$results['Name']. "</a>";
+          $hint=$hint . "<br><a id='".$results['ID']."' onClick='showMuseum(this.id)'' target='_blank'>".$results['Name']. "</a>";
         }
 
         
@@ -75,8 +76,8 @@ echo $response;
   }
   elseif(isset($_GET['ID'])){
 
-$_SESSION["Clicked_Trip_ID"]=$_GET['ID'];
-echo $_SESSION["Clicked_Trip_ID"];
+$_SESSION["Clicked_Museum_ID"]=$_GET['ID'];
+echo $_SESSION["Clicked_Museum_ID"];
 
 
 }
