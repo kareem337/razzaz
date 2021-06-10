@@ -8,7 +8,10 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-
+<?php
+include 'classes/Admin.php';
+$Admin = new Admin();
+?>
 <head>
 
 	 <meta charset="utf-8">
@@ -42,7 +45,7 @@ session_start();
 
 <body>
 	 
-<form method="POST">
+
 	
 <table class="mx-auto" id="f">
   <thead>
@@ -56,7 +59,6 @@ session_start();
       <th scope="col">User Type ID</th>
       <th scope="col">Users Types </th>
       <th scope="col">Delete </th>
-      <th scope="col">Save </th>
     </tr>
   </thead>
   <tbody>
@@ -65,7 +67,8 @@ session_start();
  
        $query = "SELECT * FROM users";
        $result = mysqli_query($conn,$query);
-       $UI = "SELECT `ID`, `type` FROM `user_type`";
+       $UI = "SELECT * FROM `user_type`";
+       
        
 
 
@@ -77,85 +80,101 @@ session_start();
 		    $email = $row['Email'];  
 		    $gender = $row['Gender'];  
         $num = $row['Number']; 
-		    $UTI = $row['User_Type_ID']; 
-		    $UIT = "SELECT `type` FROM `user_type` WHERE ID=".$UTI;
+		    $UTI = $row['User_Type_ID']; //type id rakam
+		    $UIT = "SELECT `type` FROM `user_type` WHERE ID=".$UTI; //type id esm
         $res = mysqli_query($conn,$UIT);
 		
 		?>
 	<tr>
-		<td><?php echo $id; ?></td>
+		<td><?php echo $id; ?>  <input type="hidden" value="<?php echo $id; ?>"></td>
 		<td><?php echo $fname; ?></td>
 		<td><?php echo $lname; ?></td>
         <td><?php echo $email; ?></td> 
         <td><?php echo $gender; ?></td> 
         <td><?php echo $num; ?></td>
         <td><?php $Utype = $res -> fetch_array(MYSQLI_ASSOC); echo $Utype['type']; ?></td> 
-        <td> <select name="UTI" ><?php while($row = mysqli_fetch_assoc($result2)) {
-          if($row['ID'] == $UTI ){echo("<option value='".$row['ID']."'selected >".$row['type']."</option>");}
-          else echo("<option value='".$row['ID']."'>".$row['type']."</option>");
-      }?> </select></td> 
-       <td style="width: 80px" ><button value="delete" name="delete" class="btn btn-danger"> Delete </button></td>
-       <td style="width: 80px" ><button value="save" name="save" class="btn btn-success"> Save </button></td>
-
+        <td>
+          <select oninput="defineValues(this.value,<?php echo $id; ?>)">
+            <?php while($roww = mysqli_fetch_assoc($result2)) 
+              {
+                  if($roww['ID'] == $UTI )
+                  {
+                      echo "<option value='".$roww['ID']."'selected >".$roww['type']."</option>";}
+                  else 
+                  {
+                      echo "<option value='".$roww['ID']."'>".$roww['type']."</option>";
+                  }
+              }
+            ?>
+          </select>
+        </td> 
+       <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button value="Delete" class="btn btn-danger"> Delete </button></a></td>
 	</tr>
 	<?php
     }
     ?>
   </tr>
+  <tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id; ?>"><button value="save" type="button" name="Save" class="btn btn-success"> Save </button></a></td>
+  </tr>
+  
   </tbody>
 </table>
-</form>
+
+
+
+
+
+
+<?php
+					
+						if( isset($_GET['id']) && isset($_GET['type']) )
+							{
+                $user_id = $_GET['id'];
+                $userTid = $_GET['type'];
+               echo $user_id;
+               echo $userTid;
+								$Admin->editRecords($user_id,  $userTid);
+                echo '<script>window.location="EditUsersInfoH.php"</script>';
+							}
+            elseif( isset($_GET['delete'] ) )
+            {
+              $user_id = $_GET['delete'];
+              $Admin->deletRecords($user_id);
+              echo '<script>window.location="EditUsersInfoH.php"</script>';
+            }
+           
+							?>
+
+
 <script>
+  function defineValues(x,y)
+  {
+    
 
-$( "button" ).click(function() {
-  var title=$(this).attr("value");
-
-  var text = $(this).closest('tr').find('td:eq(0)').text();
-  var text2 = $(this).closest('tr').find('td:eq(7) option:selected').val(); 
-  parseInt(text);
-  parseInt(text2);
-
-if(title=="delete"){
-if(confirm("Are you sure this record is going to be deleted !!")){
-$.ajax({ 
-           method: "POST", 
-           url: "EditUsersInfo.php",
-           data: {functioncall: 'deleteUser',userId : text},
-           success:function(results) { 
-            alert(results);
-        },
-        error: function(xhr, status, error) {
- console.error(xhr);
- alert("error");
- }
-
-         });
-}
-}
-else if(title=="save"){
-if(confirm("Are you sure this record is going to be Updated !")){
-$.ajax({ 
-           method: "POST", 
-           url: "EditUsersInfo.php",
-           data: {functioncall: 'save',userId : text , userTId: text2},
-           success:function(results) { 
-            alert(results);
-            
-        },
-        error: function(xhr, status, error) {
- console.error(xhr);
- alert("error");
- }
-
-         });
-}
-}
-
-});
+    var idTag = document.getElementById('idTag');
+    idTag.href = "EditUsersInfoH.php?id="+y+"&type="+x;
+  }
 
 
 
 </script>
+
+
+
+
+
+
+
+
 </body>
 
 </html>

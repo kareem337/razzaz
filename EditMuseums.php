@@ -41,7 +41,7 @@ $Admin = new Admin();
 
 
 
-<div class="h" > <h1><b> Razzaz Tours Trip Informations<b> </h1></div>
+<div class="h" > <h1><b> Razzaz Tours Museums Informations<b> </h1></div>
 </head>
 
 
@@ -85,10 +85,10 @@ $Admin = new Admin();
 		while($row = $result -> fetch_array(MYSQLI_ASSOC)) {             
 		    $id = $row['ID'];
 		    $tname = $row['name'];
-        $location = $row['location'];
+            $location = $row['location'];
 		    $price = $row['Price'];  
 		    $dis = $row['Description'];  
-        $pic = $row['image']; 
+            $pic = $row['image']; 
 		    
 		?>
 	<tr>
@@ -100,8 +100,6 @@ $Admin = new Admin();
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
     <td style="width: 80px;" > <a href="EditTripsH.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="btn btn-danger" style=" width: 80px; font-size: 16px;"> Delete </button></a></td>
     <td style="width: 80px;" > <button onclick="updateTrip(<?php echo $id; ?>)" value="update" type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></td>
-    <!-- <td style="width: 80px;" > <a href="update.php?update=<?php echo $id;?>"><button value="update"type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></a></td> -->
-    
 
 	</tr>
 	<?php
@@ -148,14 +146,14 @@ $Admin = new Admin();
                 $tprice = $_POST['tprice'];
                 $tdesc = $_POST['tdesc'];
                 $tpic = $_POST['tpic'];
-								$Admin->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
+				$Admin->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
                 echo "<script>alert('updated succsesfuly')</script>";
 							}
 				
               elseif( isset($_GET['delete'] ) )
               {
                 $trip_id = $_GET['delete'];
-                $Admin->delettrips($trip_id);
+                $Edit->delettrips($trip_id);
                 echo '<script>window.location="EditTripsH.php"</script>';
               }
 
@@ -167,8 +165,8 @@ $Admin = new Admin();
                 $tprice = $_GET['price'];
                 $tdesc = $_GET['dis'];
                 $tpic = $_GET['pic'];
-								$Admin->edittrips($id,$tname,$tloc,$tprice,$tdesc,$tpic);
-                // echo '<script>window.location="update.php"</script>';
+				$Admin->edittrips($id,$tname,$tloc,$tprice,$tdesc,$tpic);
+                // echo '<script>window.location="EditTripsH.php"</script>';
 							}
              
            
