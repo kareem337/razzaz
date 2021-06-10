@@ -53,7 +53,7 @@ class Person{
             }
             $_SESSION["Logged_in"] = true;
             $this->confirmLogin = "Logged in successfully";
-            header("location: HomePage.php");  
+            header("location: index.php");  
         }else{
             $this->get_errors_login = "Check email or password";
         }
@@ -109,6 +109,7 @@ class Person{
         $this->id = $_SESSION['Logged_in_ID'];
         # check if it is an image or not!
         $this->img = $upload_pic;
+        
         $query = "SELECT Picture FROM `users` where ID = '$this->id'";
         $sql = $this->con->query($query);
         
