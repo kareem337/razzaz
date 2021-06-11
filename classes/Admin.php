@@ -84,7 +84,7 @@ class   Admin extends Person
     
 
     $sql = "UPDATE `products` SET `Name`= ". $trips. ",`Location`=" .$loc. " ,`Price`=".$price.", `Description`=".$desc.", `Image`=".$pic." WHERE `ID`= ".$id; 
-    // $sql = "UPDATE `users` SET `User_Type_ID`=". $userTid . " WHERE `ID` = ". $user_id;  
+  
 
     $save = mysqli_query($conn,$sql);
 
