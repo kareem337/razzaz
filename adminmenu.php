@@ -51,7 +51,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="logout.php">
                 <span class="fa fa-sign-out"></span>
                 <span>Logout</span>
               </a>
