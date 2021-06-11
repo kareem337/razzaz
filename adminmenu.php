@@ -15,7 +15,7 @@
         <div class="sidebar-menu">
           <ul>
             <li>
-              <a href="#" class="active">
+              <a href="dashboard.php" class="active">
                 <span class="fas fa-tachometer-alt"></span>
                 <span>Dashboard</span>
               </a>
