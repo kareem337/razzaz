@@ -1,9 +1,10 @@
 <?php
+include'adminmenu.php';
 session_start();
   if( $_SESSION["Logged_in_UTID"] == 2) {
     die("Forbidden");
   }
-include'adminmenu.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -12,39 +13,86 @@ include'adminmenu.php';
 include 'classes/Admin.php';
 $Admin = new Admin();
 ?>
-<style>
-    
-    </style>
 <head>
-   
-	 <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
+    
   <?php
   include('DB.php');
    ?>
 
-     
- <link rel="stylesheet" href="EditUsersInfo.css">
   <style>
-    table{
-			border:1px solid #000;
-		}
-		table td,table th {
-			border:1px solid #000;
-		}
-    </style>
-<div class="h" > <h1> Users Informations </h1></div>
+  #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;  
+  margin-top:20px;  
+  margin-left: 70px;              
+  }
+  #customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;      
+  }
+  #customers tr:nth-child(even){background-color: #ddd;}
+  /*#customers tr:hover {background-color: #ddd;}*/
+  #customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #dddddd;
+  color: black;
+  }    
+  a{
+  text-decoration: none;
+  }
+  .h{
+	margin-top: 150px;
+	text-align:center;
+  }   
+  .text{
+    margin-top: 10px;  
+    width:300px;   
+    height:40px;  
+    border-radius: 10px;
+    margin-left: -15px;  
+  }
+  .success{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;     
+  } 
+  .failure{
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;     
+  }  
+    .success:hover{
+    cursor: pointer;
+   } 
+    .failure:hover{
+    cursor: pointer;
+   }   
+        
+  </style>
+<div class = "h"> <h1> Users Informations </h1><input type = "text" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
 </head>
 
-
-
-
-<body>
+<body style = "background: #668B91;">
 	
-<table class="mx-auto" id="f">
-  <thead>
+<table class="mx-auto" id="customers">
+  
     <tr>
       <th scope="col">ID</th>
       <th scope="col">First Name</th>
@@ -56,7 +104,7 @@ $Admin = new Admin();
       <th scope="col">Users Types </th>
       <th scope="col">Delete </th>
     </tr>
-  </thead>
+
   <tbody>
     <?php
      
@@ -104,7 +152,7 @@ $Admin = new Admin();
             ?>
           </select>
         </td> 
-       <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button value="Delete" class="btn btn-danger"> Delete </button></a></td>
+       <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button value="Delete" class="failure"> Delete </button></a></td>
 	</tr>
 	<?php
     }
@@ -119,7 +167,8 @@ $Admin = new Admin();
   <td></td>
   <td></td>
   <td></td>
-  <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id; ?>"><button value="save" type="button" name="Save" class="btn btn-success"> Save </button></a></td>
+        
+  <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id; ?>"><button value="save" type="button" name="Save" class="success"> Save </button></a></td>
   </tr>
   
   </tbody>
@@ -163,13 +212,6 @@ $Admin = new Admin();
 
 
 </script>
-
-
-
-
-
-
-
 
 </body>
 

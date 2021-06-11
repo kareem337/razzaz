@@ -62,6 +62,7 @@
 #nav-toggle:checked+.sidebar li {
     padding-left: 1rem;
     text-align: center;
+ 
 }
 
 #nav-toggle:checked+.sidebar li a {

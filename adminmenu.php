@@ -32,31 +32,31 @@
             <li>
               <a href="EditUsersInfoH.php" class = "hov">
                 <span class="fas fa-users" ></span>
-                <span>Edit Users</span>
+                <span>Users</span>
               </a>
             </li>
             <li>
               <a href="#" class = "hov">
-                <span class="far fa-eye"></span>
-              <span>View Orders</span>
+                <span class="fas fa-shopping-cart"></span>
+              <span>Orders</span>
               </a>
             </li>
             <li>
               <a href="#" class = "hov">
                 <span class="fas fa-clipboard-list"></span>
-                <span>View Enquiries</span>
+                <span>Enquiries</span>
               </a>
             </li>
             <li>
               <a href="#" class = "hov">
-                <span class="fas fa-boxes"></span>
-                <span>Edit Trips</span>
+                <span class="fas fa-plane"></span>
+                <span>Trips</span>
               </a>
             </li>
             <li>
               <a href="#" class = "hov">
-                <span class="fas fa-user-circle"></span>
-                <span>Edit Museums</span>
+                <span class="fas fa-landmark"></span>
+                <span>Museums</span>
               </a>
             </li>
             <li>
@@ -76,6 +76,6 @@
           <label for="nav-toggle">
             <span class="fas fa-bars"></span>
           </label>
-          Dashboard
         </h2>
+        </header>
 </html>
