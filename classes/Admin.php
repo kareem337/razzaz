@@ -1,15 +1,10 @@
 <?php 
 include("Person.php");
-class Admin extends Person
+class   Admin extends Person
 {
-    private $userscount = 0;
-    private $orderscount = 0;
-    private $enquiriescount = 0;
-    private $museumscount = 0;
-    private $tripscount = 0;
-    
+
     protected function connect ()
-    {
+        {
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
@@ -17,7 +12,7 @@ class Admin extends Person
 
         $conn = new mysqli($this->servername, $this->username, $this->password,$this->dbname);
         return $conn;
-    }
+        }
 
     public function editRecords ($user_id,  $userTid)
     {
@@ -61,7 +56,7 @@ class Admin extends Person
     }
     public function addTrip($tname,$tloc,$tprice,$tdesc,$tpic) {
         $conn = $this->connect();
-        $sql = "INSERT INTO `trips`(`name`,`location`,`Price`, `Description`, `image`) VALUES ('$tname','$tloc','$tprice','$tdesc','$tpic')";
+        $sql = "INSERT INTO `Products`(`Name`,`Location`,`Price`, `Description`, `Image`) VALUES ('$tname','$tloc','$tprice','$tdesc','$tpic')";
            $save = mysqli_query($conn,$sql);
 
 
@@ -83,7 +78,7 @@ class Admin extends Person
        
     
 
-    $sql = "UPDATE `trips` SET `name`= ". $trips. ",`location`=" .$loc. " ,`Price`=".$price.", `Description`=".$desc.", `image`=".$pic." WHERE `ID`= ".$id; 
+    $sql = "UPDATE `products` SET `Name`= ". $trips. ",`Location`=" .$loc. " ,`Price`=".$price.", `Description`=".$desc.", `Image`=".$pic." WHERE `ID`= ".$id; 
     // $sql = "UPDATE `users` SET `User_Type_ID`=". $userTid . " WHERE `ID` = ". $user_id;  
 
     $save = mysqli_query($conn,$sql);
@@ -105,7 +100,7 @@ class Admin extends Person
     {
         $conn = $this->connect();
 
-        $sql = "DELETE FROM `trips` WHERE `ID` = ". $trip_id;
+        $sql = "DELETE FROM `products` WHERE `ID` = ". $trip_id;
         $delete = mysqli_query($conn,$sql);
 
             if (mysqli_query($conn, $sql)) 
@@ -124,7 +119,7 @@ class Admin extends Person
 		{
             $conn = $this->connect();
 
-		    $query = "SELECT * FROM trips WHERE ID = '$id'";
+		    $query = "SELECT * FROM products WHERE ID = '$id'";
 		    $result = mysqli_query($conn,$query);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -138,7 +133,7 @@ class Admin extends Person
 		public function updateTrip($location,$name,$price,$desc,$image,$id)
 		{
 		    $conn = $this->connect();
-                $query = "UPDATE trips SET location = '$location', name = '$name', Price = '$price' , Description = '$desc' , image = '$image' WHERE ID = '$id'";
+                $query = "UPDATE products SET Location = '$location', Name = '$name', Price = '$price' , Description = '$desc' , Image = '$image' WHERE ID = '$id'";
                 $result = mysqli_query($conn,$query);
                 if ($result == true) {
                     header("Location: EditTripsH.php");
@@ -152,7 +147,7 @@ class Admin extends Person
 		// Delete customer data from customer table
 		public function deleteTrip($id)
 		{
-		    $query = "DELETE FROM customers WHERE id = '$id'";
+		    $query = "DELETE FROM products WHERE id = '$id'";
 		    $sql = $this->con->query($query);
 		if ($sql==true) {
 			header("Location:index.php?msg3=delete");
@@ -160,41 +155,6 @@ class Admin extends Person
 			echo "Record does not delete try again";
 		    }
 		}
-    
-        public function getUsersCount(){
-            $con = $this->connect();
-            $query = "SELECT COUNT(ID) FROM users WHERE User_Type_ID = 2";
-            $this->userscount = $this->con->query($query)->fetch_row()[0];
-            return $this->userscount;
-        }
-    
-        public function getOrdersCount(){
-            $con = $this->connect();
-            $query = "SELECT COUNT(id) FROM orders";
-            $this->orderscount = $this->con->query($query)->fetch_row()[0];
-            return $this->orderscount;
-        }
-    
-        public function getEnquiriesCount(){
-            $con = $this->connect();
-            $query = "SELECT COUNT(id) FROM chat";
-            $this->enquiriescount = $this->con->query($query)->fetch_row()[0];
-            return $this->enquiriescount;
-        }
-    
-        public function getMuseumsCount(){
-            $con = $this->connect();
-            $query = "SELECT COUNT(ID) FROM products WHERE category = 2";
-            $this->enquiriescount = $this->con->query($query)->fetch_row()[0];
-            return $this->enquiriescount;
-        }
-    
-        public function getTripsCount(){
-            $con = $this->connect();
-            $query = "SELECT COUNT(ID) FROM products WHERE category = 1";
-            $this->tripscount = $this->con->query($query)->fetch_row()[0];
-            return $this->tripscount;
-        }
 
 
 

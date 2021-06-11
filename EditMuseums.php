@@ -19,7 +19,7 @@ $Admin = new Admin();
    
 	 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
  
   
   
@@ -77,18 +77,18 @@ $Admin = new Admin();
     <?php
      
  
-       $query = "SELECT * FROM trips";
+       $query = "SELECT * FROM products WHERE category = 2 ";
        $result = mysqli_query($conn,$query);
       
 
 
 		while($row = $result -> fetch_array(MYSQLI_ASSOC)) {             
 		    $id = $row['ID'];
-		    $tname = $row['name'];
-            $location = $row['location'];
+		    $tname = $row['Name'];
+        $location = $row['Location'];
 		    $price = $row['Price'];  
 		    $dis = $row['Description'];  
-            $pic = $row['image']; 
+        $pic = $row['Image']; 
 		    
 		?>
 	<tr>
@@ -99,7 +99,9 @@ $Admin = new Admin();
     <td><input name="dis" type="text" id="dis" value="<?php echo $dis; ?>"></td> 
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
     <td style="width: 80px;" > <a href="EditTripsH.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="btn btn-danger" style=" width: 80px; font-size: 16px;"> Delete </button></a></td>
-    <td style="width: 80px;" > <button onclick="updateTrip(<?php echo $id; ?>)" value="update" type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></td>
+    <!-- <td style="width: 80px;" > <button onclick="updateTrip(<?php echo $id; ?>)" value="update" type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></td> -->
+    <td style="width: 80px;" > <a href="update.php?editId=<?php echo $id;?>"><button value="update"type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></a></td>
+    
 
 	</tr>
 	<?php
@@ -146,14 +148,14 @@ $Admin = new Admin();
                 $tprice = $_POST['tprice'];
                 $tdesc = $_POST['tdesc'];
                 $tpic = $_POST['tpic'];
-				$Admin->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
+								$Admin->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
                 echo "<script>alert('updated succsesfuly')</script>";
 							}
 				
               elseif( isset($_GET['delete'] ) )
               {
                 $trip_id = $_GET['delete'];
-                $Edit->delettrips($trip_id);
+                $Admin->delettrips($trip_id);
                 echo '<script>window.location="EditTripsH.php"</script>';
               }
 
@@ -165,8 +167,8 @@ $Admin = new Admin();
                 $tprice = $_GET['price'];
                 $tdesc = $_GET['dis'];
                 $tpic = $_GET['pic'];
-				$Admin->edittrips($id,$tname,$tloc,$tprice,$tdesc,$tpic);
-                // echo '<script>window.location="EditTripsH.php"</script>';
+								$Admin->edittrips($id,$tname,$tloc,$tprice,$tdesc,$tpic);
+                // echo '<script>window.location="update.php"</script>';
 							}
              
            
@@ -177,18 +179,18 @@ function openForm() {
   $("#form1").toggle();
 }
 
-function updateTrip(x)
-{
-  var tripId = x;
-  var tname = document.getElementById('tname').value;
-  var location = document.getElementById('location').value;
-  var price = document.getElementById('price').value;
-  var dis = document.getElementById('dis').value;
-  var pic = document.getElementById('pic').value;
+// function updateTrip(x)
+// {
+//   var tripId = x;
+//   var tname = document.getElementById('tname').value;
+//   var location = document.getElementById('location').value;
+//   var price = document.getElementById('price').value;
+//   var dis = document.getElementById('dis').value;
+//   var pic = document.getElementById('pic').value;
 
-  window.location = "EditTripsH.php?update=1&tripid="+x+"&tname="+tname+"&location="+location+"&price="+price+"&dis="+dis+"&pic="+pic;
+//   window.location = "EditTripsH.php?update=1&tripid="+x+"&tname="+tname+"&location="+location+"&price="+price+"&dis="+dis+"&pic="+pic;
 
-}
+// }
 
 
 
