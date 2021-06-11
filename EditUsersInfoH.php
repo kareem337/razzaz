@@ -57,6 +57,8 @@ $Admin = new Admin();
     height:40px;  
     border-radius: 10px;
     margin-left: -15px;  
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 16px;  
   }
   .success{
     background-color: #4CAF50; /* Green */
