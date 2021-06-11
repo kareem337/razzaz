@@ -17,7 +17,7 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-          <h1> <img src="assets/img/navv1.png" style= "margin-left: -20px; width:75; height:75; ">
+          <h1> <img src="assets/img/navv1.png" style= "margin-left: -20px;width:75; height:75; ">
           </h1>
         </div>
         
@@ -78,6 +78,4 @@
           </label>
           Dashboard
         </h2>
-        </header>  
-        
 </html>
