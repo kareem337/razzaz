@@ -21,13 +21,13 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="EditUsersInfoH.php">
                 <span class="fas fa-users" ></span>
                 <span>Edit Users</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="orderssH.php">
                 <span class="far fa-eye"></span>
               <span>View Orders</span>
               </a>
@@ -39,13 +39,13 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="EditTripsH.php">
                 <span class="fas fa-boxes"></span>
                 <span>Edit Trips</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="EditMuseums.php">
                 <span class="fas fa-user-circle"></span>
                 <span>Edit Museums</span>
               </a>
