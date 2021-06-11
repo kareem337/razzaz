@@ -27,7 +27,7 @@
           <li><a href="index.php#services">SERVICES</a></li>
           <li><a href="DestinationH.php">Trips</a></li>
           <li><a href="Museum_CategoryH.php">Museums</a></li>
-          <li class="drop-down" id="links">
+          <li class="" id="links">
               
            
           </li>
@@ -55,15 +55,13 @@ $.ajax({
 
           if(result!=0){
 
-          $('#links').append("<a href=''>Links</a><ul id='inLinks'></ul>")
+          $('#links').append("<a href='UserContact.php'>Contact Us</a><ul id='inLinks'></ul>")
 
           $.each( result, function( key, value ) { 
 
-       if(typeof value != "string"){
-            $('#inLinks').append( "<li><a href='"+value['Link']+"'>"+value['Access']+"</a></li>");
-          }else {
+
              $('#signIn').html("<a href='store.php' class='get-started-btn' style='text-decoration: none;'><i class='fa fa-shopping-cart' style='font-size:14px';></i></a> <a href='EditMyProfileH.php' class='get-started-btn' style='text-decoration: none;'>"+value+"</a><a href='logout.php' class='get-started-btn' style='text-decoration: none;'>Log out</a>" )
-          }
+          
 
            
 });  
