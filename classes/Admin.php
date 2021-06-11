@@ -2,7 +2,6 @@
 include("Person.php");
 class   Admin extends Person
 {
-
     private $userscount = 0;
     private $orderscount = 0;
     private $enquiriescount = 0;
@@ -196,7 +195,4 @@ class   Admin extends Person
             $this->tripscount = $this->con->query($query)->fetch_row()[0];
             return $this->tripscount;
         }
-
-
-
 }
