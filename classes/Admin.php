@@ -1,10 +1,15 @@
 <?php 
 include("Person.php");
-class   Admin extends Person
+class Admin extends Person
 {
-
+    private $userscount = 0;
+    private $orderscount = 0;
+    private $enquiriescount = 0;
+    private $museumscount = 0;
+    private $tripscount = 0;
+    
     protected function connect ()
-        {
+    {
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "";
@@ -12,7 +17,7 @@ class   Admin extends Person
 
         $conn = new mysqli($this->servername, $this->username, $this->password,$this->dbname);
         return $conn;
-        }
+    }
 
     public function editRecords ($user_id,  $userTid)
     {
@@ -155,6 +160,41 @@ class   Admin extends Person
 			echo "Record does not delete try again";
 		    }
 		}
+    
+        public function getUsersCount(){
+            $con = $this->connect();
+            $query = "SELECT COUNT(ID) FROM users WHERE User_Type_ID = 2";
+            $this->userscount = $this->con->query($query)->fetch_row()[0];
+            return $this->userscount;
+        }
+    
+        public function getOrdersCount(){
+            $con = $this->connect();
+            $query = "SELECT COUNT(id) FROM orders";
+            $this->orderscount = $this->con->query($query)->fetch_row()[0];
+            return $this->orderscount;
+        }
+    
+        public function getEnquiriesCount(){
+            $con = $this->connect();
+            $query = "SELECT COUNT(id) FROM chat";
+            $this->enquiriescount = $this->con->query($query)->fetch_row()[0];
+            return $this->enquiriescount;
+        }
+    
+        public function getMuseumsCount(){
+            $con = $this->connect();
+            $query = "SELECT COUNT(ID) FROM products WHERE category = 2";
+            $this->enquiriescount = $this->con->query($query)->fetch_row()[0];
+            return $this->enquiriescount;
+        }
+    
+        public function getTripsCount(){
+            $con = $this->connect();
+            $query = "SELECT COUNT(ID) FROM products WHERE category = 1";
+            $this->tripscount = $this->con->query($query)->fetch_row()[0];
+            return $this->tripscount;
+        }
 
 
 

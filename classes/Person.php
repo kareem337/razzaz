@@ -53,7 +53,12 @@ class Person{
             }
             $_SESSION["Logged_in"] = true;
             $this->confirmLogin = "Logged in successfully";
+            if($_SESSION["Logged_in"] = true && $_SESSION["Logged_in_UTID"] == 2){
             header("location: index.php");  
+            }
+            else if($_SESSION["Logged_in"] = true && $_SESSION["Logged_in_UTID"] == 1){
+                header("location: dashboard.php");
+            }
         }else{
             $this->get_errors_login = "Check email or password";
         }
