@@ -6,16 +6,16 @@ $dashboard->getprofile();
 ?>
 
 <html>
-        <div class="user-wrapper">
+        <div class="user-wrapper" >
          <img src="<?php print('img/personal-images/'.$dashboard->getimg());?>" width="40px;" height="40px;" alt="profile-img">
          <div class="">
             <h4><?php print($dashboard->getfirstname());?></h4>
             <small> Admin</small>
          </div>
         </div>
-      </header>
+    
 
-      <main style="background:#668B91; margin-top: 70px; height: 651px;">
+      <main style="background:#668B91; margin-top: 20px; height: 654px;">
         <div class="cards">
           <div class="card-single">
             <div>

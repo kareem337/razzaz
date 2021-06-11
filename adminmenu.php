@@ -17,7 +17,7 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-          <h1> <img src="assets/img/navv1.png" style= "margin-left: -20px;width:75; height:75; ">
+          <h1> <img src="assets/img/navv1.png" style= "margin-left: -20px; width:75; height:75; ">
           </h1>
         </div>
         
@@ -25,12 +25,12 @@
           <ul>
             <li>
               <a href="dashboard.php" class = "hov">
-                <span class="fas fa-tachometer-alt"></span>
+                <span class="fas fa-tachometer-alt" ></span>
                 <span>Dashboard</span>
               </a>
             </li>
             <li>
-              <a href="#" class = "hov">
+              <a href="EditUsersInfoH.php" class = "hov">
                 <span class="fas fa-users" ></span>
                 <span>Edit Users</span>
               </a>
@@ -78,4 +78,6 @@
           </label>
           Dashboard
         </h2>
+        </header>  
+        
 </html>

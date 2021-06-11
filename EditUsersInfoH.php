@@ -3,7 +3,7 @@ session_start();
   if( $_SESSION["Logged_in_UTID"] == 2) {
     die("Forbidden");
   }
-
+include'adminmenu.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,22 +12,20 @@ session_start();
 include 'classes/Admin.php';
 $Admin = new Admin();
 ?>
+<style>
+    
+    </style>
 <head>
-
+   
 	 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  
-  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
   <?php
   include('DB.php');
+   ?>
 
-     include'NavBarH.php';
-     ?>
-
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     
  <link rel="stylesheet" href="EditUsersInfo.css">
   <style>
     table{
@@ -37,15 +35,13 @@ $Admin = new Admin();
 			border:1px solid #000;
 		}
     </style>
-<div class="h" > <h1><b> Users Informations<b> </h1></div>
+<div class="h" > <h1> Users Informations </h1></div>
 </head>
 
 
 
 
 <body>
-	 
-
 	
 <table class="mx-auto" id="f">
   <thead>
@@ -113,7 +109,7 @@ $Admin = new Admin();
 	<?php
     }
     ?>
-  </tr>
+  
   <tr>
   <td></td>
   <td></td>
