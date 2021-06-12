@@ -148,7 +148,7 @@ $Admin = new Admin();
                 $tprice = $_POST['tprice'];
                 $tdesc = $_POST['tdesc'];
                 $tpic = $_POST['tpic'];
-								$Admin->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
+								$Admin->addmuse($tname,$tloc,$tprice,$tdesc,$tpic);
                 echo "<script>alert('updated succsesfuly')</script>";
 							}
 				

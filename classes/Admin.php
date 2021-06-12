@@ -60,8 +60,9 @@ class   Admin extends Person
         
     }
     public function addTrip($tname,$tloc,$tprice,$tdesc,$tpic) {
+    
         $conn = $this->connect();
-        $sql = "INSERT INTO `Products`(`Name`,`Location`,`Price`, `Description`, `Image`) VALUES ('$tname','$tloc','$tprice','$tdesc','$tpic')";
+        $sql = "INSERT INTO `Products`(`Name`,`Location`,`Price`, `Description`, `Image`,`category` ) VALUES ('$tname','$tloc','$tprice','$tdesc','$tpic',1)";
            $save = mysqli_query($conn,$sql);
 
 
@@ -76,6 +77,23 @@ class   Admin extends Person
             }
     }
 
+    public function addmuseum($tname,$tloc,$tprice,$tdesc,$tpic) {
+    
+        $conn = $this->connect();
+        $sql = "INSERT INTO `Products`(`Name`,`Location`,`Price`, `Description`, `Image`,`category` ) VALUES ('$tname','$tloc','$tprice','$tdesc','$tpic',2)";
+        $save = mysqli_query($conn,$sql);
+
+
+            if (mysqli_query($conn, $sql)) 
+            {
+                print "<script>alert('Trip Added')</script>";
+                        
+            } 
+            else 
+            {
+                echo "<script>alert('Error in editing')</script>";
+            }
+    }
    
     public function edittrips ($id,$trips,$loc,$price,$desc,$pic)
     {
