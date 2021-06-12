@@ -179,6 +179,22 @@ class   Admin extends Person
 		    }
 		}
 
+
+        public function Search()
+        {
+            if(isset($_GET['search']))
+        { 
+        $query = "SELECT * FROM users WHERE email LIKE '%".$_GET['s']."%'";
+        $result = mysqli_query($conn,$query);
+          if(!$result)
+        {
+	            var_dump($result,$_GET['s']);
+	            echo "<br>There's no records that matches your search input";
+	            exit;
+         }
+        }
+    }
+
             public function getUsersCount(){
             $con = $this->connect();
             $query = "SELECT COUNT(ID) FROM users WHERE User_Type_ID = 2";

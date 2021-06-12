@@ -88,7 +88,16 @@ $Admin = new Admin();
    }   
         
   </style>
-<div class = "h"> <h1> Users Informations </h1><input type = "text" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
+<div class = "h"> <h1> Users Informations </h1>
+<form method="GET">
+<input type = "text" name= "search" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
+<button type="submit">Submit</button>
+</form>
+
+<?php
+
+
+?>
 </head>
 
 <body style = "background: #668B91;">
@@ -173,7 +182,7 @@ $Admin = new Admin();
   <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id; ?>"><button value="save" type="button" name="Save" class="success"> Save </button></a></td>
   </tr>
   
-  </tbody>
+</tbody>
 </table>
 
 
@@ -198,8 +207,13 @@ $Admin = new Admin();
               $Admin->deletRecords($user_id);
               echo '<script>window.location="EditUsersInfoH.php"</script>';
             }
+            elseif( isset($_GET['search'] ) )
+            {
+              $Admin->Search();
+              echo '<script>window.location="EditUsersInfoH.php"</script>';
+            }
            
-							?>
+?>
 
 
 <script>

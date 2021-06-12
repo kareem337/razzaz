@@ -36,7 +36,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class = "hov">
+              <a href="orderssH.php" class = "hov">
                 <span class="fas fa-shopping-cart"></span>
               <span>Orders</span>
               </a>
@@ -48,13 +48,13 @@
               </a>
             </li>
             <li>
-              <a href="#" class = "hov">
+              <a href="EditTripsH.php" class = "hov">
                 <span class="fas fa-plane"></span>
                 <span>Trips</span>
               </a>
             </li>
             <li>
-              <a href="#" class = "hov">
+              <a href="EditMuseums.php" class = "hov">
                 <span class="fas fa-landmark"></span>
                 <span>Museums</span>
               </a>
