@@ -31,11 +31,11 @@ $Admin = new Admin();
   margin-left: 70px;              
   }
   #customers td, #customers th {
-  border: 1px solid #ddd;
+  border: 1px solid black;
   padding: 8px;
   text-align: center;      
   }
-  #customers tr:nth-child(even){background-color: #ddd;}
+  #customers tr{background-color: white;}
   /*#customers tr:hover {background-color: #ddd;}*/
   #customers th {
   padding-top: 12px;
@@ -56,7 +56,7 @@ $Admin = new Admin();
     width:300px;   
     height:40px;  
     border-radius: 10px;
-    margin-left: -15px;  
+    margin-left: 15px;  
     font-family: Arial, Helvetica, sans-serif;  
     font-size: 16px;  
   }
@@ -88,11 +88,13 @@ $Admin = new Admin();
    }   
         
   </style>
-<div class = "h"> <h1> Users Informations </h1>
+<div class = "h">
+    <h1> Users Informations </h1>
 <form method="GET">
-<input type = "text" name= "search" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
-<button type="submit">Submit</button>
+<input type = "text" name= "search" class = "text">
+    <button class="fas fa-search" style = "margin-left: 20px; margin-left:-45px; width: 50px; height: 50px; background: transparent; border: transparent;" type="submit"></button>
 </form>
+ </div>    
 
 <?php
 
