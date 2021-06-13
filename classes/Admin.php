@@ -184,11 +184,11 @@ class   Admin extends Person
         {
             if(isset($_GET['search']))
         { 
-        $query = "SELECT * FROM users WHERE email LIKE '%".$_GET['s']."%'";
+        $query = "SELECT * FROM users WHERE email LIKE '%".$_GET['search']."%'";
         $result = mysqli_query($conn,$query);
           if(!$result)
         {
-	            var_dump($result,$_GET['s']);
+	            var_dump($result,$_GET['search']);
 	            echo "<br>There's no records that matches your search input";
 	            exit;
          }

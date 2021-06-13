@@ -207,11 +207,7 @@ $Admin = new Admin();
               $Admin->deletRecords($user_id);
               echo '<script>window.location="EditUsersInfoH.php"</script>';
             }
-            elseif( isset($_GET['search'] ) )
-            {
-              $Admin->Search();
-              echo '<script>window.location="EditUsersInfoH.php"</script>';
-            }
+            
            
 ?>
 
