@@ -1,4 +1,5 @@
 <?php
+
 include'adminmenu.php';
 session_start();
   if( $_SESSION["Logged_in_UTID"] == 2) {
@@ -11,7 +12,7 @@ session_start();
 <html>
 <?php
 include 'classes/Admin.php';
-$Admin = new Admin();
+$Admin = new Admin();  
 ?>
 <head>
   <meta charset="utf-8">
