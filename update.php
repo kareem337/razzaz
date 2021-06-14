@@ -48,7 +48,7 @@
 		}
     </style>
 
-<div class="h" > <h1><b> Update in Trip Information<b> </h1></div>
+<div class="h" > <h1><b> Update In Trip Information<b> </h1></div>
 </head>
 <body>
 
