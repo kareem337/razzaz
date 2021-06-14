@@ -49,7 +49,7 @@
   <section id="hero">
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
       <h1>Where It All Begins</h1>
-      <h2>We are Razzaz Tours company </h2>
+      <h2>We Are Razzaz Tours Company</h2>
 
       <div class="d-flex">
         <a href="SignUpH.php" class="btn-get-started scrollto" style="text-decoration: none;">Sign Up</a>
@@ -114,7 +114,7 @@
           <div class="col-lg-6 pt-3 pt-lg-0 content">
             <h3>Calling All Tourists Around The World.</h3>
             <p class="font-italic">
-            Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs. Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.     </p>
+            Egypt, a country linking northeast Africa with the Middle East, dates to the time of the Pharaohs. Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings Tombs. The capital, Cairo, is home to Ottoman landmarks like Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.     </p>
           </div>
 
         </div>
@@ -177,7 +177,7 @@ We are committed to providing world-class trekking experiences for our guests th
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>Check our Services</p>
+          <p>Check Our Services</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="200">
