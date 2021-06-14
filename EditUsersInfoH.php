@@ -1,4 +1,5 @@
 <?php
+
 include'adminmenu.php';
 session_start();
   if( $_SESSION["Logged_in_UTID"] == 2) {
@@ -11,7 +12,7 @@ session_start();
 <html>
 <?php
 include 'classes/Admin.php';
-$Admin = new Admin();
+$Admin = new Admin();  
 ?>
 <head>
   <meta charset="utf-8">
@@ -31,11 +32,11 @@ $Admin = new Admin();
   margin-left: 70px;              
   }
   #customers td, #customers th {
-  border: 1px solid #ddd;
+  border: 1px solid black;
   padding: 8px;
   text-align: center;      
   }
-  #customers tr:nth-child(even){background-color: #ddd;}
+  #customers tr{background-color: white;}
   /*#customers tr:hover {background-color: #ddd;}*/
   #customers th {
   padding-top: 12px;
@@ -56,7 +57,7 @@ $Admin = new Admin();
     width:300px;   
     height:40px;  
     border-radius: 10px;
-    margin-left: -15px;  
+    margin-left: 15px;  
     font-family: Arial, Helvetica, sans-serif;  
     font-size: 16px;  
   }
@@ -88,7 +89,18 @@ $Admin = new Admin();
    }   
         
   </style>
-<div class = "h"> <h1> Users Informations </h1><input type = "text" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
+<div class = "h">
+    <h1> Users Informations </h1>
+<form method="GET">
+<input type = "text" name= "search" class = "text">
+    <button class="fas fa-search" style = "margin-left: 20px; margin-left:-45px; width: 50px; height: 50px; background: transparent; border: transparent;" type="submit"></button>
+</form>
+ </div>    
+
+<?php
+
+
+?>
 </head>
 
 <body style = "background: #668B91;">
@@ -173,7 +185,7 @@ $Admin = new Admin();
   <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id; ?>"><button value="save" type="button" name="Save" class="success"> Save </button></a></td>
   </tr>
   
-  </tbody>
+</tbody>
 </table>
 
 
@@ -198,8 +210,9 @@ $Admin = new Admin();
               $Admin->deletRecords($user_id);
               echo '<script>window.location="EditUsersInfoH.php"</script>';
             }
+            
            
-							?>
+?>
 
 
 <script>
