@@ -56,7 +56,7 @@
 
         <div class="section-title">
           <h2>Trips</h2>
-          <p>Check our Trips</p>
+          <p>Check Our Trips</p>
         </div>
 
 
