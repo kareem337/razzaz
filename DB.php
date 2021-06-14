@@ -5,10 +5,10 @@ $username = "root";
 $password = "";
 $dbname = "razzaztours";
 
-// Create connection
+// Create a connection
 $conn = new mysqli($servername, $username, $password,$dbname);
 
-// Check connection
+// Check the connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
