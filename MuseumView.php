@@ -1,8 +1,8 @@
 <?php
-require_once('TripModel.php');
-class TripView extends TripModel
+require_once('MuseumModel.php');
+class MuseumView extends MuseumModel
 {
-    public function fetchTrip()
+    public function fetchMuseum()
     {
         echo"<div class='col-md-7 col-md-push-5' style='color: white;'>
         <div class='booking-cta'>

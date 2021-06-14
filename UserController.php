@@ -10,7 +10,7 @@ class UserController extends UserModel
         $this->sendToAdmin($user_id, $user_name, $msg);
     }
 
-    public function insertRecord()
+    public function insertTripRecord()
     {
         
         $date = $_POST['date'];
@@ -19,6 +19,19 @@ class UserController extends UserModel
         $tripid = $_SESSION["Clicked_Trip_ID"];
         $User = $_SESSION["Logged_in_ID"];
         $this->saveRecords($User, $quantity, $date, $price, $tripid);
+        
+
+    }
+
+    public function insertMuseumRecord()
+    {
+        
+        $date = $_POST['date'];
+        $quantity = $_POST['quantity'];
+        $price = $_POST['price'];
+        $museumid = $_SESSION["Clicked_Museum_ID"];
+        $User = $_SESSION["Logged_in_ID"];
+        $this->saveRecords($User, $quantity, $date, $price, $museumid);
         
 
     }
