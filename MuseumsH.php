@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php   
-include 'UserModel.php';
-include 'UserView.php';
-include 'UserController.php';
-include 'MuseumView.php';
-$UserM = new UserModel();
-$UserV = new UserView();
+include 'controller/UserController.php';
+include 'view/MuseumView.php';
 $UserC = new UserController();
 $MuseumV = new MuseumView("","","","");
 ?>
@@ -57,7 +53,7 @@ $MuseumV = new MuseumView("","","","");
      <?php
      include'NavBarH.php';
      ?>
-      </header>
+    </header>
 
   <div id="booking" class="section"  style="background-image: url('img/<?php $MuseumV->fetchBackground(); ?>'); " >
 		<div class="section-center">

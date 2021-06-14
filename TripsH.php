@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php   
-include 'UserModel.php';
-include 'UserView.php';
-include 'UserController.php';
-include 'TripView.php';
-$UserM = new UserModel();
-$UserV = new UserView();
+include 'controller/UserController.php';
+include 'view/TripView.php';
 $UserC = new UserController();
 $TripV = new TripView("","","","");
 ?>

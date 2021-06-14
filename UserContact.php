@@ -1,8 +1,8 @@
 <?php 
 	session_start();
-    include 'UserModel.php';
-    include 'UserView.php';
-    include 'UserController.php';
+    include 'model/UserModel.php';
+    include 'view/UserView.php';
+    include 'controller/UserController.php';
     $UserM = new UserModel();
     $UserV = new UserView();
     $UserC = new UserController();
@@ -19,11 +19,10 @@
      include'NavBarH.php';
      ?>
 <div class="container">
-
- 
     <?php $UserV->fetchMyMsg(); ?>
 
   <?php $UserV->fetchMsgForm(); ?>
+  
   <?php
   						if(isset($_SESSION["Logged_in_ID"]))
                         {

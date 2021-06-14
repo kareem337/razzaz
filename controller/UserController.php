@@ -1,5 +1,5 @@
 <?php
-require_once('UserModel.php');
+require_once('model/UserModel.php');
 class UserController extends UserModel
 {
     public function insertMsg()

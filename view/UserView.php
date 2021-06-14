@@ -1,5 +1,5 @@
 <?php
-require_once('UserModel.php');
+require_once('model/UserModel.php');
 class UserView extends UserModel
 {
     public function fetchMyMsg()
