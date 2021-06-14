@@ -26,7 +26,7 @@
             <li>
               <a href="dashboard.php" class = "hov">
                 <span class="fas fa-tachometer-alt" ></span>
-                <span>Dashboard </span>
+                <span>Dashboard</span>
               </a>
             </li>
             <li>
@@ -56,13 +56,13 @@
             <li>
               <a href="EditMuseums.php" class = "hov">
                 <span class="fas fa-landmark"></span>
-                <span>Museums </span>
+                <span>Museums</span>
               </a>
             </li>
             <li>
               <a href="logout.php" class = "hov">
                 <span class="fa fa-sign-out"></span>
-                <span>Logout </span>
+                <span>Logout</span>
               </a>
             </li>  
           </ul>
