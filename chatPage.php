@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+    
 	if(isset($_SESSION['Logged_in_ID']))
 	{
         include "DB.php"; 
@@ -9,6 +10,7 @@
 
 		$query = mysqli_query($conn,$sql);
 ?>
+
 <style>
 
 h2{
@@ -92,23 +94,18 @@ cursor: pointer;
 <html>
     <head>
       <meta charset="utf-8">
+        
   <meta content="width=device-width, initial-scale=1.0" name="viewport">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link type="text/css" rel="stylesheet" href="contact.css" /> 
+        
     </head>
-    <body style="background-color: #668B91; margin-left: 50;">
-    <header>
-   
-
-   <?php
-   include'NavBarH.php';
-   ?>
-    
- 
-</header>
+     
+    <body style="background-color: #668B91; margin-left: 50; margin-top: 20px;">
+       
 <div style = 'margin-left: 500px;' class="container">
-
+    
   <div class="display-chat" style = "margin-top: 150px;">
       <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>  
      <input class = 'btn btn-light' type="button" onclick="view()" id = "myBtn"  Value="View Messages"> 

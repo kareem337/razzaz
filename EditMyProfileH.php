@@ -26,10 +26,7 @@ if(isset($_POST['upload'])){
 <html>
 <head>
     
-  <title>Edit Profile</title>
-  <?php
-     include'NavBarH.php';
-  ?>
+    <title>Edit Profile</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,14 +65,17 @@ if(isset($_POST['upload'])){
   border: 1px solid #617c42;
 }     
      
- </style>   
+ </style> 
+    
 </head>
-<body>
-
-<div class="container bootstrap snippet" style="margin-top: 10%;">
+<body style = "background: #668B91;">
+    <?php
+     include ('NavBarH.php');
+  ?>
+<div class="container bootstrap snippet" style="margin-top: 15%; margin-left: 15%;">
 
     <div class="row">
-      <div class="col-sm-10" id="h"><h1>Profile</h1></div>
+      <div class="col-sm-10" id="h" style = "margin-left: -50px;"><h1>Profile</h1></div>
     </div>
     <div class="row">
 
@@ -88,9 +88,9 @@ if(isset($_POST['upload'])){
             
             <input type="file" id="wizard-picture" accept="image/*" name="image" required>
         </div>
-        <h6 class="">Change Picture (max size 3Mb)</h6>
+        <h6 style = "margin-top: 10px;">Change Picture (max size 3Mb)</h6>
     </div><br>
-   <input class="btn btn-info" id="up" type="submit" name="upload" value="Upload">
+   <input class="btn btn-lg btn-success" id="up" type="submit" style = "margin-left: 105px;" name="upload" value="Upload">
     </div>
 </form>
   
