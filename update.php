@@ -1,5 +1,4 @@
 <?php
-  
   // Include database file
   include 'classes/Admin.php';
   $Admin = new Admin();
