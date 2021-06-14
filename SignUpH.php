@@ -121,7 +121,7 @@ if (isset($_POST['register'])) {
 
     <div class="form-group">
     <label class="checkbox-inline"> <input type="checkbox" required>
-    By creating an account you must agree to our <a href="#">Terms & Privacy</a>.</label> 
+    By creating an account you must agree our <a href="#">Terms & Privacy</a>.</label> 
     </div>
 
 
@@ -134,7 +134,7 @@ if (isset($_POST['register'])) {
 
     </form>
 
-<div class="hint-text">Already have an account? <a href="SignInH.php">Login here</a></div>
+<div class="hint-text">Already have an account? <a href="SignInH.php">Login Here</a></div>
   
 </div>
 
