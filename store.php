@@ -110,7 +110,7 @@ mysqli_free_result($result);
             </script>
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price" id="tPrice"><?php echo $totalPrice;  ?>$</span>
+                <span class="cart-total-price" id="tPrice"><?php echo $totalPrice; ?>$</span>
             </div>
             <input type="hidden" name="totalPrice" id="ttPrice" value="<?php echo $totalPrice; ?>">
             <?php
