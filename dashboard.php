@@ -61,5 +61,4 @@ $dashboard->getprofile();
         </div>
       </main>
     </div>
-
 </html>
