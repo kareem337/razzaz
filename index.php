@@ -254,8 +254,8 @@ We are committed to providing world-class trekking experiences for our guests th
             <ul>
               <li><i class="bx bx-chevron-right"></i>Transportation</li>
               <li><i class="bx bx-chevron-right"></i>Health Care</li>
-              <li><i class="bx bx-chevron-right"></i> Equipment</li>
-              <li><i class="bx bx-chevron-right"></i> Expert Hikers</li>
+              <li><i class="bx bx-chevron-right"></i>Equipment</li>
+              <li><i class="bx bx-chevron-right"></i>Expert Hikers</li>
              
             </ul>
           </div>
