@@ -35,7 +35,7 @@ class UserModel extends Person
     {
         $conn = $this->connect();
 
-        $sql = "INSERT INTO `cart` (`User_ID`, `quantity`,`Date_Created`, `Total_Price`,`trip_id`) VALUES ('$User', '$quantity',' $date', '$price',' $tripid')";
+        $sql = "INSERT INTO `cart` (`User_ID`, `quantity`,`Date_Created`, `Total_Price`,`pid`) VALUES ('$User', '$quantity',' $date', '$price',' $tripid')";
         $query = mysqli_query($conn,$sql);
         if ($query) 
         {

@@ -10,8 +10,6 @@ $UserM = new UserModel();
 $UserV = new UserView();
 $UserC = new UserController();
 $TripV = new TripView("","","","");
-
-
 ?>
 <head>
 	<meta charset="utf-8">
@@ -64,7 +62,8 @@ $TripV = new TripView("","","","");
 </head>
 
 <script>
-  $(function(){
+  $(function()
+  {
     var dtToday = new Date();
     
     var month = dtToday.getMonth() + 1;
@@ -82,58 +81,33 @@ $TripV = new TripView("","","","");
 
   
 <body>
-   <header >
+   <header>
    
 
      <?php
      include'NavBarH.php';
      ?>
       
+   </header><!-- End Header -->
    
-  </header><!-- End Header -->
 	<div id="booking" class="section"  style="background-image: url('img/<?php $TripV->fetchBackground(); ?>'); " >
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-7 col-md-push-5" style="color: white;">
-						<div class="booking-cta">
-							<h1> <?php $TripV->fetchName(); ?> </h1> 
-							<p> <?php $TripV->fetchDescription(); ?> </p>
-						</div>
-					</div>
-					
-					
+					<?php $TripV->fetchTrip(); ?>
 					<div class="col-md-4 col-md-pull-7">
 						<div class="booking-form">
-							<form action="" method="POST">
-								<div>
-									<h1> <?php $TripV->fetchPrice();; ?> $ </h1>  <h5> &nbsp; per person</h5>
-									<input type="hidden" name="price" value="<?php $TripV->fetchPrice(); ?>">
-								</div>
-								
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<span class="form-label">Date</span>
-											<input class="form-control" name="date" type="date" id="currentDate" required>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-4">
-										<div class="form-group">
-											<span class="form-label">Persons</span>
-											<input type="number"  class="form-control" id="quantity" value="1" name="quantity" min="1"  required>
-									
-										</div>
-									</div>
-								</div>
-								<div class="form-btn">
-									<button class="submit-btn" name="book">BOOK</button>
-								</div>
-							</form>
+						<?php $TripV->fetchForm(); ?>
 
-							<?php
+						</div>
+					</div>
+				</div>
+			</div>      
+            </div>
+
+        </div>
+		
+		<?php
 						if(isset($_SESSION["Logged_in_ID"]))
 						{
 							if( isset($_POST['book']))
@@ -146,20 +120,6 @@ $TripV = new TripView("","","","");
 								echo "<script>alert('You will not be able to book unless you log in')</script>";
 				        }
 							?>
-
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-
-
-                
-            </div>
-
-        </div>
-
 
 
 </body>

@@ -15,7 +15,7 @@ class UserView extends UserModel
 
             while($row= $result->fetch_assoc())	
             {
-                echo $row["sender_name"];
+                echo "<span style='font-weight: 700;'>".$row["sender_name"]."</span>";
                 echo ": ";
                 echo $row["message"];
                 echo "<br>";

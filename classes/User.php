@@ -52,7 +52,6 @@ class Reserve extends Person
                 $sql = "INSERT INTO `orders` (`ID`, `user_id`, `order_placed` ,`pid` , `price`) 
 		        VALUES (NULL, '$user', '$this->currentdate' ,'$pid', '$price')";
                 $insertResult = mysqli_query($conn, $sql);
-
                 $removeCart = "DELETE FROM cart WHERE user_id=$user";
                 $removeResult = mysqli_query($conn, $removeCart);
                 header("location: store.php");
