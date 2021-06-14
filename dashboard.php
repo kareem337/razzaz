@@ -6,7 +6,6 @@ $dashboard->getprofile();
 ?>
 <html>
         
-
       <main style="background:#668B91; margin-top: 50px; height: 671px;">
         <div class="cards" style = "margin-top: 80px;">
          <a href = "EditUsersInfoH.php" style = "text-decoration: none;">      
