@@ -1,10 +1,17 @@
 <?php 
 	session_start();
-    include 'classes/User.php';
-    $reserve = new Reserve();
+    include 'UserModel.php';
+    include 'UserView.php';
+    include 'UserController.php';
+    $UserM = new UserModel();
+    $UserV = new UserView();
+    $UserC = new UserController();
 ?>
 <html>
     <head>
+    <?php
+     include'NavBarH.php';
+     ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link type="text/css" rel="stylesheet" href="contact.css" /> 
@@ -20,7 +27,7 @@
 
 		<div class="message">
 	<p>
-    <?php $reserve->fetchMyMsg(); ?>
+    <?php $UserV->fetchMyMsg(); ?>
 	</p>
 		</div>
 
@@ -42,10 +49,7 @@
                         {
 							if( isset($_POST['send']))
 							{
-								$user_id = $_SESSION["Logged_in_ID"];
-                                $user_name = $_SESSION["Logged_in_Name"];
-                                $msg = $_POST['msg'];
-								$reserve->sendToAdmin($user_id, $user_name, $msg);
+								$UserC->insertMsg();
 							}
                         }
 						else 

@@ -2,10 +2,14 @@
 <html lang="en">
 <?php
 //session_start();    
-include 'classes/TripsClass.php';
-include 'classes/User.php';
-$show = new trips("name", "description", "background", "price");
-$reserve = new Reserve();
+include 'UserModel.php';
+include 'UserView.php';
+include 'UserController.php';
+include 'TripView.php';
+$UserM = new UserModel();
+$UserV = new UserView();
+$UserC = new UserController();
+$TripV = new TripView("","","","");
 
 
 ?>
@@ -87,22 +91,24 @@ $reserve = new Reserve();
       
    
   </header><!-- End Header -->
-	<div id="booking" class="section"  style="background-image: url('img/<?php print($show->getBackground()); ?>'); " >
+	<div id="booking" class="section"  style="background-image: url('img/<?php $TripV->fetchBackground(); ?>'); " >
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-7 col-md-push-5" style="color: white;">
 						<div class="booking-cta">
-							<h1> <?php print($show->getName()); ?> </h1> 
-							<p> <?php print($show->getDescription()); ?> </p>
+							<h1> <?php $TripV->fetchName(); ?> </h1> 
+							<p> <?php $TripV->fetchDescription(); ?> </p>
 						</div>
 					</div>
+					
+					
 					<div class="col-md-4 col-md-pull-7">
 						<div class="booking-form">
 							<form action="" method="POST">
 								<div>
-									<h1> <?php print($show->getPrice()); ?> $ </h1>  <h5> &nbsp; per person</h5>
-									<input type="hidden" name="price" value="<?php print($show->getPrice()); ?>">
+									<h1> <?php $TripV->fetchPrice();; ?> $ </h1>  <h5> &nbsp; per person</h5>
+									<input type="hidden" name="price" value="<?php $TripV->fetchPrice(); ?>">
 								</div>
 								
 								<div class="row">
@@ -132,12 +138,7 @@ $reserve = new Reserve();
 						{
 							if( isset($_POST['book']))
 							{
-								$date = $_POST['date'];
-								$quantity = $_POST['quantity'];
-								$price = $_POST['price'];
-								$tripid = $_SESSION['Clicked_Trip_ID'];
-								$User = $_SESSION["Logged_in_ID"];
-								$reserve->saveRecords($date, $quantity, $price, $tripid, $User);
+								$UserC->insertRecord();
 							}
 						}
 						else 

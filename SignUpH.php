@@ -10,13 +10,16 @@ if (isset($_POST['register'])) {
 <!DOCTYPE html>
 <html>
 <head>
+<?php
+     include'NavBarH.php';
+  ?>
 
   <link rel="stylesheet" href="SignUp.css">
   
  <style>
   .bar {
   padding: 10px;
-  margin-left: 63px;
+  margin-left: 75px;
   margin-bottom: 5px;
   width: 380px;      
   color: #333;
@@ -50,7 +53,7 @@ if (isset($_POST['register'])) {
 
 <div class="signup-form"> 
 
-<form method="post">
+<form method="post" style="margin-top:150px;">
     
  <h1>Sign Up</h1>
 
@@ -79,40 +82,40 @@ if (isset($_POST['register'])) {
             <div class="row">
 
         <div class="col-xs-8">
-        <input type="text" placeholder="Enter Your First Name" name="firstname" class="form-control" required> </div>
+        <input type="text" style="margin-left:13%;" placeholder="Enter Your First Name" name="firstname" class="form-control" required> </div>
             </div>          
         </div>
 
      <div class="form-group">
 
-     <input type="text" placeholder="Enter Your Last Name" name="lastname" class="form-control" required>
+     <input type="text" style="margin-left:13%;" placeholder="Enter Your Last Name" name="lastname" class="form-control" required>
 
      </div>
 
      <div class="form-group">
-     <input type="email" value = " " placeholder="Enter Email" name="email" class="form-control"required>
+     <input type="email" style="margin-left:13%;" value = " " placeholder="Enter Email" name="email" class="form-control"required>
      </div>
 
     
     <div class="form-group">
-    <input type="text" placeholder="Enter Your Number" name="number" class="form-control" maxlength="11" required>
+    <input type="text" style="margin-left:13%;" placeholder="Enter Your Number" name="number" class="form-control" maxlength="11" required>
     </div>
 
 
     <div class="form-group">
-    <input type="password" placeholder="Enter Password" name="password" class="form-control" required>
+    <input type="password" style="margin-left:13%;" placeholder="Enter Password" name="password" class="form-control" required>
     </div>
 
     <div class="form-group">
-    <input type="password" placeholder="Repeat Password" name="confirm_password" class="form-control" required>
+    <input type="password" style="margin-left:13%;" placeholder="Repeat Password" name="confirm_password" class="form-control" required>
     </div>
 
     <span id='message' ></span><br><br>
 
     <div class="form-group">
-    Male<input type="radio" name="gender" value="male" class="form-radio" required> 
+    Male<input type="radio" style="margin-left:5px;" name="gender" value="male" class="form-radio" required> 
     
-    Female<input type="radio" name="gender" value="female" class="form-radio" required> 
+    Female<input type="radio" style="margin-left:5px;" name="gender" value="female" class="form-radio" required> 
     </div>
 
 

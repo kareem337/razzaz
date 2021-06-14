@@ -27,6 +27,9 @@ if(isset($_POST['upload'])){
 <head>
     
   <title>Edit Profile</title>
+  <?php
+     include'NavBarH.php';
+  ?>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,7 +95,7 @@ if(isset($_POST['upload'])){
 </form>
   
         
-<form class="form" method="post" id="info-Form">
+<form class="form" method="post" style="margin-left:300px; margin-top:-280px; width:1000px;" id="info-Form">
       <div class="col-sm-9" id="c">
             <div class="tab-pane active" id="home">
                 <div style = "margin-right: 200px;">
