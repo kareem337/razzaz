@@ -185,7 +185,7 @@ We are committed to providing world-class trekking experiences for our guests th
             <div class="icon-box">
               <i class="fas fa-hotel"></i>
               <h4><a>Hotels</a></h4>
-              <p>Take The Break You Deserve At One Of Our Incredible Hotels. Your Welcome Awaits. Book Our Hotels In Egypt now.</p>
+              <p>Take The Break You Deserve At One Of Our Incredible Hotels. Your Welcome Awaits. Book Our Hotels In Egypt Now.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
@@ -206,7 +206,7 @@ We are committed to providing world-class trekking experiences for our guests th
             <div class="icon-box">
               <i class="fas fa-ship"></i>
                 <h4><a>Cruises</a></h4>
-              <p>Explore the legendary sites of Egypt on a Nile river cruise and experience many of its ancient wonders along the way.</p>
+              <p>Explore the legendary sites of Egypt on a Nile River cruise and experience many of its Ancient wonders along the way.</p>
             </div>
           </div>
         </div>
