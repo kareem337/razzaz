@@ -64,7 +64,7 @@ if (isset($_POST['sign_in'])) {
 
           <h1>Sign In</h1>
 
-    <p id="p">Please fill in this form to Sign In.</p>
+    <p id="p">Please fill this form to Sign In.</p>
                 <?php
                 if (isset($error)) {
                     ?>
@@ -102,7 +102,7 @@ if (isset($_POST['sign_in'])) {
 
     </form>
 
-    <div class="hint-text"> New User? <a href="SignUpH.php" style="color:white;" >Sign Up here</a></div>
+    <div class="hint-text"> New User? <a href="SignUpH.php" style="color:white;" >Sign Up Here</a></div>
 
     <div id="result"></div>
     </div>
