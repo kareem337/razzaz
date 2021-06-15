@@ -97,14 +97,11 @@ $Admin = new Admin();
 </form>
  </div>    
 
-<?php
 
-
-?>
 </head>
 
 <body style = "background: #668B91;">
-	
+   
 <table class="mx-auto" id="customers">
   
     <tr>

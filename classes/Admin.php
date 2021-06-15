@@ -93,6 +93,9 @@ class   Admin extends Person
             {
                 echo "<script>alert('Error in editing')</script>";
             }
+
+
+            
     }
    
     public function edittrips ($id,$trips,$loc,$price,$desc,$pic)

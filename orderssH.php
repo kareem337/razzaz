@@ -88,7 +88,7 @@ $Admin = new Admin();
    }   
         
   </style>
-<div class = "h"> <h1> Users Informations </h1><input type = "text" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
+<div class = "h"> <h1> Users Orders </h1><input type = "text" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
 </head>
 
 <body style = "background: #668B91;">
@@ -97,14 +97,10 @@ $Admin = new Admin();
   
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Gender</th>
-      <th scope="col">Number</th>
-      <th scope="col">User Type ID</th>
-      <th scope="col">Users Types </th>
-      <th scope="col">Delete </th>
+      <th scope="col">User Id</th>
+      <th scope="col">Order Placed</th>
+      <th scope="col">Product Id</th>
+      <th scope="col">Price</th>
     </tr>
 
   <tbody>
@@ -118,18 +114,17 @@ $Admin = new Admin();
 		while($row = $result -> fetch_array(MYSQLI_ASSOC)) {     
                 
 		    $id = $row['id'];
-		    $fname = $row['user_id'];
-		    $lname = $row['order_placed'];
-		    $email = $row['pid'];  
-		    $gender = $row['price'];  
+		    $User_id = $row['user_id'];
+		    $Orderd_placed = $row['order_placed'];
+		    $product_id = $row['pid'];  
+		    $price = $row['price'];  
 		?>
 	<tr>
 		<td><?php echo $id; ?>  <input type="hidden" value="<?php echo $id; ?>"></td>
-		<td><?php echo $fname; ?></td>
-		<td><?php echo $lname; ?></td>
-        <td><?php echo $email; ?></td> 
-        <td><?php echo $gender; ?></td> 
-        <td><?php echo $num; ?></td>
+		<td><?php echo  $User_id; ?></td>
+		<td><?php echo $Orderd_placed; ?></td>
+    <td><?php echo $product_id; ?></td> 
+    <td><?php echo $price; ?></td> 
 	</tr>
 	<?php
     }
