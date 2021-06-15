@@ -40,29 +40,25 @@ if(isset($_POST['upload'])){
   
   <link rel="stylesheet" href="EditProfile.css">
     
-    <style>
+    <style>    
+        
   .bar {
   /*padding: 10px;*/
   margin-left: 80px;
   margin-bottom: 5px;
   width: 430px;      
-  color: #333;
-  background: #fafafa;
   border: 1px solid #ccc;
   text-align: center;      
         
 }
      
   .error {
-  color: #ba3939;
-  background: #ffe0e0;
-  border: 1px solid #a33a3a;
+  border: 1px solid #a33a3a;          
 }    
      
   .success {
-  color: #2b7515;
-  background: #ecffd6;
   border: 1px solid #617c42;
+        
 }     
      
  </style> 
@@ -90,7 +86,7 @@ if(isset($_POST['upload'])){
         </div>
         <h6 style = "margin-top: 10px;">Change Picture (max size 3Mb)</h6>
     </div><br>
-   <input class="btn btn-lg btn-success" id="up" type="submit" style = "margin-left: 105px;" name="upload" value="Upload">
+   <input class="btn btn-lg btn-success"  id="up" type="submit" style = "margin-left: 105px; font-size:14px; font-family: Brush Script MT;" name="upload" value="Upload">
     </div>
 </form>
   
@@ -102,14 +98,14 @@ if(isset($_POST['upload'])){
                 <?php
                 if (isset($error)) {
                     foreach ($error as $e) { ?>
-                        <div class='alert alert-danger bar error close' data-dismiss = 'alert'>
+                        <div class='alert alert-danger bar error' data-dismiss = 'alert'>
                         <?php echo $e; ?>
                         </div>
                         <?php }
                 } ?>
              <?php
               if (isset($confirm)) {?>
-                    <div class='alert alert-danger bar success close' data-dismiss = 'alert'>
+                    <div  class='alert alert-success bar success' data-dismiss = 'alert'>
                     <?php echo $confirm; ?>
                     </div>
                      <?php }
@@ -119,14 +115,14 @@ if(isset($_POST['upload'])){
                           
                           <div class="col-xs-6">
                               <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control" name="first_name" value = "<?php print($editProfile->getfirstname()); ?>" id="first_name" placeholder="first name" title="enter your first name if any.">
+                              <input type="text" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="first_name" value = "<?php print($editProfile->getfirstname()); ?>" id="first_name" placeholder="first name" title="enter your first name if any.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                             <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" class="form-control" name="last_name" value = "<?php print($editProfile->getlastname()); ?>" id="last_name" placeholder="last name" title="enter your last name if any.">
+                              <input type="text" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="last_name" value = "<?php print($editProfile->getlastname()); ?>" id="last_name" placeholder="last name" title="enter your last name if any.">
                           </div>
                       </div>
           
@@ -134,7 +130,7 @@ if(isset($_POST['upload'])){
                           
                           <div class="col-xs-6">
                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" value = "<?php print($editProfile->getnumber()); ?>" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
+                              <input type="text" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="mobile" value = "<?php print($editProfile->getnumber()); ?>" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
                               
                           </div>
                       </div>
@@ -142,14 +138,14 @@ if(isset($_POST['upload'])){
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" value = "<?php print($editProfile->getemail()); ?>" id="email" placeholder="you@email.com" title="enter your email.">
+                              <input type="email" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="email" value = "<?php print($editProfile->getemail()); ?>" id="email" placeholder="you@email.com" title="enter your email.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="password"><h4>Password</h4></label>
-                              <input type="password" class="form-control" value = "<?php print($editProfile->getpassword()); ?>" name="password" id="password" title="enter your password.">
+                              <input type="password" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" value = "<?php print($editProfile->getpassword()); ?>" name="password" id="password" title="enter your password.">
                           </div>
                       </div>
                       
@@ -157,13 +153,13 @@ if(isset($_POST['upload'])){
                           
                           <div class="col-xs-6">
                             <label for="password2"><h4>New Password</h4></label>
-                              <input type="password" class="form-control" value = "<?php print($editProfile->getpassword()); ?>" name="password2" id="confirm_password" title="enter your password.">
+                              <input type="password" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" value = "<?php print($editProfile->getpassword()); ?>" name="password2" id="confirm_password" title="enter your password.">
                           </div>
                       </div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                                <input name = "save" class="btn btn-lg btn-success" id="s" type="submit">
+                                <input name = "save" style = "font-size:14px; font-family: Brush Script MT;" class="btn btn-lg btn-success" id="s" type="submit">
                                 <!--<input class="btn btn-lg" type="reset" value = "Reset">-->
                                 <span id='message'></span>
                             </div>
