@@ -5,28 +5,23 @@ $TOTAL = 0;
 $pid = 0;
 
 include('DB.php');
-include('classes/User.php');
-
-$user = new Reserve();
+include 'controller/UserController.php';
+$UserC = new UserController();
 
 $userid = $_SESSION['Logged_in_ID'];
 $sql = "SELECT * FROM cart WHERE user_id = $userid";
-// get the result set (set of rows)
 $result = mysqli_query($conn, $sql);
-// fetch the resulting rows as an array
 $show = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// free the $result from memory (good practise)
 mysqli_free_result($result);
 
 
     if(isset($_GET['remove'])){
-        $user->deleteItemFromCart($get);
+        $UserC->deleteItemFromCartC();
         echo '<script>window.location="store.php"</script>';
     }
 
    if(isset($_POST['save'])){
-       $price  = $_POST['totalPrice'];
-       $user->purchase($price);		
+       $UserC->purchaseC($price);		
    }
 ?>
 
@@ -122,26 +117,5 @@ mysqli_free_result($result);
             <?php } ?>
         </section>
          </form>
-          <!--
-                <script> 
-   
-// Function to create the cookie 
-        function createCookie(name, days) {
-            var expires; 
-            var value = document.getElementById('tPrice').innerHTML;
-            if (days) { 
-                var date = new Date(); 
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); 
-                expires = "; expires=" + date.toGMTString(); 
-            } 
-            else { 
-                expires = ""; 
-            } 
-            
-            document.cookie = escape(name) + "=" +  
-                escape(value) + expires + "; path=/";
-        } 
-            </script>
--->
     </body>
 </html>

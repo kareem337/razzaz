@@ -1,8 +1,8 @@
 <?php
 session_start();
-include("classes/User.php");
+include("classes/Person.php");
 include("DB.php");
-$editProfile = new Reserve();
+$editProfile = new Person();
 $editProfile->getprofile();
 if (isset($_POST['save'])) {
     $editProfile->savedata($_POST);

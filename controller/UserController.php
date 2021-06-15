@@ -36,6 +36,17 @@ class UserController extends UserModel
 
     }
 
+    public function purchaseC()
+    {
+        $price  = $_POST['totalPrice'];
+        $this->purchase($price);
+    }
+
+    public function deleteItemFromCartC()
+    {
+        $this->deleteItemFromCart();
+    }
+
 }
 
 ?>
