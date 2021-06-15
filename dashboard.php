@@ -18,7 +18,7 @@ $dashboard->getprofile();
             </div>
           </div>
          </a>     
-         <a href = "#" style = "text-decoration: none;">        
+         <a href = "orderssH.php" style = "text-decoration: none;">        
           <div class="card-single">
             <div>   
               <h1><?php print($dashboard->getOrdersCount());?></h1>
@@ -28,7 +28,8 @@ $dashboard->getprofile();
               <span class="fas fa-shopping-cart"></span>
             </div>
           </div>
-          </a>     
+          </a> 
+          <a href = "#">     
           <div class="card-single">
             <div>
               <h1><?php print($dashboard->getEnquiriesCount());?></h1>
@@ -38,6 +39,8 @@ $dashboard->getprofile();
               <span class="fas fa-clipboard-list"></span>
             </div>
           </div>
+          </a>
+          
           <div class="card-single">
             <div>
               <h1><?php print($dashboard->getMuseumsCount());?></h1>
@@ -47,6 +50,7 @@ $dashboard->getprofile();
               <span class="fas fa-landmark"></span>
             </div>
           </div>
+          <a href = "EdittripsH.php">   
           <div class="card-single">
             <div>
               <h1><?php print($dashboard->getTripsCount());?></h1>
@@ -56,6 +60,7 @@ $dashboard->getprofile();
               <span class="fas fa-plane"></span>
             </div>
           </div>
+          </a>
         </div>
       </main>
     </div>
