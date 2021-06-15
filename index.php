@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -216,7 +217,7 @@ We are committed to providing world-class trekking experiences for our guests th
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <!-- <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -271,8 +272,13 @@ We are committed to providing world-class trekking experiences for our guests th
         &copy; Copyright <strong><span>Razzaz Tours</span></strong>. All Rights Reserved
       </div>
       </div>
-  </footer><!-- End Footer -->
+  </footer> -->
+  <!-- End Footer -->
+  <?php
 
+include'Footer.php';
+
+?>
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
