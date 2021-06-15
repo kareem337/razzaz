@@ -31,7 +31,8 @@ $Admin = new Admin();
   margin-left: 70px;              
   }
   #customers td, #customers th {
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
+  background-color : white;
   padding: 8px;
   text-align: center;      
   }
@@ -85,14 +86,67 @@ $Admin = new Admin();
    } 
     .failure:hover{
     cursor: pointer;
-   }   
+   } 
+   ::placeholder {
+  text-align : center;
+
+}  
         
   </style>
-<div class = "h"> <h1> Users Orders </h1><input type = "text" class = "text"><span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> </div>
+  <form method="POST">
+<div class = "h"> <h1> Users Orders </h1><input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
+<span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> 
+</div>
+<input type = "submit" name = "search" value = "Find" class = "btnStyle">
+</form>
 </head>
 
 <body style = "background: #668B91;">
-	
+
+
+
+
+<table class="mx-auto" id="customers">
+      <tr> 
+      <th scope="col">ID</th>
+      <th scope="col">User Id</th>
+      <th scope="col">Order Placed</th>
+      <th scope="col">Product Id</th>
+      <th scope="col">Price</th>
+      </tr>
+
+
+    <?php
+    // search
+     if(isset($_POST['search']))
+     {
+       $name= $_POST["name"];
+    
+      $result = mysqli_query($conn, "SELECT * FROM orders  WHERE  user_id  = $name ");
+      
+      while($row = mysqli_fetch_array($result))
+      {
+        ?>
+        <tr>
+          <td><?php echo $row['id']; ?></td>
+          <td><?php echo $row['user_id']; ?></td>
+          <td><?php echo $row['order_placed']; ?></td>
+          <td><?php echo $row['pid']; ?></td>
+          <td><?php echo $row['price']; ?></td>
+
+        </tr>
+
+          <?php
+}
+     }
+          ?>
+    </table>
+
+
+
+
+
+
 <table class="mx-auto" id="customers">
   
     <tr>
@@ -130,16 +184,8 @@ $Admin = new Admin();
     }
     ?>
   
-  
-  
   </tbody>
 </table>
-
-
-
-
-
-
 
 </body>
 

@@ -41,7 +41,7 @@ $Admin = new Admin();
   border-collapse: collapse;
   width: 90%;  
   margin-top:20px;  
-  margin-left: -2 px;  
+  margin-left: -2px;  
               
   }
   #customers td, #customers th {
