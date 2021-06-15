@@ -19,6 +19,11 @@ if(isset($_POST['upload'])){
     $confirm = $editProfile->getConfirmEdit();
     #header("location: EditMyProfileH.php");
 }
+if(isset($_POST['deleteAccount'])){
+    $editProfile->deleteAccount();
+    #header("location: EditMyProfileH.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +54,8 @@ if(isset($_POST['upload'])){
   width: 430px;      
   border: 1px solid #ccc;
   text-align: center;      
-        
+  font-size:14px; 
+  font-family: Brush Script MT;        
 }
      
   .error {
@@ -160,6 +166,7 @@ if(isset($_POST['upload'])){
                            <div class="col-xs-12">
                                 <br>
                                 <input name = "save" style = "font-size:14px; font-family: Brush Script MT;" class="btn btn-lg btn-success" id="s" type="submit">
+                                <input type="submit" name = "deleteAccount" style = "font-size:14px; font-family: Brush Script MT; height:33px;" value = "Delete Account" class="btn btn-danger" >
                                 <!--<input class="btn btn-lg" type="reset" value = "Reset">-->
                                 <span id='message'></span>
                             </div>

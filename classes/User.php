@@ -96,5 +96,23 @@ class Reserve extends Person
             echo "<script>alert('Error in sending')</script>";
         } 
     }
+    
+    public function deleteAccount(){
+        $con = $this->connect();
+        $id = $_SESSION['Logged_in_ID'];
+        $sql = "DELETE FROM `users` WHERE ID = $id";
+        
+        $query = $this->con->query($sql);
+        if ($query) 
+        {
+            header('Location: index.php'); 
+            include("logout.php");
+        } 
+        else 
+        {
+            echo "<script>alert('Error in deletion')</script>";
+            
+        } 
+    }
 }
 ?>
