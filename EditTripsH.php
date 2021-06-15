@@ -1,5 +1,6 @@
 <?php 
 include'adminmenu.php';
+
 session_start();
   if( $_SESSION["Logged_in_UTID"] == 2)
   {
@@ -11,7 +12,10 @@ session_start();
 <!DOCTYPE html>
 <html>
 <?php
+
 include 'classes/Admin.php';
+include 'controller/AdminController.php';
+$AdminC = new AdminController();
 $Admin = new Admin();
 ?>
 <head>
@@ -203,17 +207,19 @@ $Admin = new Admin();
 
 
 <?php
+
 					
 						if( isset($_POST['save'] ) )
 							{
-                $tname = $_POST['tname'];
+                
+             /*   $tname = $_POST['tname'];
                 $tloc = $_POST['tloc'];
                 $tprice = $_POST['tprice'];
                 $tdesc = $_POST['tdesc'];
-                $tpic = $_POST['tpic'];
-								$Admin->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
+                $tpic = $_POST['tpic']; */
+								$AdminC->saveTrip();
             
-                echo "<script>alert('updated succsesfuly')</script>";
+               // echo "<script>alert('updated succsesfuly')</script>";
 							}
 				
               elseif( isset($_GET['delete'] ) )
