@@ -7,7 +7,6 @@ include 'view/PersonView.php';
 $personC = new PersonController();
 //$personM = new PersonModel();
 $personV = new PersonView();
-
 if (isset($_POST['save'])) {
     $personC->savedataC();
     $_SESSION['error'] = $personC->get_errors();
@@ -46,11 +45,8 @@ if(isset($_POST['deleteAccount'])){
     <style>    
         
   .bar {
-  /*padding: 10px;
-  //  margin-left: 650px;
-  margin-top: -320px;
-  */
-  margin-left: 80px;
+  /*padding: 10px;*/
+  margin-left: 120px;
   margin-bottom: 5px;
   width: 430px;      
   border: 1px solid #ccc;
@@ -77,11 +73,12 @@ if(isset($_POST['deleteAccount'])){
   ?>
 
     <?php 
+     
       $personV->fetchEditProfile();
-      unset($_SESSION["error"]);
+       unset($_SESSION["error"]);
       unset($_SESSION["confirm"]);
-
-      
     ?>
+    
 </body>
+   
 </html>

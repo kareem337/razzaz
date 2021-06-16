@@ -187,16 +187,16 @@ public function fetchEditProfile()
                 <div style = "margin-right: 200px;">';
 
                 
-                if (isset($_SESSION['error'])) {
+                if (!empty($_SESSION['error'])) {
                     foreach ($_SESSION['error'] as $e) { ?>
-                        <div class='alert alert-danger bar error close' data-dismiss = 'alert'>
+                        <div class='alert alert-danger bar error' data-dismiss = 'alert'>
                         <?php echo $e; ?>
                         </div>
                         <?php }
                 } ?>
              <?php
-              if (isset($_SESSION['confirm'])) {?>
-                    <div class='alert alert-success bar success close' style=" border: 1px solid #617c42;" data-dismiss = 'alert'>
+              if (!empty($_SESSION['confirm'])) {?>
+                    <div class='alert alert-success bar success' style=" border: 1px solid #617c42;" data-dismiss = 'alert'>
                     <?php echo $_SESSION['confirm']; ?>
                     </div>
                      <?php }
