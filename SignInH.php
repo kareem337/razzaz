@@ -1,10 +1,14 @@
 <?php
-include("classes/Person.php");
-$login = new Person();
+include 'controller/PersonController.php';
+include 'view/PersonView.php';
+//include 'model/PersonModel.php';
+$personC = new PersonController();
+$personV = new PersonView();
+//$personM = new PersonModel();
 if (isset($_POST['sign_in'])) {
-    $login->login($_POST);
-    $error = $login->get_errors_login_all();
-    $confirm = $login->getConfirmLogin();
+    $personC->loginC();
+     $_SESSION['error'] = $personC->get_errors_login_all();
+     $_SESSION['confirm'] = $personC->getConfirmLogin();
 }
 ?>
 <!DOCTYPE html>
@@ -59,52 +63,17 @@ if (isset($_POST['sign_in'])) {
    
   </header><!-- End Header -->
  <link rel="stylesheet" href="SignIn.css">
-    <div class="signin-form">
-    <form id="SignInF" method="POST" action = "SignInH.php">
 
-          <h1>Sign In</h1>
+ <?php
+ 
+ 
+ $personV->fetchSignIn();
 
-    <p id="p">Please fill this form to Sign In.</p>
-                <?php
-                if (isset($error)) {
-                    ?>
-                        <div class='alert alert-danger bar error close' data-dismiss = 'alert'>
-                        <?php echo $error; ?>
-                        </div>
-                        <?php }
-                 ?>
-             <?php
-              if (isset($confirm)) {?>
-                    <div class='alert alert-danger bar success close' data-dismiss = 'alert'>
-                    <?php echo $confirm; ?>
-                    </div>
-                     <?php }
-             ?>    
-    <hr>
+ 
+ unset($_SESSION["error"]);
+ unset($_SESSION["confirm"]);
 
-        <div class="form-group">
-            <div class="row">
+ ?>
 
-            <div class="col-xs-3">
-                <input type="text" id="email" name="email" placeholder="Email" class="form-control" required>
-            </div>
-        </div>
-    </div>
-
-            <div class="form-group">
-                <input type="password" id="pwd" name="pwd" placeholder="Password" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                 <button type="submit" value="Submit" name="sign_in" class="btn btn-success btn-lg">Sign In</button>
-            </div>
-        
-
-    </form>
-
-    <div class="hint-text"> New User? <a href="SignUpH.php" style="color:white;" >Sign Up Here</a></div>
-
-    <div id="result"></div>
-    </div>
 </body>
 </html>
