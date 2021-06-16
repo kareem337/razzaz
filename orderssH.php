@@ -95,9 +95,9 @@ $Admin = new Admin();
   </style>
   <form method="POST">
 <div class = "h"> <h1> Users Orders </h1><input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
-<span class="fas fa-search" style = "margin-left: 20px; margin-left:-30px;"></span> 
+<span class="fas fa-search" type="submit" name = "search" style = "margin-left: 20px; margin-left:-30px;"></span> 
 </div>
-<input type = "submit" name = "search" value = "Find" class = "btnStyle">
+<!-- <input type = "submit" name = "search" value = "Find" class = "btnStyle"> -->
 </form>
 </head>
 
@@ -107,7 +107,8 @@ $Admin = new Admin();
 
 
 <table class="mx-auto" id="customers">
-      <tr> 
+      <tr>
+      <h2 style= "text-align:center;"> Searched Orders </h2> 
       <th scope="col">ID</th>
       <th scope="col">User Id</th>
       <th scope="col">Order Placed</th>
