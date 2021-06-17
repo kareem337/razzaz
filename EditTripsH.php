@@ -135,6 +135,7 @@ $Admin = new Admin();
       <th scope="col">Price</th>
       <th scope="col">Description</th>
       <th scope="col">Picture</th>
+      <th scope="col">Background Image</th>
       <th scope="col">Delete </th>    
       <th scope="col">Update </th>
     </tr>
@@ -155,6 +156,7 @@ $Admin = new Admin();
 		    $price = $row['Price'];  
 		    $dis = $row['Description'];  
         $pic = $row['Image']; 
+        $background = $row['Background'];
 		    
 		?>
 	<tr>
@@ -164,6 +166,7 @@ $Admin = new Admin();
     <td><input name="price" type="number" id="price" minlength="1" value="<?php echo $price; ?>"></td> 
     <td><input name="dis" type="text" id="dis" value="<?php echo $dis; ?>"></td> 
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
+    <td><input name="background" type="text" id="background" value="<?php echo $background; ?> "></td> 
     <td style="width: 80px;" > <a href="EditTripsH.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="failure" style=" width: 100px; font-size: 16px; background-color: #f44336; "> Delete </button></a></td>
     <!-- <td style="width: 80px;" > <button onclick="updateTrip(<?php echo $id; ?>)" value="update" type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></td> -->
     <td style="width: 80px;" > <a href="update.php?editId=<?php echo $id;?>"><button value="update"type="button" name="update" class="success" style=" width: 110px; font-size: 16px;"> Update </button></a></td>
@@ -188,6 +191,7 @@ $Admin = new Admin();
       <th scope="col">Price</th>
       <th scope="col">Description</th>
       <th scope="col">Picture</th>
+      <th scope="col">BackGround Image</th>
      
       
     </tr>
@@ -198,7 +202,8 @@ $Admin = new Admin();
      <td><input type="number"  name="tprice" id="Tprice" ></td>
      <td><input type="text" name="tdesc" id="Tdesc"></td> 
      <td><input type="text" name="tpic" id="Tpic"></td>
-     <td><button  value="save" name="save" class="success" onclick="alert()" style="margin-bottom: 20px; width: 100px; font-size: 18px;"> Save </button></td>
+     <td><input type="text" name="tbackground" id="Tbackground"></td>
+     <td><button value="save" name="save" type="submit" class="success" style="margin-bottom: 20px; width: 100px; font-size: 18px;"> Save </button></td>
   </tr>
   </table>
 </form>
@@ -211,35 +216,21 @@ $Admin = new Admin();
 					
 						if( isset($_POST['save'] ) )
 							{
-                
-             /*   $tname = $_POST['tname'];
-                $tloc = $_POST['tloc'];
-                $tprice = $_POST['tprice'];
-                $tdesc = $_POST['tdesc'];
-                $tpic = $_POST['tpic']; */
 								$AdminC->saveTrip();
-            
                // echo "<script>alert('updated succsesfuly')</script>";
 							}
 				
               elseif( isset($_GET['delete'] ) )
               {
-                $trip_id = $_GET['delete'];
-                $Admin->delettrips($trip_id);
+                $AdminC->deleteTrip();
                 echo '<script>window.location="EditTripsH.php"</script>';
               }
 
-              if( isset($_GET['update'] ) )
-							{
-                $id = $_GET['tripid'];
-                $tname = $_GET['tname'];
-                $tloc = $_GET['location'];
-                $tprice = $_GET['price'];
-                $tdesc = $_GET['dis'];
-                $tpic = $_GET['pic'];
-								$Admin->edittrips($id,$tname,$tloc,$tprice,$tdesc,$tpic);
-                // echo '<script>window.location="update.php"</script>';
-							}
+              // if( isset($_GET['update'] ) )
+							// {
+							// 	$AdminC->edittrips();
+              //   echo '<script>window.location="update.php"</script>';
+							// }
              
            
 							?>
@@ -248,17 +239,19 @@ $Admin = new Admin();
 function openForm() {
   $("#form1").toggle();
 }
-function alert()
-{
+// function alert()
+// {
+//   let x = confirm('Are you sure you want to save this thing into the database?');
 
-if (confirm('Are you sure you want to save this thing into the database?')) {
-  // Save it!
-  console.log('Thing was saved to the database.');
-} else {
-  // Do nothing!
-  console.log('Thing was not saved to the database.');
-}
-}
+//   if (x == true) {
+//     // Save it!
+//     window.location = "EditTripsH.php?save=";
+//   } else {
+//     // Do nothing!
+//     console.log('Thing was not saved to the database.');
+//     window.location = "EditTripsH.php";
+//   }
+// }
 // function updateTrip(x)
 // {
 //   var tripId = x;

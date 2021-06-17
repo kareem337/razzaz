@@ -9,8 +9,32 @@
             $tprice = $_POST['tprice'];
             $tdesc = $_POST['tdesc'];
             $tpic = $_POST['tpic'];
-            $this->addTrip($tname,$tloc,$tprice,$tdesc,$tpic);
-            echo "<script>alert('updated succsesfuly')</script>";
+            $tbackground = $_POST['tbackground'];
+            $this->addTrip($tname,$tloc,$tprice,$tdesc,$tpic,$tbackground);
+        }
+
+        public function deleteTrip()
+        {
+            $trip_id = $_GET['delete'];
+            $this->removeTrip($trip_id);
+           
+        }
+        public function edittrips()
+        {
+            $name = $_POST['name'];
+            $location = $_POST['location'];
+            $price = $_POST['price'];
+            $description = $_POST['description'];
+            $image = $_POST['image'];
+            $id = $_SESSION['ID'];
+            $background = $_POST['background'];
+            $this->Updatetrips($id,$location,$name,$price,$description,$image,$background);
+          
+        }
+        public function display()
+        {     
+             $editId = $_GET['editId'];
+             return $this->displayTripById($editId);
         }
     }
 ?>

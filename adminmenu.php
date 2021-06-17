@@ -42,7 +42,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class = "hov">
+              <a href="message_users.php" class = "hov">
                 <span class="fas fa-clipboard-list"></span>
                 <span>Enquiries</span>
               </a>
