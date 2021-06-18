@@ -1,7 +1,7 @@
 <?php 
-require_once('classes/Person.php');
+require_once('model/PersonModel.php');
 session_start();
-class UserModel extends Person
+class UserModel extends PersonModel
 {
     private $currentdate;
     protected function connect()
