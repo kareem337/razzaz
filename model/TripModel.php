@@ -13,36 +13,15 @@ class TripModel extends category
             if ($result->num_rows > 0) 
             {
                 while($row = $result->fetch_assoc()) 
-                {
+                { 
                 $this->name = $row['Name'];
                 $this->description = $row['Description'];
                 $this->background = $row['Background'];
                 $this->price = $row['Price'];
-                }
+                }  
             }
-        }
+        }  
     }
-
-    function getBackground()
-    {
-        return $this->background;
-    }
-
-    function getName()
-    {
-        return $this->name;
-    }
-
-    function getDescription()
-    {
-        return $this->description;
-    }
-    
-    function getPrice()
-    {
-        return $this->price;
-    }
-
 }
 
 ?>

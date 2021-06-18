@@ -2,10 +2,10 @@
 class category 
 {
     private $id;
-    private $name;
-    private $description;
-    private $price;
-    private $background;
+    //private $name;
+    //private $description;
+    //private $price;
+    //private $background;
     private $datecreated;
     private $quantity;
 
@@ -32,6 +32,16 @@ class category
     
     function getName(){
         return $this->name;
+    }
+
+    function getDescription()
+    {
+        return $this->description;
+    }
+
+    function getPrice()
+    {
+        return $this->price;
     }
 
     function getDateCreated()
