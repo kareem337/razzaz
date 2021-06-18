@@ -171,16 +171,16 @@ class   Admin extends Person
 
 
 		// Delete customer data from customer table
-		public function deleteTrip($id)
-		{
-		    $query = "DELETE FROM products WHERE id = '$id'";
-		    $sql = $this->con->query($query);
-		if ($sql==true) {
-			header("Location:index.php?msg3=delete");
-		}else{
-			echo "Record does not delete try again";
-		    }
-		}
+		// public function deleteTrip($id)
+		// {
+		//     $query = "DELETE FROM products WHERE id = '$id'";
+		//     $sql = $this->con->query($query);
+		// if ($sql==true) {
+		// 	header("Location:index.php?msg3=delete");
+		// }else{
+		// 	echo "Record does not delete try again";
+		//     }
+		// }
 
 
         public function Search()

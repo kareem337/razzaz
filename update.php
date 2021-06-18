@@ -1,10 +1,7 @@
 <?php
-  // Include database file
-  // include 'classes/Admin.php';
   include'adminmenu.php';
   include 'controller/AdminController.php';
   $AdminC = new AdminController();
-  // $Admin = new Admin();
 
   // Edit customer record
   if(isset($_GET['editId'])) 
@@ -47,12 +44,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <style>
-    table{
-			border:1px solid #000;
-		}
-		table td,table th {
-			border:1px solid #000;
-		}
+    .update { 
+
+
+
+            }
+    
     </style>
 
 <div class="h" > <h1><b> Update In Trip Information<b> </h1></div>
@@ -64,14 +61,14 @@
 
 
 <link rel="stylesheet" href="EditTrips.css">
-<div class="">
+<div class="update">
 
-  <form action="#" method="POST">
+  <form action="products.php?id=<?php echo $data["id"]; ?>" method="POST">
 
   
-    <div >
+    <div>
       <label for="name">Name:</label>
-      <input type="text" name="name" value="<?php echo $data['Name']; ?>" required="">
+      <input type="text" id="m"name="name" value="<?php echo $data['Name']; ?>" required="">
     </div>
     <div>
       <label for="email">Location:</label>
@@ -99,6 +96,7 @@
     </div>
   </form>
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -36,5 +36,23 @@
              $editId = $_GET['editId'];
              return $this->displayTripById($editId);
         }
+        public function savemuseum()
+        {
+            $tname = $_POST['tname'];
+            $tloc = $_POST['tloc'];
+            $tprice = $_POST['tprice'];
+            $tdesc = $_POST['tdesc'];
+            $tpic = $_POST['tpic'];
+            $tbackground = $_POST['tbackground'];
+            $this->addmuseum($tname,$tloc,$tprice,$tdesc,$tpic,$tbackground);
+        }
+        public function deletemuseum()
+        {
+            $trip_id = $_GET['delete'];
+            $this->removemuseum($trip_id);
+           
+        }
+        
+
     }
 ?>
