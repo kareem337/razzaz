@@ -96,9 +96,78 @@ $Admin = new Admin();
     <button class="fas fa-search" style = "margin-left: 20px; margin-left:-45px; width: 50px; height: 50px; background: transparent; border: transparent;" type="submit"></button>
   
     <!-- search -->
-<? 
+    
+
+    <html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Razzaz - Live Search</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+	</head>
+	<body style = 'background-color:white;'>
+        
+	
+		
+		<div class="container" style = 'margin-top: -1080px; position: inherit;'>
+			<br />
+			<br />
+			<br />
+			<h2 align="center">SEARCH CART</h2><br />
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">Search</span>
+					<input type="text" name="UserName" id="search_text" placeholder="Search by Cart Details" class="form-control" />
+				</div>
+			</div>
+			<br />
+			<div id="result"></div>
+		</div>
+		<div style="clear:both"></div>
+		<br />
+		<br />
+		<br />
+		<br />
+	</body>
+</html>
+
+
+<script>
+$(document).ready(function(){
+	load_data();
+	function load_data(query)
+	{
+		$.ajax({
+			url:"fetch.php",
+			method:"post",
+			data:{query:query},
+			success:function(data)
+			{
+				$('#result').html(data);
+			}
+		});
+	}
+	
+	$('#search_text').keyup(function(){
+		var search = $(this).val();
+		if(search != '')
+		{
+			load_data(search);
+		}
+		else
+		{
+			load_data();			
+		}
+	});
+});
+</script>
+
+
+
+  <?  
    
-    function getPosts()
+   /* function getPosts()
     {
       $posts = array();
       $posts[0] = $_POST['ID'];
@@ -140,11 +209,10 @@ $Admin = new Admin();
 ?>
 
 
-
-
 </form>
  </div>    
-</head>
+</head>*/ 
+?>
 
 <body style = "background: #668B91;">
    

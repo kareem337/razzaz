@@ -1,7 +1,7 @@
 <?php 
-require_once('classes/Person.php');
+require_once('model/PersonModel.php');
 session_start();
-class AdminModel extends Person
+class AdminModel extends PersonModel
 {
     
     protected function connect ()

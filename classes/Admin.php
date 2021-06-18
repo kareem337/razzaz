@@ -1,6 +1,7 @@
 <?php 
-include("Person.php");
-class   Admin extends Person
+
+include 'model/PersonModel.php';
+class   Admin extends PersonModel
 {
     private $userscount = 0;
     private $orderscount = 0;
