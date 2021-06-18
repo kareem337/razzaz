@@ -73,7 +73,7 @@ session_start();
 		<td><?php echo $id; ?></td>
         <td><?php echo $email; ?></td> 
        <!-- <td style="width: 80px" ><button value="save" name="save" class="btn btn-success"> Save </button></td> -->
-      <td style="width: 80px" ><a class="btn btn-success" href="chatAdmin.php?id=<?php echo $row['ID'] ?>">Contact</a> </td> 
+      <td style="width: 80px" ><a class="btn btn-success" href="ChatAdminN.php?id=<?php echo $row['ID'] ?>">Contact</a> </td> 
 	</tr>
 	<?php
     }

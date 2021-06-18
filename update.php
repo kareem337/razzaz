@@ -1,10 +1,7 @@
 <?php
-  // Include database file
-  // include 'classes/Admin.php';
   include'adminmenu.php';
   include 'controller/AdminController.php';
   $AdminC = new AdminController();
-  // $Admin = new Admin();
 
   // Edit customer record
   if(isset($_GET['editId'])) 
@@ -46,6 +43,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<<<<<<< HEAD
     <!-- <style>
       
       table, td, th {  
@@ -66,6 +64,16 @@
       
     </style> -->
     </head>
+=======
+  <style>
+    .update { 
+
+
+
+            }
+    
+    </style>
+>>>>>>> e7adcc09321e26f75ab408c5e8d3fd1d4a051ff2
 
 
 <div class="h" > <h1><b> Update In Trip Information<b> </h1></div>
@@ -75,16 +83,27 @@
 
 <body>
 <link rel="stylesheet" href="EditTrips.css">
+<<<<<<< HEAD
 <div class="table">
+=======
+<div class="update">
+>>>>>>> e7adcc09321e26f75ab408c5e8d3fd1d4a051ff2
 
-  <form action="#" method="POST">
+  <form action="products.php?id=<?php echo $data["id"]; ?>" method="POST">
 
+<<<<<<< HEAD
   <table>
    <tr>
     <div >
       <label for="name">Name:</label>
       <input type="text" name="name" style="text-align: left; border: 1px solid #ddd; width: 20%; margin-left:110px ; padding: 2px;"
         value="<?php echo $data['Name']; ?>" required=""><br><br><br>
+=======
+  
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="m"name="name" value="<?php echo $data['Name']; ?>" required="">
+>>>>>>> e7adcc09321e26f75ab408c5e8d3fd1d4a051ff2
     </div>
     <div>
       <label for="email">Location:</label>
@@ -119,6 +138,7 @@
     </div>
   </form>
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
