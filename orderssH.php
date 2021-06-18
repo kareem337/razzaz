@@ -97,7 +97,7 @@ $Admin = new Admin();
 <div class = "h"> <h1> Users Orders </h1><input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
 <span class="fas fa-search" type="submit" name = "search" style = "margin-left: 20px; margin-left:-30px;"></span> 
 </div>
-<!-- <input type = "submit" name = "search" value = "Find" class = "btnStyle"> -->
+ <input type = "submit" name = "search" value = "Find" class = "btnStyle">
 </form>
 </head>
 

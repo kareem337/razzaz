@@ -165,55 +165,6 @@ $(document).ready(function(){
 
  -->
 
-  <?  
-   
-   /* function getPosts()
-    {
-      $posts = array();
-      $posts[0] = $_POST['ID'];
-      $posts[1] = $_POST['First Name'];
-      $posts[2] = $_POST['Last Name'];
-      $posts[3] = $_POST['Number'];
-      return $posts;
-    }
-  if(isset($_POST['search']))
-  {
-      $data = getposts();
-      $searchQuery = "SELECT * FROM users WHERE ID = $data[0]";
-      $searchResult = mysqli_query($conn, $searchQuery);
-      
-      if($searchResult)
-      {
-          if(mySqli_num_rows($searchResult))
-          {
-              while($row = mysqli_fetch_array($searchResult))
-              {
-                  $Id = $row['ID'];
-                  $FName = $row['First Name'];
-                  $lName = $row['Last Name'];
-                  $Number = $row['Number'];
-              }
-          }
-          else
-          {
-                  print "no data for this id";
-          }
-      }
-      else
-      {
-              print "result error";
-      }
-  }
-
-
-?>
-
-
-</form>
- </div>    
-</head>*/ 
-?>
-
 <body style = "background: #668B91;">
    
 <table class="mx-auto" id="customers">
@@ -338,7 +289,6 @@ $(document).ready(function(){
 
 
 </script>
-
 </body>
 
 </html>
