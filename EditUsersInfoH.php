@@ -97,7 +97,7 @@ $Admin = new Admin();
   
     <!-- search -->
     
-
+<!-- 
     <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -106,11 +106,11 @@ $Admin = new Admin();
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
 	</head>
-	<body style = 'background-color:white;'>
+	<body style = 'background-color:white;'> -->
         
 	
 		
-		<div class="container" style = 'margin-top: -1080px; position: inherit;'>
+		<!-- <div class="container" style = 'margin-top: -1080px; position: inherit;'>
 			<br />
 			<br />
 			<br />
@@ -163,7 +163,7 @@ $(document).ready(function(){
 });
 </script>
 
-
+ -->
 
   <?  
    
