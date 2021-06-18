@@ -13,10 +13,8 @@ session_start();
 <html>
 <?php
 
-include 'classes/Admin.php';
 include 'controller/AdminController.php';
 $AdminC = new AdminController();
-$Admin = new Admin();
 ?>
 <head>
 	<?php
@@ -168,7 +166,6 @@ $Admin = new Admin();
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
     <td><input name="background" type="text" id="background" value="<?php echo $background; ?> "></td> 
     <td style="width: 80px;" > <a href="EditTripsH.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="failure" style=" width: 100px; font-size: 16px; background-color: #f44336; "> Delete </button></a></td>
-    <!-- <td style="width: 80px;" > <button onclick="updateTrip(<?php echo $id; ?>)" value="update" type="button" name="update" class="btn btn-success" style=" width: 80px; font-size: 16px;"> Update </button></td> -->
     <td style="width: 80px;" > <a href="update.php?editId=<?php echo $id;?>"><button value="update"type="button" name="update" class="success" style=" width: 110px; font-size: 16px;"> Update </button></a></td>
 
 </tr>
@@ -224,15 +221,7 @@ $Admin = new Admin();
               {
                 $AdminC->deleteTrip();
                 echo '<script>window.location="EditTripsH.php"</script>';
-              }
-
-              // if( isset($_GET['update'] ) )
-							// {
-							// 	$AdminC->edittrips();
-              //   echo '<script>window.location="update.php"</script>';
-							// }
-             
-           
+              }   
 							?>
 
 <script>
@@ -251,18 +240,6 @@ function openForm() {
 //     console.log('Thing was not saved to the database.');
 //     window.location = "EditTripsH.php";
 //   }
-// }
-// function updateTrip(x)
-// {
-//   var tripId = x;
-//   var tname = document.getElementById('tname').value;
-//   var location = document.getElementById('location').value;
-//   var price = document.getElementById('price').value;
-//   var dis = document.getElementById('dis').value;
-//   var pic = document.getElementById('pic').value;
-
-//   window.location = "EditTripsH.php?update=1&tripid="+x+"&tname="+tname+"&location="+location+"&price="+price+"&dis="+dis+"&pic="+pic;
-
 // }
 
 

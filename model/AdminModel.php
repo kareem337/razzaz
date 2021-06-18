@@ -57,7 +57,9 @@ class AdminModel extends PersonModel
                 $result = mysqli_query($conn,$query);
                 if ($result == true) {
                     print "<script>alert('Update Saved')</script>";
-                    echo '<script>window.location="EditTripsH.php"</script>';
+                    // echo '<script>window.location="EditMuseums.php"</script>';
+                   
+                    
                     
                 }else{
                     echo "Registration updated failed try again!";
@@ -80,6 +82,40 @@ class AdminModel extends PersonModel
             echo "Record not found";
             }
     }
+    public function addmuseum($tname,$tloc,$tprice,$tdesc,$tpic,$tbackground) {
+    
+        $conn = $this->connect();
+        $sql = "INSERT INTO `Products`(`Name`,`Location`,`Price`, `Description`, `Image`,`Background`,`category`) VALUES ('$tname','$tloc','$tprice','$tdesc','$tpic','$tbackground',2)";
+        
 
+            if (mysqli_query($conn, $sql)) 
+            {
+                print "<script>alert('Museume Added')</script>";
+                echo '<script>window.location="EditMuseums.php"</script>';
+                        
+            } 
+            else 
+            {
+                echo "<script>alert('Error in editing')</script>";
+            }
+
+
+            
+    }
+    public function removemuseum($trip_id)
+    {
+        $conn = $this->connect();
+        $sql = "DELETE FROM `products` WHERE `ID` = ". $trip_id;
+     
+            if (mysqli_query($conn, $sql)) 
+            {
+                print "<script>alert('Museum deleted')</script>";
+                        
+            } 
+            else 
+            {
+                echo "<script>alert('Error in deleting')</script>";
+            }
+     }
 }
 ?>
