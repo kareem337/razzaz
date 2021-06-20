@@ -183,7 +183,7 @@ main {
 .card-single {
     display: flex;
     justify-content: space-between;
-    background: #fff;
+    background: rgb(0, 0, 0);
     padding: 2rem;
     border-radius: 12px;
 }

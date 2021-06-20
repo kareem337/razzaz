@@ -93,77 +93,9 @@ $Admin = new Admin();
     <h1> Users Informations </h1>
 <form method="GET">
 <input type = "text" name= "search" class = "text">
-    <button class="fas fa-search" style = "margin-left: 20px; margin-left:-45px; width: 50px; height: 50px; background: transparent; border: transparent;" type="submit"></button>
+    <button class="fas fa-search" style = "margin-left: 20px; margin-left:-45px; width: 50px; height: 50px; background: transparent; border: transparent;" ></button>
   
-    <!-- search -->
     
-<!-- 
-    <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Razzaz - Live Search</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-	</head>
-	<body style = 'background-color:white;'> -->
-        
-	
-		
-		<!-- <div class="container" style = 'margin-top: -1080px; position: inherit;'>
-			<br />
-			<br />
-			<br />
-			<h2 align="center">SEARCH CART</h2><br />
-			<div class="form-group">
-				<div class="input-group">
-					<span class="input-group-addon">Search</span>
-					<input type="text" name="UserName" id="search_text" placeholder="Search by Cart Details" class="form-control" />
-				</div>
-			</div>
-			<br />
-			<div id="result"></div>
-		</div>
-		<div style="clear:both"></div>
-		<br />
-		<br />
-		<br />
-		<br />
-	</body>
-</html>
-
-
-<script>
-$(document).ready(function(){
-	load_data();
-	function load_data(query)
-	{
-		$.ajax({
-			url:"fetch.php",
-			method:"post",
-			data:{query:query},
-			success:function(data)
-			{
-				$('#result').html(data);
-			}
-		});
-	}
-	
-	$('#search_text').keyup(function(){
-		var search = $(this).val();
-		if(search != '')
-		{
-			load_data(search);
-		}
-		else
-		{
-			load_data();			
-		}
-	});
-});
-</script>
-
- -->
 
 <body style = "background: #668B91;">
    
@@ -228,7 +160,7 @@ $(document).ready(function(){
             ?>
           </select>
         </td> 
-       <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button value="Delete" class="failure"> Delete </button></a></td>
+       <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button type="button" value="Delete" class="failure"> Delete </button></a></td>
 	</tr>
 	<?php
     }
@@ -244,14 +176,12 @@ $(document).ready(function(){
   <td></td>
   <td></td>
         
-  <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id; ?>"><button value="save" type="button" name="Save" class="success"> Save </button></a></td>
+  <td style="width: 80px" > <a id="idTag" href="EditUsersInfoH.php?id=<?php echo $id;?>"><button value="save" type="button" name="Save" class="success"> Save </button></a></td>
   </tr>
   
 </tbody>
 </table>
-
-
-
+  </form>
 
 
 

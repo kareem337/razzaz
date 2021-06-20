@@ -43,67 +43,44 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<<<<<<< HEAD
-    <!-- <style>
+    <style>
       
-      table, td, th {  
-      border: 1px solid #ddd;
-      text-align: left;
-      }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th, td {
-      padding: 15px;
-    }
-      
-      
-      
-    </style> -->
-    </head>
-=======
-  <style>
-    .update { 
-
-
-
-            }
+      .success{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;   
+    margin-top: -90px;
     
+  } 
+      
+      
     </style>
->>>>>>> e7adcc09321e26f75ab408c5e8d3fd1d4a051ff2
+    </head>
 
 
 <div class="h" > <h1><b> Update In Trip Information<b> </h1></div>
 
-
+<br>
 
 
 <body>
 <link rel="stylesheet" href="EditTrips.css">
-<<<<<<< HEAD
 <div class="table">
-=======
-<div class="update">
->>>>>>> e7adcc09321e26f75ab408c5e8d3fd1d4a051ff2
 
-  <form action="products.php?id=<?php echo $data["id"]; ?>" method="POST">
+  <form action="" method="POST">
 
-<<<<<<< HEAD
   <table>
    <tr>
     <div >
       <label for="name">Name:</label>
       <input type="text" name="name" style="text-align: left; border: 1px solid #ddd; width: 20%; margin-left:110px ; padding: 2px;"
         value="<?php echo $data['Name']; ?>" required=""><br><br><br>
-=======
-  
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="m"name="name" value="<?php echo $data['Name']; ?>" required="">
->>>>>>> e7adcc09321e26f75ab408c5e8d3fd1d4a051ff2
     </div>
     <div>
       <label for="email">Location:</label>
@@ -132,7 +109,7 @@
     </div>
     <div>
       <input type="hidden" name="id" value="<?php echo $data['ID']; ?>">
-      <input type="submit" name="update" class="btn btn-success" style="float:right; background-color: #42ed45; hight:2%; width:8%;  " value="Update">
+      <input type="submit" name="update" class="success" style="float:right;  " value="Update">
       </tr>
       </table>
     </div>

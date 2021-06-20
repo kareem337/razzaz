@@ -94,11 +94,15 @@ $Admin = new Admin();
         
   </style>
   <form method="POST">
-<div class = "h"> <h1> Users Orders </h1><input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
-<span class="fas fa-search" type="submit" name = "search" style = "margin-left: 20px; margin-left:-30px;"></span> 
+<div class = "h"> 
+  <h1> Users Orders </h1>
+  <input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
+  <!-- <span class="" oninput="search()" style = "margin-left: 20px; margin-left:-30px;"></span>  -->
+  <button type="submit" name = "search" id="find" style="margin-left: 20px; margin-left:-30px; background : transparent; border-style: none;"><i class="fas fa-search"></i></button>
 </div>
-<input type = "submit" name = "search" value = "Find" class = "btnStyle">
+<!-- <input type = "submit" name = "search" id="find" value = "Find" class = "btnStyle"> -->
 </form>
+
 </head>
 
 <body style = "background: #668B91;">
@@ -112,7 +116,7 @@ $Admin = new Admin();
       <th scope="col">ID</th>
       <th scope="col">User Id</th>
       <th scope="col">Order Placed</th>
-      <th scope="col">Product Id</th>
+      <th scope="col">Product Id</th> 
       <th scope="col">Price</th>
       </tr>
 
@@ -151,6 +155,7 @@ $Admin = new Admin();
 <table class="mx-auto" id="customers">
   
     <tr>
+    <h2 style= "text-align:center;"> All Orders </h2> 
       <th scope="col">ID</th>
       <th scope="col">User Id</th>
       <th scope="col">Order Placed</th>

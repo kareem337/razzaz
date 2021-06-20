@@ -162,7 +162,23 @@ $Admin = new Admin();
 		<td> <input name="tname" type="text" id="tname" value="<?php echo $tname; ?>"></td>
     <td> <input name="location" type="text" id="location" value="<?php echo $location; ?>"></td>
     <td><input name="price" type="number" id="price" minlength="1" value="<?php echo $price; ?>"></td> 
-    <td><input name="dis" type="text" id="dis" value="<?php echo $dis; ?>"></td> 
+    <td>
+      <?php
+        function truncate($text, $length) 
+        {
+          $length = abs((int)$length);
+          if(strlen($text) > $length) {
+             $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
+          }
+          return($text);
+        }
+        
+      ?>
+      <textarea rows = "2" cols = "50" name = "description"title="<?php echo $dis; ?>">
+           <?php echo truncate($dis,50); ?> 
+      </textarea>
+    </td>
+     
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
     <td><input name="background" type="text" id="background" value="<?php echo $background; ?> "></td> 
     <td style="width: 80px;" > <a href="EditMuseums.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="failure" style=" width: 100px; font-size: 16px; background-color: #f44336; "> Delete </button></a></td>

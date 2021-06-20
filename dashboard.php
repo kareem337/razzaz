@@ -5,6 +5,8 @@ $dashboard = new Admin();
 $dashboard->getprofile();
 ?>
 <html>
+
+</style>
       <main style="background:#668B91; margin-top: 50px; height: 671px;">
         <div class="cards" style = "margin-top: 80px;">
          <a href = "EditUsersInfoH.php" style = "text-decoration: none;">      
@@ -29,7 +31,7 @@ $dashboard->getprofile();
             </div>
           </div>
           </a> 
-          <a href = "#">     
+          <a href = "message_users.php">     
           <div class="card-single">
             <div>
               <h1><?php print($dashboard->getEnquiriesCount());?></h1>
@@ -40,7 +42,7 @@ $dashboard->getprofile();
             </div>
           </div>
           </a>
-          
+          <a href = "Editmuseums.php">   
           <div class="card-single">
             <div>
               <h1><?php print($dashboard->getMuseumsCount());?></h1>
@@ -50,6 +52,7 @@ $dashboard->getprofile();
               <span class="fas fa-landmark"></span>
             </div>
           </div>
+           </a>
           <a href = "EdittripsH.php">   
           <div class="card-single">
             <div>

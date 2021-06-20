@@ -57,7 +57,7 @@ class AdminModel extends PersonModel
                 $result = mysqli_query($conn,$query);
                 if ($result == true) {
                     print "<script>alert('Update Saved')</script>";
-                    // echo '<script>window.location="EditMuseums.php"</script>';
+                    echo '<script>window.location="EditMuseums.php"</script>';
                    
                     
                     

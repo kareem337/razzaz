@@ -162,7 +162,11 @@ $AdminC = new AdminController();
 		<td> <input name="tname" type="text" id="tname" value="<?php echo $tname; ?>"></td>
     <td> <input name="location" type="text" id="location" value="<?php echo $location; ?>"></td>
     <td><input name="price" type="number" id="price" minlength="1" value="<?php echo $price; ?>"></td> 
-    <td><input name="dis" type="text" id="dis" value="<?php echo $dis; ?>"></td> 
+    <td> 
+      <textarea rows = "5" cols = "70" name = "description">
+           <?php echo $dis; ?> 
+      </textarea>
+    </td>
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
     <td><input name="background" type="text" id="background" value="<?php echo $background; ?> "></td> 
     <td style="width: 80px;" > <a href="EditTripsH.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="failure" style=" width: 100px; font-size: 16px; background-color: #f44336; "> Delete </button></a></td>
