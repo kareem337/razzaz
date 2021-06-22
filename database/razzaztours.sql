@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2021 at 05:41 AM
+-- Generation Time: Jun 22, 2021 at 02:00 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -54,6 +54,14 @@ CREATE TABLE `chat` (
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `sender`, `sender_name`, `reciever`, `message`, `links`, `images`, `time`) VALUES
+(3, 9, 'Mostafa', 0, 'hello', '', '', '2021-06-20 10:50:17'),
+(4, 10, 'Kareem', 9, 'hello from admin', '', '', '2021-06-20 10:54:14');
+
 -- --------------------------------------------------------
 
 --
@@ -68,30 +76,12 @@ CREATE TABLE `orders` (
   `price` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `pagesaccess`
+-- Dumping data for table `orders`
 --
 
-CREATE TABLE `pagesaccess` (
-  `ID` int(11) NOT NULL,
-  `UTI` int(11) NOT NULL,
-  `Access` varchar(255) NOT NULL,
-  `Link` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pagesaccess`
---
-
-INSERT INTO `pagesaccess` (`ID`, `UTI`, `Access`, `Link`) VALUES
-(1, 1, 'Edit Users', 'EditUsersInfoH.php'),
-(2, 1, 'Edit Trips', 'EditTripsH.php'),
-(3, 2, 'Edit my profile', 'EditMyProfileH.php'),
-(4, 2, 'Contact Us', 'chatPage.php'),
-(6, 1, 'Users Messages', 'message_users.php'),
-(11, 1, 'Purchases', 'orderssH.php');
+INSERT INTO `orders` (`id`, `user_id`, `order_placed`, `pid`, `price`) VALUES
+(30, 9, '2021-06-18 06:35:29', 3, '123123');
 
 -- --------------------------------------------------------
 
@@ -116,48 +106,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ID`, `category`, `Location`, `Name`, `Date`, `Price`, `Description`, `Image`, `Background`) VALUES
-(1, 1, 'South Egypt', 'Aswan', '2021-06-09 01:56:25', 500, 'Aswan, a city on the Nile River, has been southern Egypt’s strategic and commercial gateway since antiquity. It contains significant archaeological sites like the Philae temple complex, on Agilkia Island near the landmark Aswan Dam. Philae’s ruins include', 'aswan1.jpg ', 'aswan1.jpg '),
-(2, 2, 'Tahrir', 'The Grand Egyptian Museum', '2021-06-09 01:57:41', 29, 'The Museum of Egyptian Antiquities, known commonly as the Egyptian Museum or Museum of Cairo, in Cairo, Egypt, is home to an extensive collection of ancient Egyptian antiquities. It has 120,000 items, with a representative amount on display.', 'egyptian_museum.jpg', 'egyptian_museum.jpg'),
-(3, 1, 'sdasd', 'asdsdasd', '2021-06-10 00:24:09', 123123, 'sadsadasdasdasd', 'aswan1.jpg', 'aswan1.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reviews`
---
-
-CREATE TABLE `reviews` (
-  `ID` int(11) NOT NULL,
-  `Trip_ID` int(11) NOT NULL,
-  `User_ID` int(11) NOT NULL,
-  `Review` varchar(255) NOT NULL,
-  `Rating` int(11) NOT NULL,
-  `User_name` varchar(255) NOT NULL,
-  `Date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `reviews`
---
-
-INSERT INTO `reviews` (`ID`, `Trip_ID`, `User_ID`, `Review`, `Rating`, `User_name`, `Date`) VALUES
-(3, 1, 2, ' hi', 5, 'Karim', '2021-05-07 18:09:45'),
-(4, 1, 2, ' so great', 2, 'Karim', '2021-05-07 18:10:04'),
-(5, 1, 2, ' it was so good', 5, 'Karim', '2021-05-08 02:56:54');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblcontact`
---
-
-CREATE TABLE `tblcontact` (
-  `contact_id` int(11) NOT NULL,
-  `user_name` varchar(100) NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(1, 1, 'South Egypt', 'Aswan', '2021-06-08 23:56:25', 500, 'Aswan, a city on the Nile River, has been southern Egypt’s strategic and commercial gateway since antiquity. It contains significant archaeological sites like the Philae temple complex, on Agilkia Island near the landmark Aswan Dam. Philae’s ruins include', 'aswan1.jpg ', 'aswan1.jpg '),
+(2, 2, 'Tahrir', 'The Grand Egyptian Museum', '2021-06-08 23:57:41', 29, 'The Museum of Egyptian Antiquities, known commonly as the Egyptian Museum or Museum of Cairo, in Cairo, Egypt, is home to an extensive collection of ancient Egyptian antiquities. It has 120,000 items, with a representative amount on display.', 'egyptian_museum.jpg', 'egyptian_museum.jpg');
 
 -- --------------------------------------------------------
 
@@ -182,8 +132,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `First Name`, `Last Name`, `Email`, `Gender`, `Number`, `Password`, `Picture`, `User_Type_ID`) VALUES
-(1, 'Mostafa', 'Khaled', 'Mostafa1810751@miuegypt.edu.eg', 'male', '01020820065', 'Mkhaled18', 'Mostafa.jpg', 2),
-(2, 'Kareem', 'Yasser', 'kareem1802405@miuegypt.edu.eg', 'male', '01231231200', 'Kareem123', 'bg-equestrian.jpeg', 2);
+(9, 'Mostafa', 'Khaled', 'Mostafa1810751@miuegypt.edu.eg', 'male', '01020820065', 'Mkhaled18', 'unnamed.jpg', 2),
+(10, 'Kareem', 'Yasser', 'Kareem@gmail.com', 'male', '12312312', 'Kareem123', 'unnamed.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -212,46 +162,29 @@ INSERT INTO `user_type` (`ID`, `type`) VALUES
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `userCart` (`User_ID`),
+  ADD KEY `cartProduct` (`pid`);
 
 --
 -- Indexes for table `chat`
 --
 ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userChat` (`sender`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pagesaccess`
---
-ALTER TABLE `pagesaccess`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `UTI` (`UTI`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `reviews`
---
-ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `Trip_ID` (`Trip_ID`),
-  ADD KEY `User_ID` (`User_ID`);
-
---
--- Indexes for table `tblcontact`
---
-ALTER TABLE `tblcontact`
-  ADD PRIMARY KEY (`contact_id`);
 
 --
 -- Indexes for table `users`
@@ -274,25 +207,19 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `pagesaccess`
---
-ALTER TABLE `pagesaccess`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -301,22 +228,10 @@ ALTER TABLE `products`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `reviews`
---
-ALTER TABLE `reviews`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `tblcontact`
---
-ALTER TABLE `tblcontact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_type`
@@ -329,10 +244,23 @@ ALTER TABLE `user_type`
 --
 
 --
--- Constraints for table `pagesaccess`
+-- Constraints for table `cart`
 --
-ALTER TABLE `pagesaccess`
-  ADD CONSTRAINT `pagesaccess_ibfk_1` FOREIGN KEY (`UTI`) REFERENCES `user_type` (`ID`);
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cartProduct` FOREIGN KEY (`pid`) REFERENCES `products` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `userCart` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
+
+--
+-- Constraints for table `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `userChat` FOREIGN KEY (`sender`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `userOrders` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
