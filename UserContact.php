@@ -12,7 +12,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link type="text/css" rel="stylesheet" href="contact.css" /> 
+  <link type="text/css" rel="stylesheet" href="assets/css/contact.css" /> 
     </head>
     <body style="background-color: #668B91;">
         <?php

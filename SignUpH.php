@@ -16,7 +16,7 @@ if (isset($_POST['register'])) {
      include'NavBarH.php';
   ?>
 
-  <link rel="stylesheet" href="SignUp.css">
+  <link rel="stylesheet" href="assets/css/SignUp.css">
   
  <style>
   .bar {
