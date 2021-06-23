@@ -50,8 +50,8 @@ class UserModel extends PersonModel
 
     public function deleteItemFromCart(){
         $conn = $this->connect();
-        $pid = $_GET['remove'];
-        $removeitem = "DELETE FROM `cart` WHERE pid = $pid";
+        $id = $_GET['remove'];
+        $removeitem = "DELETE FROM `cart` WHERE ID = $id";
         $removeResultt = mysqli_query($conn, $removeitem);
     }
     
