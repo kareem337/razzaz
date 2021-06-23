@@ -52,7 +52,39 @@
             $this->removemuseum($trip_id);
            
         }
-        
+        public function edituserstypes()
+        {
+            $user_id = $_GET['id'];
+            $userTid = $_GET['type'];
+            $this->editRecords($user_id,  $userTid);
+        }
+        public function deleteusers()
+        {
+            $user_id = $_GET['delete'];
+            $this->deletRecords($user_id);
+        }
+
+       public function usercount()
+       {
+          return $this-> getUsersCount();
+       }
+       public function ordercount()
+       {
+          return $this-> getOrdersCount();
+       }
+       public function enquiriescount()
+       {
+          return $this->  getEnquiriesCount();
+       }
+       public function museumscount()
+       {
+          return $this-> getMuseumsCount();
+       }
+       public function tripscount()
+       {
+          return $this-> getTripsCount();
+       }
+       
 
     }
 ?>

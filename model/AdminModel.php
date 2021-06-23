@@ -3,7 +3,11 @@ require_once('model/PersonModel.php');
 session_start();
 class AdminModel extends PersonModel
 {
-    
+    private $userscount = 0;
+    private $orderscount = 0;
+    private $enquiriescount = 0;
+    private $museumscount = 0;
+    private $tripscount = 0;
     protected function connect ()
     {
     $this->servername = "localhost";
@@ -117,5 +121,80 @@ class AdminModel extends PersonModel
                 echo "<script>alert('Error in deleting')</script>";
             }
      }
+     public function editRecords ($user_id,  $userTid)
+     {
+ 
+         $conn = $this->connect();
+         $done = false;
+         $sql = "UPDATE `users` SET `User_Type_ID`=". $userTid . " WHERE `ID` = ". $user_id;
+         $save = mysqli_query($conn,$sql);
+ 
+                 if (mysqli_query($conn, $sql)) 
+                 {
+                     print "<script>alert('Edit saved')</script>";
+                     $done=true;       
+                 } 
+                 else 
+                 {
+                     echo "<script>alert('Error in editing')</script>";
+                     $done=false;
+                 }
+                 return $done;
+         
+     }
+     public function deletRecords ($user_id)
+     {
+         $conn = $this->connect();
+ 
+         $sql = "DELETE FROM `users` WHERE `ID` = ". $user_id;
+         $delete = mysqli_query($conn,$sql);
+ 
+             if (mysqli_query($conn, $sql)) 
+             {
+                 print "<script>alert('deleted')</script>";
+                         
+             } 
+             else 
+             {
+                 echo "<script>alert('Error in deleting')</script>";
+             }
+         
+     }
+     
+     public function getUsersCount(){
+        $con = $this->connect();
+        $query = "SELECT COUNT(ID) FROM users WHERE User_Type_ID = 2";
+        $this->userscount = $this->con->query($query)->fetch_row()[0];
+        return $this->userscount;
+    }
+    public function getOrdersCount(){
+        $con = $this->connect();
+        $query = "SELECT COUNT(id) FROM orders";
+        $this->orderscount = $this->con->query($query)->fetch_row()[0];
+        return $this->orderscount;
+    }
+
+    public function getEnquiriesCount(){
+        $con = $this->connect();
+        $query = "SELECT COUNT(id) FROM chat";
+        $this->enquiriescount = $this->con->query($query)->fetch_row()[0];
+        return $this->enquiriescount;
+    }
+
+    public function getMuseumsCount(){
+        $con = $this->connect();
+        $query = "SELECT COUNT(ID) FROM products WHERE category = 2";
+        $this->enquiriescount = $this->con->query($query)->fetch_row()[0];
+        return $this->enquiriescount;
+    }
+
+    public function getTripsCount(){
+        $con = $this->connect();
+        $query = "SELECT COUNT(ID) FROM products WHERE category = 1";
+        $this->tripscount = $this->con->query($query)->fetch_row()[0];
+        return $this->tripscount;
+    }
+
+     
 }
 ?>

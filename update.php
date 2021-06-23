@@ -45,6 +45,7 @@
 
     <style>
       
+     
       .success{
     background-color: #4CAF50; /* Green */
     border: none;
@@ -69,7 +70,8 @@
 <br>
 
 
-<body>
+<body style= " background-color: #668B91;">
+<h2 style="text-align: center;">Update Data</h2>
 <link rel="stylesheet" href="EditTrips.css">
 <div class="table">
 

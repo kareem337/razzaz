@@ -14,9 +14,6 @@ session_start();
 <head>
 	<?php
 	include('DB.php');
- 
-  
-  
 	?>
 	 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,8 +37,8 @@ session_start();
   padding: 8px;
   text-align: center;      
   }
-  #customers tr:nth-child(even){background-color: #ddd;}
-  /*#customers tr:hover {background-color: #ddd;}*/
+  #customers tr:nth-child{background-color: #ddd;}
+  /* #customers tr:hover {background-color: #ddd;} */
   #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -103,7 +100,7 @@ session_start();
 
 
 
-<body>
+<body style= " background-color: #668B91;">
 	
 <form>
 	
@@ -121,12 +118,12 @@ session_start();
  
        $query = "SELECT * FROM users WHERE User_Type_ID = 2";
        $result = mysqli_query($conn,$query);
-       $UI = "SELECT `ID`, `type` FROM `user_type`";
+      //  $UI = "SELECT `ID`, `type` FROM `user_type`";
        
 
 
 		while($row = $result -> fetch_array(MYSQLI_ASSOC)) {     
-        $result2 = mysqli_query($conn,$UI);        
+        // $result2 = mysqli_query($conn,$UI);        
 		    $id = $row['ID'];
 		    $fname = $row['First Name'];
 		    $lname = $row['Last Name'];
@@ -135,9 +132,8 @@ session_start();
 		?>
 	<tr>
 		<td><?php echo $id; ?></td>
-        <td><?php echo $email; ?></td> 
-       <!-- <td style="width: 80px" ><button value="save" name="save" class="btn btn-success"> Save </button></td> -->
-      <td style="width: 80px" ><a class="success" href="ChatAdminN.php?id=<?php echo $row['ID'] ?>">Contact</a> </td> 
+    <td><?php echo $email; ?></td> 
+    <td style="width: 80px" ><a class="success" href="ChatAdminN.php?id=<?php echo $row['ID'] ?>">Contact</a> </td> 
 	</tr>
 	<?php
     }

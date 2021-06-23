@@ -49,7 +49,7 @@ $AdminC = new AdminController();
        
   }
   #customers tr{background-color: white;}
-  /*#customers tr:hover {background-color: #ddd;}*/
+  /* #customers tr:hover {background-color: #ddd;} */
   #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -119,8 +119,7 @@ $AdminC = new AdminController();
 
 
 <body style = "background: #668B91;">
- 
-	 <link rel="stylesheet" href="EditTrips.css">
+	 <!-- <link rel="stylesheet" href="EditTrips.css"> -->
 <form method="POST">
 	<div class="scroll"> 
   
@@ -184,7 +183,7 @@ $AdminC = new AdminController();
 
 
 <form method="POST" id="form1" style="display: none;">
-  <table class="mx-auto" id="customer">
+  <table class="mx-auto" id="customers">
     <thead>
     <tr>
       <th scope="col">Trip Name</th>
@@ -193,6 +192,7 @@ $AdminC = new AdminController();
       <th scope="col">Description</th>
       <th scope="col">Picture</th>
       <th scope="col">BackGround Image</th>
+      <th scope="col">Save</th>
      
       
     </tr>
@@ -215,10 +215,9 @@ $AdminC = new AdminController();
 <?php
 
 					
-						if( isset($_POST['save'] ) )
+					  	if( isset($_POST['save'] ) )
 							{
 								$AdminC->saveTrip();
-               // echo "<script>alert('updated succsesfuly')</script>";
 							}
 				
               elseif( isset($_GET['delete'] ) )

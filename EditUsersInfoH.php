@@ -11,8 +11,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <?php
-include 'classes/Admin.php';
-$Admin = new Admin();  
+include 'controller/AdminController.php';
+$AdminC = new AdminController();
 ?>
 <head>
   <meta charset="utf-8">
@@ -141,11 +141,11 @@ $Admin = new Admin();
 		<td><?php echo $id; ?>  <input type="hidden" value="<?php echo $id; ?>"></td>
 		<td><?php echo $fname; ?></td>
 		<td><?php echo $lname; ?></td>
-        <td><?php echo $email; ?></td> 
-        <td><?php echo $gender; ?></td> 
-        <td><?php echo $num; ?></td>
-        <td><?php $Utype = $res -> fetch_array(MYSQLI_ASSOC); echo $Utype['type']; ?></td> 
-        <td>
+    <td><?php echo $email; ?></td> 
+    <td><?php echo $gender; ?></td> 
+    <td><?php echo $num; ?></td>
+    <td><?php $Utype = $res -> fetch_array(MYSQLI_ASSOC); echo $Utype['type']; ?></td> 
+    <td>
           <select oninput="defineValues(this.value,<?php echo $id; ?>)">
             <?php while($roww = mysqli_fetch_assoc($result2)) 
               {
@@ -159,8 +159,8 @@ $Admin = new Admin();
               }
             ?>
           </select>
-        </td> 
-       <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button type="button" value="Delete" class="failure"> Delete </button></a></td>
+    </td> 
+    <td style="width: 80px" > <a href="EditUsersInfoH.php?delete=<?php echo $id;?>"> <button type="button" value="Delete" class="failure"> Delete </button></a></td>
 	</tr>
 	<?php
     }
@@ -189,17 +189,14 @@ $Admin = new Admin();
 					
 						if( isset($_GET['id']) && isset($_GET['type']) )
 							{
-                $user_id = $_GET['id'];
-                $userTid = $_GET['type'];
-               echo $user_id;
-               echo $userTid;
-								$Admin->editRecords($user_id,  $userTid);
+               
+								$AdminC->edituserstypes();
                 echo '<script>window.location="EditUsersInfoH.php"</script>';
 							}
             elseif( isset($_GET['delete'] ) )
             {
-              $user_id = $_GET['delete'];
-              $Admin->deletRecords($user_id);
+             
+              $AdminC->deleteusers();
               echo '<script>window.location="EditUsersInfoH.php"</script>';
             }
             

@@ -120,7 +120,7 @@ $Admin = new Admin();
 
 <body style = "background: #668B91;">
  
-	 <link rel="stylesheet" href="EditTrips.css">
+	 <!-- <link rel="stylesheet" href="EditTrips.css"> -->
 <form method="POST">
 	<div class="scroll"> 
   
@@ -163,26 +163,15 @@ $Admin = new Admin();
     <td> <input name="location" type="text" id="location" value="<?php echo $location; ?>"></td>
     <td><input name="price" type="number" id="price" minlength="1" value="<?php echo $price; ?>"></td> 
     <td>
-      <?php
-        function truncate($text, $length) 
-        {
-          $length = abs((int)$length);
-          if(strlen($text) > $length) {
-             $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
-          }
-          return($text);
-        }
-        
-      ?>
-      <textarea rows = "2" cols = "50" name = "description"title="<?php echo $dis; ?>">
-           <?php echo truncate($dis,50); ?> 
-      </textarea>
+    <textarea rows = "5" cols = "70" name = "description">
+           <?php echo $dis; ?> 
+    </textarea>
     </td>
      
     <td><input name="pic" type="text" id="pic" value="<?php echo $pic; ?> "></td> 
     <td><input name="background" type="text" id="background" value="<?php echo $background; ?> "></td> 
     <td style="width: 80px;" > <a href="EditMuseums.php?delete=<?php echo $id;?>"><button value="delete"type="button" name="delete" class="failure" style=" width: 100px; font-size: 16px; background-color: #f44336; "> Delete </button></a></td>
-    <td style="width: 80px;" > <a href="update.php?editId=<?php echo $id;?>"><button onclick="back()" value="update"type="button" name="update" class="success" style=" width: 110px; font-size: 16px;"> Update </button></a></td>
+    <td style="width: 80px;" > <a href="update.php?editId=<?php echo $id;?>"><button value="update"type="button" name="update" class="success" style=" width: 110px; font-size: 16px;"> Update </button></a></td>
 
 </tr>
 <?php
@@ -196,7 +185,7 @@ $Admin = new Admin();
 
 
 <form method="POST" id="form1" style="display: none;">
-  <table class="mx-auto" id="customer">
+  <table class="mx-auto" id="customers">
     <thead>
     <tr>
       <th scope="col">Museum Name</th>
@@ -205,6 +194,7 @@ $Admin = new Admin();
       <th scope="col">Description</th>
       <th scope="col">Picture</th>
       <th scope="col">BackGround Image</th>
+      <th scope="col">Save</th>
      
       
     </tr>
@@ -246,11 +236,11 @@ function openForm() {
   $("#form1").toggle();
 }
 
-function back()
-{
-  history.back();
+// function back()
+// {
+//   history.back();
 
-}
+//}
 // function alert()
 // {
 

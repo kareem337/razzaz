@@ -22,7 +22,7 @@ session_start();
     }        
 
 ?>
-
+  
 <style>
     body {
         margin:0;
@@ -30,7 +30,8 @@ session_start();
     }
 
   h2{
-color:white;
+    text-align : center;
+     color:black;
   }
   label{
 color:white;
@@ -64,30 +65,44 @@ color:white;
 		padding: 5px;
 		margin-bottom: 3%;
 	}
-
+  .success{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-align: center     
+  } 
   img {
     max-height: 150px;
     max-width: 200px;
   }
   </style>
 <html>
+
     <head>
       <header>
    
 <?php include'adminmenu.php'; ?>
 
-    
  
 </header>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
-    <body style=" background-color: #668B91;">
     
+    <body style=" background-color: #668B91;">
+   
+   
 <div style="margin-left: 300px;" class="container">
 
+
   <div class="display-chat">
+  <h2>Chat With Users</h2>
 <?php
 
 		while($row= $result->fetch_assoc())	
@@ -107,6 +122,7 @@ color:white;
 
 
   </div>
+  
   <form class="form-horizontal" method="post" action="sendMessageAdminN.php">
     <div class="form-group">
       <div class="col-sm-10">          
@@ -115,7 +131,7 @@ color:white;
       </div>
 	         <br>
       <div class="col-sm-2">
-        <button type="submit"  style= "background-color: #83cf27; "class="btn btn-primary">Send</button>
+        <button type="submit"  style= "background-color: #83cf27; "class="success">Send</button>
       </div>
 
     </div>
