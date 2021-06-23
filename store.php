@@ -86,7 +86,7 @@ mysqli_free_result($result);
                     <span class="cart-price cart-column"><?php print($row['Total_Price']); ?> $</span>                
                     <div class="cart-quantity cart-column">
                       <div class="cart-quantity-column">  <?php print($row['quantity']); ?> </div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <button class="btn btn-danger" onclick="(function(){window.location.href='store.php?remove=<?php print($row['pid']); ?>';return false;})();return false;">REMOVE</button> 
+                        <button class="btn btn-danger" onclick="(function(){window.location.href='store.php?remove=<?php print($row['ID']); ?>';return false;})();return false;">REMOVE</button> 
                     </div>
                 </div>
                  <?php } ?>
