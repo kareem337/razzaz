@@ -23,7 +23,7 @@ class MuseumView extends MuseumModel
     {
         echo"<form action='' method='POST'>
         <div>
-            <h1>".$this->getPrice()." $ </h1>  <h5> &nbsp; per person</h5>
+            <h1>".$this->getPrice()." EGP </h1>  <h5> &nbsp; per person</h5>
             <input type='hidden' name='price' value=".$this->getPrice().">
         </div>
         
