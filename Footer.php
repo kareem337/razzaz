@@ -28,8 +28,8 @@
           <div class="col-lg-2 col-md-8 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="HomePage.php">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php#about-boxes">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="DestinationH.php">Trips</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
             </ul>
