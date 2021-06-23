@@ -31,17 +31,17 @@
               <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="index.php#about-boxes">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="DestinationH.php">Trips</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Museum_CategoryH.php">Museums</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-8 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i>Transportation</li>
-              <li><i class="bx bx-chevron-right"></i>Health Care</li>
-              <li><i class="bx bx-chevron-right"></i>Equipment</li>
-              <li><i class="bx bx-chevron-right"></i>Expert Hikers</li>
+              <li><i class="bx bx-chevron-right"></i>Hotels</li>
+              <li><i class="bx bx-chevron-right"></i>Trips</li>
+              <li><i class="bx bx-chevron-right"></i>Museums</li>
+              <li><i class="bx bx-chevron-right"></i>Cruises</li>
              
             </ul>
           </div>
