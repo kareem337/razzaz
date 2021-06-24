@@ -28,33 +28,13 @@
   <title></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <style>
-      
-     
-      .success{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 28px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    text-align: center;   
-    margin-top: -90px;
     
-  } 
-      
-      
-    </style>
     </head>
 
 
@@ -64,8 +44,8 @@
 
 
 <body style= " background-color: #668B91;">
-<h2 style="text-align: center;">Update Data</h2>
-<!-- <link rel="stylesheet" href="EditTrips.css"> -->
+<!-- <h2 style="text-align: center;">Update Data</h2> -->
+<link rel="stylesheet" href="assets/css/Admin.css">
 <div class="table">
 
   <form action="" method="POST">
