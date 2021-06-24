@@ -52,7 +52,7 @@ if(isset($_POST['deleteAccount'])){
   border: 1px solid #ccc;
   text-align: center;      
   font-size:14px; 
-  font-family: Brush Script MT;        
+  /*font-family: Brush Script MT; */       
 }
      
   .error {

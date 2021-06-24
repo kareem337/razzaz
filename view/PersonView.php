@@ -176,7 +176,7 @@ public function fetchEditProfile()
         </div>
         <h6 style = "margin-top: 10px;">Change Picture (max size 3Mb)</h6>
     </div><br>
-   <input class="btn btn-lg btn-success"  id="up" type="submit" style = "margin-left: 105px; font-size:14px; font-family: Brush Script MT;" name="upload" value="Upload">
+   <input class="btn btn-lg btn-success"  id="up" type="submit" style = "margin-left: 105px; font-size:14px;" name="upload" value="Upload">
     </div>
 </form>
   
@@ -206,14 +206,14 @@ public function fetchEditProfile()
                           
                           <div class="col-xs-6">
                               <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="first_name" value = "'.$this->getfirstname().'"placeholder="first name" title="enter your first name if any.">
+                              <input type="text" style = "font-size:14px;" class="form-control" name="first_name" value = "'.$this->getfirstname().'"placeholder="first name" title="enter your first name if any.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                             <label for="last_name"><h4>Last name</h4></label>
-                              <input type="text" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="last_name" value = "'.$this->getlastname().'" id="last_name" placeholder="last name" title="enter your last name if any.">
+                              <input type="text" style = "font-size:14px;" class="form-control" name="last_name" value = "'.$this->getlastname().'" id="last_name" placeholder="last name" title="enter your last name if any.">
                           </div>
                       </div>
           
@@ -221,7 +221,7 @@ public function fetchEditProfile()
                           
                           <div class="col-xs-6">
                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="mobile" value ="'.$this->getnumber().'" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
+                              <input type="text" style = "font-size:14px;" class="form-control" name="mobile" value ="'.$this->getnumber().'" id="mobile" placeholder="mobile number" title="enter your mobile number if any.">
                               
                           </div>
                       </div>
@@ -229,14 +229,14 @@ public function fetchEditProfile()
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="email"><h4>Email</h4></label>
-                              <input type="email" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" name="email" value = "'.$this->getemail().'" id="email" placeholder="you@email.com" title="enter your email.">
+                              <input type="email" style = "font-size:14px;" class="form-control" name="email" value = "'.$this->getemail().'" id="email" placeholder="you@email.com" title="enter your email.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="password"><h4>Password</h4></label>
-                              <input type="password" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" value = "'.$this->getpassword().'" name="password" id="password" title="enter your password.">
+                              <input type="password" style = "font-size:14px; " class="form-control" value = "'.$this->getpassword().'" name="password" id="password" title="enter your password.">
                           </div>
                       </div>
                       
@@ -244,14 +244,14 @@ public function fetchEditProfile()
                           
                           <div class="col-xs-6">
                             <label for="password2"><h4>New Password</h4></label>
-                              <input type="password" style = "font-size:14px; font-family: Brush Script MT;" class="form-control" value ="'.$this->getpassword().'" name="password2" id="confirm_password" title="enter your password.">
+                              <input type="password" style = "font-size:14px;" class="form-control" value ="'.$this->getpassword().'" name="password2" id="confirm_password" title="enter your password.">
                           </div>
                       </div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                                <input name = "save" style = "font-size:14px; font-family: Brush Script MT;" class="btn btn-lg btn-success" id="s" type="submit">
-                                <input type="submit" name = "deleteAccount" style = "font-size:14px; font-family: Brush Script MT; height:33px;" value = "Delete Account" class="btn btn-danger" >
+                                <input name = "save" style = "font-size:14px;" class="btn btn-lg btn-success" id="s" type="submit">
+                                <input type="submit" name = "deleteAccount" style = "font-size:14px; height:33px;" value = "Delete Account" class="btn btn-danger" >
                                 <!--<input class="btn btn-lg" type="reset" value = "Reset">-->
                                 <span id="message"></span>
                             </div>
