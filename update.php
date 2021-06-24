@@ -1,8 +1,9 @@
 <?php
   include'adminmenu.php';
   include 'controller/AdminController.php';
+  include 'view/EditProductView.php';
+  $AdminV = new EditProductView();
   $AdminC = new AdminController();
-
   // Edit customer record
   if(isset($_GET['editId'])) 
   {
