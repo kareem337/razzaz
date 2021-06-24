@@ -225,6 +225,66 @@ Class EditProductView extends AdminModel
         
         ';
     }
+    public function searchorders()
+    {
+      echo '<form method="POST">
+      <div class = "h"> 
+        <h1> Users Orders </h1>
+        <input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
+        <button type="submit" name = "search" id="find" style="margin-left: 20px; margin-left:-30px; background : transparent; border-style: none;"><i class="fas fa-search"></i></button>
+      </div>
+      </form>';
+    }
+
+    public function showorders()
+    {
+      echo '
+
+      <table class="mx-auto" id="customers">
+        
+          <tr>
+          <h2 style= "text-align:center;"> All Orders </h2> 
+            <th scope="col">ID</th>
+            <th scope="col">User Id</th>
+            <th scope="col">Order Placed</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Price</th>
+          </tr>
+      
+        <tbody>';
+         
+           
+       
+             $query = "SELECT * FROM orders";
+             $result = $this->connect()->query($query);
+          
+             
+      
+          while($row = $result -> fetch_array(MYSQLI_ASSOC)) {     
+                      
+              $id = $row['id'];
+              $User_id = $row['user_id'];
+              $Orderd_placed = $row['order_placed'];
+              $product_id = $row['pid'];  
+              $price = $row['price'];  
+       echo'
+        <tr>
+          <td> '.$id.'  <input type="hidden" value="'.$id.'"></td>
+          <td>  '.$User_id.'</td>
+          <td> '.$Orderd_placed.'</td>
+          <td>'.$product_id.'</td> 
+          <td> '.$price.'</td> 
+        </tr>';
+     
+       
+          }
+      
+echo'
+        
+        </tbody>
+      </table>
+      ';
+    }
 }
 
 ?>
