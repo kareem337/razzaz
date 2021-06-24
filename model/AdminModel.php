@@ -61,7 +61,7 @@ class AdminModel extends PersonModel
                 $result = mysqli_query($conn,$query);
                 if ($result == true) {
                     print "<script>alert('Update Saved')</script>";
-                    echo '<script>window.location="EditMuseums.php"</script>';
+                    echo '<script>window.location="EditTripsH.php"</script>';
                    
                     
                     
@@ -70,6 +70,23 @@ class AdminModel extends PersonModel
                 }
 			
 		}   
+
+        public function UpdateMuse($id,$location,$name,$price,$desc,$image,$background)
+		{
+		    $conn = $this->connect();
+                $query = "UPDATE products SET Location = '$location', Name = '$name', Price = '$price' , Description = '$desc' , Image = '$image', Background = '$background' WHERE ID = '$id'";
+                $result = mysqli_query($conn,$query);
+                if ($result == true) {
+                    print "<script>alert('Update Saved')</script>";
+                    echo '<script>window.location="EditMuseums.php"</script>';
+                   
+                    
+                    
+                }else{
+                    echo "Registration updated failed try again!";
+                }
+			
+		}
 
     public function displayTripById($id)
     {
