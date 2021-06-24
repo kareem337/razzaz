@@ -28,7 +28,14 @@
             $image = $_POST['image'];
             $id = $_SESSION['ID'];
             $background = $_POST['background'];
-            $this->Updatetrips($id,$location,$name,$price,$description,$image,$background);
+            $category = $_POST['categ'];
+
+            if($category == 2) {
+                $this->UpdateMuse($id,$location,$name,$price,$description,$image,$background);
+            } else if($category == 1) {
+                $this->Updatetrips($id,$location,$name,$price,$description,$image,$background);
+            }
+            
           
         }
         public function display()
