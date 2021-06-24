@@ -7,7 +7,7 @@
   if(isset($_GET['editId'])) 
   {
    
-    // $editId = $_GET['editId'];
+    
     $data = $AdminC->display();
     
   }
@@ -15,13 +15,6 @@
   // Update Record in customer table
   if(isset($_POST['update'])){
 
-    // $name = $_POST['name'];
-    // $location = $_POST['location'];
-    // $price = $_POST['price'];
-    // $description = $_POST['description'];
-    // $image = $_POST['image'];
-    // $id = $_POST['id'];
-    // $background = $_POST['background';]
     
     $AdminC->edittrips();
   }
@@ -112,6 +105,7 @@
     <div>
       <input type="hidden" name="id" value="<?php echo $data['ID']; ?>">
       <input type="submit" name="update" class="success" style="float:right;  " value="Update">
+      <input type="hidden" name="categ" value="<?php echo $data['category'] ?>">
       </tr>
       </table>
     </div>
