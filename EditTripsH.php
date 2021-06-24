@@ -48,7 +48,7 @@ $AdminC = new AdminController();
 
    <?php 
    
-         $AdminV->searchView(); 
+         $AdminV->searchTripView(); 
    
          $AdminV-> fetchTrips();
 
