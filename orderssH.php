@@ -22,7 +22,7 @@ $Admin = new Admin();
   include('DB.php');
    ?>
 
-  <style>
+  <!-- <style>
   #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -92,20 +92,19 @@ $Admin = new Admin();
 
 }  
         
-  </style>
+  </style> -->
   <form method="POST">
 <div class = "h"> 
   <h1> Users Orders </h1>
   <input  placeholder="Enter Users ID" type = "text"  name="name" class = "text">
-  <!-- <span class="" oninput="search()" style = "margin-left: 20px; margin-left:-30px;"></span>  -->
   <button type="submit" name = "search" id="find" style="margin-left: 20px; margin-left:-30px; background : transparent; border-style: none;"><i class="fas fa-search"></i></button>
 </div>
-<!-- <input type = "submit" name = "search" id="find" value = "Find" class = "btnStyle"> -->
 </form>
 
 </head>
 
 <body style = "background: #668B91;">
+<link rel="stylesheet" href="assets/css/Admin.css">
 
 
 
