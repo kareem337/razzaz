@@ -1,0 +1,57 @@
+
+  body {
+    margin:0;
+    background-image: url('canyon.jpg'); 
+}
+
+h2{
+text-align : center;
+ color:black;
+}
+label{
+color:white;
+}
+span{
+  color:black;
+  font-weight:bold;
+}
+.container {
+width: 80%;
+/* background-color: #83cf27; */
+top:10px;
+padding-right:10%;
+padding-left:10%;
+}
+.btn-primary {
+background-color: #83cf27;
+}
+.display-chat{
+height:45%;
+/*background-color:#83cf27; */
+    margin-top:10%;
+    margin-bottom:1%;
+    overflow:auto;
+    padding:15px;
+}
+.message{
+    background-color: #EEE9CB;
+    color: black;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 3%;
+}
+.success{
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 10px 28px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+text-align: center     
+} 
+img {
+max-height: 150px;
+max-width: 200px;
+}
